@@ -1,0 +1,1 @@
+__DIR__. vždycky před soubor, relativní adresování, moc užitečné!

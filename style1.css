@@ -1,0 +1,138 @@
+@media (max-width: 768px) {
+    main {
+        flex-direction: column; /* Na menších obrazovkách se obsah a sidebar složí pod sebe */
+    }
+
+    .sidebar {
+        margin-left: 0; /* Zrušíme levý okraj, aby sidebar zarovnal na šířku */
+        margin-top: 20px; /* Přidáme mezeru mezi obsahem a sidebar */
+    }
+}
+
+/* Reset základních stylů */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Tělo stránky */
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #333;
+}
+
+/* Hlavička */
+header {
+    background: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Navigace */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: background 0.3s;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Hlavní layout */
+.container {
+    display: flex;
+    max-width: 1000px;
+    margin: 20px auto;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Hlavní obsah */
+.content {
+    flex: 2;
+    padding: 20px;
+}
+
+/* Pravý sloupec */
+.sidebar {
+    flex: 1;
+    padding: 20px;
+    background: #f8f8f8;
+    border-left: 1px solid #ddd;
+}
+
+/* Patička */
+footer {
+    text-align: center;
+    background: #333;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* Formuláře */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+}
+
+form input, form textarea {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+form button {
+    background: #333;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #555;
+}
+
+/* Responzivita */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        border-left: none;
+        border-top: 1px solid #ddd;
+    }
+}
+/*guestbook*/
+.messages {
+    background: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.messages p {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
