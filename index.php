@@ -12,8 +12,9 @@
 
     <section id="map">
         <h3>Mapa - Hlivická 118, Praha 8</h3>
-        <div id="mapid" style="height: 300px;"><?php include 'map.js'; ?></div>
+        <div id="mapid" style="height: 300px;"><script src="map.js"></script></div>
     </section>
+    
 </main>
 </body>
 
