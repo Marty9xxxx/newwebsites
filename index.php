@@ -7,13 +7,4 @@
         <p>Na této stránce najdete všechny novinky a možnost se se mnou spojit.</p>
     </section>
 
-    <section id="map">
-        <h3>Mapa - Hlivická 118, Praha 8</h3>
-        <div id="mapid" style="height: 300px;"></div>
-    </section>
-    
-</main>
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
 <?php include 'footer.php'; ?>
