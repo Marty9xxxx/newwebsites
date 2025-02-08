@@ -1,3 +1,14 @@
+@media (max-width: 768px) {
+    main {
+        flex-direction: column; /* Na menších obrazovkách se obsah a sidebar složí pod sebe */
+    }
+
+    .sidebar {
+        margin-left: 0; /* Zrušíme levý okraj, aby sidebar zarovnal na šířku */
+        margin-top: 20px; /* Přidáme mezeru mezi obsahem a sidebar */
+    }
+}
+
 * {
     margin: 0;
     padding: 0;

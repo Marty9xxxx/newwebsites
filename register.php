@@ -2,7 +2,7 @@
 session_start();
 
 // Připojení k DB
-require 'db.php';  // nebo cesta k souboru s připojením
+require '_DIR_.';  // nebo cesta k souboru s připojením
 
 // Pokud uživatel již je přihlášen, přesměrujeme ho na admin stránku
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
