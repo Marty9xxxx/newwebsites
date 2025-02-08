@@ -1,36 +1,22 @@
 <?php
 session_start();
 
-// Připojení k DB
-require 'db.php';  // nebo cesta k souboru s připojením
+// Připojení k databázi
+$pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Pokud je uživatel přihlášen, přesměrujeme ho na admin stránku
-if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
-    header("Location: admin.php");
-    exit;
-}
+// Ověření uživatele
+if ($_POST['username'] && $_POST['password']) {
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username");
+    $stmt->execute(['username' => $_POST['username']]);
+    $user = $stmt->fetch();
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
-
-    // Zkontroluj, jestli uživatel existuje v databázi
-    $stmt = $pdo->prepare('SELECT id, username, password FROM users WHERE username = :username');
-    $stmt->execute(['username' => $username]);
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    // Pokud uživatel existuje, ověř heslo
-    if ($user && password_verify($password, $user['password'])) {
-        // Uložíme do session, že uživatel je přihlášený
+    // Ověření správnosti hesla
+    if ($user && password_verify($_POST['password'], $user['password'])) {
         $_SESSION['loggedin'] = true;
-        $_SESSION['username'] = $user['username'];
-
-        // Přesměrujeme na admin stránku
-        header("Location: admin.php");
-        exit;
+        header("Location: admin.php"); // Přesměrování na admin
     } else {
-        // Pokud je heslo špatně
-        $error = "Nesprávné uživatelské jméno nebo heslo.";
+        echo "Chybné uživatelské jméno nebo heslo!";
     }
 }
 ?>

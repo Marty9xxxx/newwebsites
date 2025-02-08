@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 $shoutbox_file = __DIR__.'data/shoutbox.txt'; // Uložení zpráv mimo veřejný adresář
 $max_messages = 50; // Limit na počet zpráv
 $bad_words = ['blbost', 'hlupák', 'nadávka']; // Seznam zakázaných slov

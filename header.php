@@ -1,5 +1,10 @@
 
-<html>
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
 <header>
     <h1><a href="index.php">Svatoušek</a></h1>
     <nav>

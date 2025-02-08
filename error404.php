@@ -6,7 +6,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$file = "C:/xampp/htdocs/ai-cviceni-web/data/data.txt";
+$file = "/data/data.txt";
 
 if (file_exists($file)) {
     echo "Soubor existuje!<br>";

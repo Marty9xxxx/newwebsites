@@ -5,9 +5,14 @@ session_start(); // session_start() by mělo být na začátku každého souboru
 require "db.php"; // Ujisti se, že tento soubor obsahuje správné připojení k databázi pomocí PDO
 
 // Kontrola, zda je uživatel přihlášen
-if (!isset($_SESSION["loggedin"])) {
-    header("Location: login.php");
-    exit();
+if (!isset($_SESSION['admin'])) {
+    // Opravená kontrola hesla, pokud není přihlášen
+    echo '<form method="post" action="admin.php">
+            <label for="password">Heslo:</label>
+            <input type="password" name="password">
+            <button type="submit">Přihlásit</button>
+          </form>';
+    exit;  // Ukončení skriptu, pokud není přihlášen
 }
 
 // Načtení aktuálního stylu z databáze

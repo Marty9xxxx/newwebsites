@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?= htmlspecialchars($aktualniStyl); ?>">
+<link rel="stylesheet" href="style1.css">
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['news'])) {
     $new_news = $_POST['news'];

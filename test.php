@@ -13,4 +13,4 @@ if (file_exists($file)) {
     echo "Soubor nenalezen!";
 }
 ?>
-<link rel="stylesheet" href="<?= htmlspecialchars($aktualniStyl); ?>">
+<link rel="stylesheet" href="style1.css">
