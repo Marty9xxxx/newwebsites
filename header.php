@@ -13,7 +13,7 @@
             <li><a href="contact.php">Napište mi</a></li>
             <li><a href="news.php">Novinky</a></li>
             <li><a href="admin.php">Administrace</a></li>
-            <li><a href="error404.php">Nenalezeno</a></li>
+            <li><a href="error404.php">Chyba!</a></li>
             <li><a href="guestbook.php">Návštěvní kniha</a></li>
         </ul>
     </nav>
