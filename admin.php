@@ -1,29 +1,16 @@
-<?php 
-session_start();
-include 'header.php';
+<?php
+session_start(); // session_start() by mělo být na začátku každého souboru, kde pracuješ se session
 
+// Připojení k databázi
+require "db.php"; // Ujisti se, že tento soubor obsahuje správné připojení k databázi pomocí PDO
 
-// Přihlášení do administrace
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['password'])) {
-    if ($_POST['password'] == 'tajneheslo') {
-        $_SESSION['admin'] = true;
-    } else {
-        echo "<p style='color:red;'>Chybné heslo!</p>";
-    }
+// Kontrola, zda je uživatel přihlášen
+if (!isset($_SESSION["loggedin"])) {
+    header("Location: login.php");
+    exit();
 }
 
-// Pokud není uživatel přihlášen, zobrazí se formulář
-if (!isset($_SESSION['admin'])) {
-    echo '<form method="post" action="admin.php">
-            <label for="password">Heslo:</label>
-            <input type="password" name="password">
-            <button type="submit">Přihlásit</button>
-          </form>';
-    include 'footer.php';
-    exit;
-}
-
-// Načteme aktuální styl z databáze
+// Načtení aktuálního stylu z databáze
 $stmt = $pdo->prepare("SELECT hodnota FROM nastaveni WHERE klic = 'styl'");
 $stmt->execute();
 $aktualniStyl = $stmt->fetchColumn() ?: "style1.css";
@@ -34,23 +21,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["style"])) {
     $stmt->execute([$_POST["style"]]);
     $aktualniStyl = $_POST["style"];
 }
+
+// Zahrnutí hlavičky
+include 'header.php';
 ?>
-<link rel="stylesheet" href="<?= htmlspecialchars($aktualniStyl); ?>">
-<h2>Administrace</h2>
-<p>Tady můžete spravovat obsah webu.</p>
 
-<h2>Vyber styl</h2>
-<form method="post">
-    <label>
-        <input type="radio" name="style" value="style1.css" <?= $aktualniStyl == "style1.css" ? "checked" : "" ?>>
-        Světlý styl
-    </label><br>
-    <label>
-        <input type="radio" name="style" value="style2.css" <?= $aktualniStyl == "style2.css" ? "checked" : "" ?>>
-        Tmavý styl
-    </label><br>
-    <button type="submit">Uložit</button>
-</form>
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrace</title>
+    <!-- Dynamické načtení stylu -->
+    <link rel="stylesheet" href="styles/<?= htmlspecialchars($aktualniStyl) ?>">
+</head>
+<body>
+    <h2>Administrace</h2>
+    <p>Zde můžete spravovat obsah webu.</p>
 
-<?php include 'footer.php'; ?>
+    <h2>Vyberte styl</h2>
+    <form method="post">
+        <label>
+            <input type="radio" name="style" value="style1.css" <?= $aktualniStyl == "style1.css" ? "checked" : "" ?>>
+            Světlý styl
+        </label><br>
+        <label>
+            <input type="radio" name="style" value="style2.css" <?= $aktualniStyl == "style2.css" ? "checked" : "" ?>>
+            Tmavý styl
+        </label><br>
+        <button type="submit">Uložit</button>
+    </form>
 
+    <?php include 'footer.php'; ?>
+</body>
+</html>

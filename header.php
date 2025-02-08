@@ -1,7 +1,4 @@
-<?php
-session_start();
-require_once "db.php"; // Aby se to nenačítalo víckrát
-?>
+
 <html>
 <header>
     <h1><a href="index.php">Svatoušek</a></h1>
