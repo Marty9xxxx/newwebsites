@@ -56,6 +56,7 @@ $messages = file_exists($shoutbox_file) ? file($shoutbox_file, FILE_IGNORE_NEW_L
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Návštěvní kniha</title>
     <link rel="stylesheet" href="style1.css">
+    <?php include 'header.php'; ?>
 </head>
 <body>
 
@@ -89,9 +90,8 @@ $messages = file_exists($shoutbox_file) ? file($shoutbox_file, FILE_IGNORE_NEW_L
 </div>
 
 <footer>
-    <p>&copy; 2025 Svatoušek</p>
+   <?php include 'footer.php'; ?> 
 </footer>
 
 </body>
 </html>
-// Zabezpečení formuláře proti spamu
