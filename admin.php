@@ -15,7 +15,13 @@ if (!isset($_SESSION['admin'])) {
     exit;
 }
 ?>
+<link rel="stylesheet" href="style1.css">
+<?php include 'header.php'; ?>
+<main>
+    <section class="content">
+    <h2>Administrace</h2>
+    <p>Tady můžete spravovat obsah webu.</p>
+    </section>
 
-<h2>Administrace</h2>
-<p>Tady můžete spravovat obsah webu.</p>
 
+<?php include 'footer.php'; ?>

@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['news'])) {
     echo "Novinka přidána!";
 }
 ?>
-
+<link rel="stylesheet" href="style1.css">
 <?php include 'header.php'; ?>
 
 <main>
@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['news'])) {
         <h3>Archiv novinek</h3>
         <ul>
             <?php
-            $news = file('data.txt', FILE_IGNORE_NEW_LINES);
+            $news = file('./data/data.txt', FILE_IGNORE_NEW_LINES);
             foreach ($news as $item) {
                 echo "<li>$item</li>";
             }
