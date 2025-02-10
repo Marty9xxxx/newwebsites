@@ -34,5 +34,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </section>
 </main>
-<link rel="stylesheet" href="style1.css">
+
 <?php include 'footer.php'; ?>

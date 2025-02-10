@@ -1,5 +1,7 @@
 <?php
-$shoutbox_file = __DIR__.'data/shoutbox.txt'; // Uložení zpráv mimo veřejný adresář
+session_start();
+
+$shoutbox_file = './data/shoutbox.txt'; // Uložení zpráv mimo veřejný adresář
 $max_messages = 50; // Limit na počet zpráv
 $bad_words = ['blbost', 'hlupák', 'nadávka']; // Seznam zakázaných slov
 $last_post_time = $_SESSION['last_post_time'] ?? 0;
@@ -46,9 +48,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Načtení zpráv
 $messages = file_exists($shoutbox_file) ? file($shoutbox_file, FILE_IGNORE_NEW_LINES) : [];
 ?>
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Návštěvní kniha</title>
-    <?php include 'header.php'; ?>
-    <link rel="stylesheet" href="style1.css>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
 <header>
     <h1>Návštěvní kniha</h1>
 </header>
@@ -79,5 +89,9 @@ $messages = file_exists($shoutbox_file) ? file($shoutbox_file, FILE_IGNORE_NEW_L
 </div>
 
 <footer>
-<?php include 'footer.php'; ?>
+    <p>&copy; 2025 Svatoušek</p>
 </footer>
+
+</body>
+</html>
+// Zabezpečení formuláře proti spamu
