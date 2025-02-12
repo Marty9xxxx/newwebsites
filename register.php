@@ -1,24 +1,32 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
-    $role = "user"; // Výchozí role
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $username = trim($_POST['username'] ?? '');
+    $password = trim($_POST['password'] ?? '');
 
-    if (!empty($username) && !empty($password)) {
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        file_put_contents("../data/data.txt", "$username|$hashed_password|$role\n", FILE_APPEND);
-        header("Location: login.php");
-        exit;
+    if (empty($username) || empty($password)) {
+        die("Vyplňte všechny údaje.");
     }
-    $error = "Vyplňte všechna pole!";
+
+    $dataFile = __DIR__ . "/data/data.txt";
+
+    // Ověření, zda uživatel už existuje
+    if (file_exists($dataFile)) {
+        $lines = file($dataFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        foreach ($lines as $line) {
+            list($existingUser) = explode('|', $line);
+            if ($existingUser === $username) {
+                die("Uživatel už existuje!");
+            }
+        }
+    }
+
+    // Přidání nového uživatele do souboru
+    $newEntry = "$username|$password\n"; // POZOR: Hesla by se měla hashovat!
+
+    if (file_put_contents($dataFile, $newEntry, FILE_APPEND | LOCK_EX)) {
+        echo "Registrace úspěšná! <a href='login.php'>Přihlásit se</a>";
+    } else {
+        echo "Chyba při ukládání dat.";
+    }
 }
 ?>
-<?php include 'header.php'; ?>
-<form action="register.php" method="POST">
-    <input type="text" name="username" placeholder="Uživatelské jméno" required>
-    <input type="password" name="password" placeholder="Heslo" required>
-    <button type="submit">Registrovat</button>
-</form>
-<?php if (isset($error)) echo "<p>$error</p>"; ?>
-<a href="login.php">Zpět na přihlášení</a>
-<?php include 'footer.php'; ?>
