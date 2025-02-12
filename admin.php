@@ -1,25 +1,17 @@
 <?php
-session_start();
+session_start(); // Začínáme session
 
-// Kontrola přihlášení
-if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+// Ověření, jestli je uživatel přihlášen a má roli admin
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSION['role'] !== 'admin') {
+    // Přesměrování na login, pokud uživatel není přihlášen nebo nemá roli admin
     header('Location: login.php');
     exit;
 }
 
-// Kód pro administraci
-echo "Vítejte v administraci, " . $_SESSION['username'] . "!";
-
-// Odhlášení
-if (isset($_GET['logout'])) {
-    session_unset();
-    session_destroy();
-    header("Location: login.php");
-    exit;
-}
+echo "Vítejte v administraci, " . $_SESSION['username'] . "!"; // Zobrazíme uživatelské jméno
 ?>
 
-
+<a href="admin.php?logout=true">Odhlásit se</a>
 
 <link rel="stylesheet" href="style1.css">
 <?php include 'header.php'; ?>

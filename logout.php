@@ -1,7 +1,12 @@
 <?php
 session_start();
-session_destroy();
-header("Location: login.php");
-exit;
-// Purpose: To log out the user from the system and redirect to the login page.
+
+// Pokud je nastaven parametr 'logout', odhlásíme uživatele
+if (isset($_GET['logout'])) {
+    // Odhlášení: Smažeme session a přesměrujeme na login
+    session_unset();
+    session_destroy();
+    header("Location: login.php");
+    exit;
+}
 ?>
