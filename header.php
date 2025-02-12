@@ -9,6 +9,7 @@
     <h1><a href="index.php">Svatoušek</a></h1>
     <nav>
         <ul>
+            <li><a href="login.php">Přihlášení</a></li>
             <li><a href="index.php">Úvod</a></li>
             <li><a href="contact.php">Napište mi</a></li>
             <li><a href="news.php">Novinky</a></li>
@@ -17,4 +18,6 @@
             <li><a href="guestbook.php">Návštěvní kniha</a></li>
         </ul>
     </nav>
+    
+
 </header>

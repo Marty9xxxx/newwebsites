@@ -28,7 +28,7 @@ body {
 header {
     background: #333;
     color: white;
-    padding: 15px;
+    padding: 20px;
     text-align: center;
 }
 
@@ -83,9 +83,29 @@ footer {
     text-align: center;
     background: #333;
     color: white;
-    padding: 10px;
+    padding: 10px; /*výška hlavičky*/
     margin-top: 20px;
 }
+
+
+/*hledání*/
+.search {
+    display: flex;
+    align-items: right;
+    gap: 5px; /* Mezera mezi polem a tlačítkem */
+}
+
+.search input {
+    width: 60px; /* Nastav šířku podle potřeby */
+    padding: 5px;
+}
+
+.search button {
+    padding: 5px 10px;
+    width: auto; /* Nebo konkrétní šířku, třeba 80px */
+    white-space: nowrap; /* Zabrání zalomení textu */
+}
+
 
 /* Formuláře */
 form {
