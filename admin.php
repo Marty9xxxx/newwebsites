@@ -9,6 +9,13 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSI
 }
 
 echo "Vítejte v administraci, " . $_SESSION['username'] . "!"; // Zobrazíme uživatelské jméno
+
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    echo "Uživatel není přihlášen!";
+} else {
+    echo "Uživatel je přihlášen!";
+}
+
 ?>
 
 <a href="admin.php?logout=true">Odhlásit se</a>
