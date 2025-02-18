@@ -1,54 +1,72 @@
 <?php
-session_start(); // Začínáme session
+// login.php
+session_start();
 
+// Pokud je uživatel již přihlášen, přesměrujeme ho
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+    header('Location: index.php');
+    exit;
+}
+
+// Zpracování přihlašovacího formuláře
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Načteme data uživatelů z JSON souboru
+    $users = json_decode(file_get_contents('data/users.json'), true);
+    
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $file = __DIR__ . '../data/data.txt'; // Cesta k souboru s uživatelskými údaji
-
-    // Čteme data ze souboru
-    $users = file($file, FILE_IGNORE_NEW_LINES);
-
-    $is_authenticated = false;
-    $user_role = '';
-
-    // Procházíme všechny řádky v souboru a ověřujeme, zda se shoduje uživatel a heslo
+    
+    // Procházíme uživatele a hledáme shodu
+    $user_found = false;
     foreach ($users as $user) {
-        list($stored_username, $stored_hashed_password, $stored_role) = explode('|', $user);
-
-        if ($stored_username === $username && password_verify($password, $stored_hashed_password)) {
-            $is_authenticated = true;
-            $user_role = $stored_role; // Uložení role uživatele
-            break;
+        // Kontrola uživatelského jména a hesla
+        if ($user['username'] === $username && password_verify($password, $user['password'])) {
+            // Uživatel nalezen a heslo souhlasí
+            $_SESSION['logged_in'] = true;
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['role'] = $user['role'];
+            
+            // Přesměrování podle role
+            if ($user['role'] === 'admin') {
+                header('Location: admin.php');
+            } else {
+                header('Location: index.php');
+            }
+            exit;
         }
     }
-
-    if ($is_authenticated) {
-        // Uložení údajů do session pro pozdější ověření
-        $_SESSION['logged_in'] = true;
-        $_SESSION['username'] = $username; // Uložíme jméno uživatele do session
-        $_SESSION['role'] = $user_role; // Uložíme roli uživatele do session
-        header("Location: admin.php"); // Přesměrujeme na admin stránku
-        exit;
-    } else {
-        echo "Špatné přihlašovací údaje!";
-    }
+    
+    // Pokud se dostaneme sem, přihlášení selhalo
+    $error = "Nesprávné přihlašovací údaje!";
 }
 ?>
-<?php include 'header.php'; ?>
-<!-- Formulář pro přihlášení -->
-<form action="login.php" method="POST">
-    <label for="username">Uživatelské jméno:</label>
-    <input type="text" id="username" name="username" required>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Přihlášení</title>
+</head>
+<body>
+    <h2>Přihlášení</h2>
     
-    <label for="password">Heslo:</label>
-    <input type="password" id="password" name="password" required>
+    <?php if (isset($error)): ?>
+        <div style="color: red;"><?php echo $error; ?></div>
+    <?php endif; ?>
     
-    <button type="submit">Přihlásit se</button>
-</form>
-<?php if (isset($error)) echo "<p>$error</p>"; ?>
-<a href="register.php">Registrovat se</a>
+    <form method="POST">
+        <div>
+            <label>Uživatelské jméno:</label>
+            <input type="text" name="username" required>
+        </div>
+        <div>
+            <label>Heslo:</label>
+            <input type="password" name="password" required>
+        </div>
+        <button type="submit">Přihlásit</button>
+    </form>
+    <a href="register.php">Registrovat se</a>
 <?php include 'footer.php'; ?>
 
-
-
+</body>
+</html>

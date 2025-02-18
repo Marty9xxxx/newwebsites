@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "username": "Martin",
+        "password": "$2y$10$muHqQyrD9rMfvuamZz0GXel3HT51A3RmQGixuvQ8LqzkJRzHgq3Ne",
+        "role": "user",
+        "email": "martin@example.com",
+        "created_at": "2025-02-18 07:28:20"
+    },
+    {
+        "id": 2,
+        "username": "Marty9xxxx",
+        "password": "$2y$10$vFKZYjwC1Y1GU.3ASitVN.IVjuTOEBQfgbwyLwCYYgZjQaqD54JK.",
+        "role": "admin",
+        "email": "admin@example.com",
+        "created_at": "2025-02-18 07:28:20"
+    }
+]

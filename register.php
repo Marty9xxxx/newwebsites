@@ -1,40 +1,113 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $role = $_POST['role']; // Při registraci přidáme roli (např. 'user', 'admin')
-    $file = __DIR__ . '../data/data.txt'; // Cesta k souboru s uživatelskými údaji
+// register.php
+session_start();
 
-    // Zkontrolujeme, jestli už uživatel neexistuje
-    $users = file($file, FILE_IGNORE_NEW_LINES);
-    foreach ($users as $user) {
-        list($stored_username, $stored_hashed_password, $stored_role) = explode('|', $user);
-        if ($stored_username === $username) {
-            echo "Uživatel s tímto jménem už existuje!";
-            exit;
+// Pokud je uživatel již přihlášen, přesměrujeme ho
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+    header('Location: index.php');
+    exit;
+}
+
+$error = '';
+$success = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Načteme existující uživatele
+    $users = json_decode(file_get_contents('data/users.json'), true);
+    
+    $username = trim($_POST['username']);
+    $password = $_POST['password'];
+    $password_confirm = $_POST['password_confirm'];
+    $email = trim($_POST['email']);
+    
+    // Základní validace
+    if (strlen($username) < 3) {
+        $error = "Uživatelské jméno musí mít alespoň 3 znaky.";
+    } elseif (strlen($password) < 6) {
+        $error = "Heslo musí mít alespoň 6 znaků.";
+    } elseif ($password !== $password_confirm) {
+        $error = "Hesla se neshodují.";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error = "Neplatná emailová adresa.";
+    } else {
+        // Kontrola, zda uživatel již neexistuje
+        $user_exists = false;
+        foreach ($users as $user) {
+            if ($user['username'] === $username) {
+                $user_exists = true;
+                break;
+            }
+        }
+        
+        if ($user_exists) {
+            $error = "Uživatelské jméno již existuje.";
+        } else {
+            // Vytvoření nového uživatele
+            $new_user = [
+                'id' => count($users) + 1,  // Jednoduché generování ID
+                'username' => $username,
+                'password' => password_hash($password, PASSWORD_DEFAULT),
+                'email' => $email,
+                'role' => 'user',  // Výchozí role
+                'created_at' => date('Y-m-d H:i:s')
+            ];
+            
+            // Přidáme nového uživatele
+            $users[] = $new_user;
+            
+            // Uložíme aktualizovaný seznam uživatelů
+            if (file_put_contents('data/users.json', json_encode($users, JSON_PRETTY_PRINT))) {
+                $success = "Registrace proběhla úspěšně! Nyní se můžete přihlásit.";
+                // Přesměrujeme na login po 2 sekundách
+                header("refresh:2;url=login.php");
+            } else {
+                $error = "Chyba při ukládání dat.";
+            }
         }
     }
-
-    // Hashujeme heslo a přidáme nového uživatele do souboru
-    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-    $new_user = $username . '|' . $hashed_password . '|' . $role . "\n";
-    file_put_contents($file, $new_user, FILE_APPEND);
-
-    echo "Registrace proběhla úspěšně!";
 }
 ?>
 
-<!-- Formulář pro registraci -->
-<form action="register.php" method="POST">
-    <label for="username">Uživatelské jméno:</label>
-    <input type="text" id="username" name="username" required>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrace</title>
+    <style>
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h2>Registrace nového uživatele</h2>
     
-    <label for="password">Heslo:</label>
-    <input type="password" id="password" name="password" required>
-
-    <label for="role">Role (user nebo admin):</label>
-    <input type="text" id="role" name="role" required>
-
-    <button type="submit">Registrovat se</button>
-</form>
-<?php if (isset($error)) echo "<p>$error</p>"; ?>
+    <?php if ($error): ?>
+        <div class="error"><?php echo $error; ?></div>
+    <?php endif; ?>
+    
+    <?php if ($success): ?>
+        <div class="success"><?php echo $success; ?></div>
+    <?php endif; ?>
+    
+    <form method="POST">
+        <div>
+            <label>Uživatelské jméno:</label>
+            <input type="text" name="username" required minlength="3">
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="email" name="email" required>
+        </div>
+        <div>
+            <label>Heslo:</label>
+            <input type="password" name="password" required minlength="6">
+        </div>
+        <div>
+            <label>Potvrzení hesla:</label>
+            <input type="password" name="password_confirm" required>
+        </div>
+        <button type="submit">Registrovat</button>
+    </form>
+    
+    <p>Již máte účet? <a href="login.php">Přihlaste se</a></p>
+</body>
+</html>

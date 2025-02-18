@@ -1,0 +1,17 @@
+{
+    "templates": [
+        {
+            "id": 1,
+            "name": "Uv\u00edtac\u00ed email",
+            "subject": "V\u00edtejte na webu",
+            "body": "V\u00e1\u017een\u00fd\/\u00e1 {jmeno},\\n\\nV\u00edtejte na na\u0161em webu..."
+        }
+    ],
+    "sent": [],
+    "settings": {
+        "smtp_host": "smtp.example.com",
+        "smtp_port": 587,
+        "smtp_user": "your-email@example.com",
+        "smtp_pass": ""
+    }
+}

@@ -1,1 +1,11 @@
 __DIR__. vždycky před soubor, relativní adresování, moc užitečné!
+
+ poznámky k funkcím, které používáme:
+- `file_exists()` - kontroluje existenci souboru/složky
+- `mkdir()` - vytváří složku
+- `password_hash()` - vytváří bezpečný hash hesla
+- `date()` - formátuje datum a čas
+- `json_encode()` - převádí PHP pole na JSON
+- `file_put_contents()` - ukládá obsah do souboru
+- `json_decode()` - převádí JSON zpět na PHP pole
+- `file_get_contents()` - načítá obsah souboru
