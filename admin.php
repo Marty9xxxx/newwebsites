@@ -24,10 +24,9 @@ $guestbook = json_decode(file_get_contents('data/guestbook.json'), true);
 <html>
 <head>
     <title>Administrace</title>
-    <link rel="stylesheet" href="style1.css">
+    <?php include 'header.php'; ?>
 </head>
 <body>
-    <?php include 'header.php'; ?>
     
     <main>
         <section class="content">

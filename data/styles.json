@@ -1,0 +1,12 @@
+{
+    "theme": "light",
+    "colors": {
+        "primary": "#007bff",
+        "secondary": "#6c757d",
+        "background": "#ffffff"
+    },
+    "fonts": {
+        "main": "Arial",
+        "headings": "Roboto"
+    }
+}

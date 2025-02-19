@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-<link rel="stylesheet" href="style1.css">
+
 <?php include 'header.php'; ?>
 
 <main>

@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="style1.css">
 <?php include 'header.php'; ?>
 
 <section class="search">

@@ -72,6 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <title>Registrace</title>
+    <?php include 'header.php'; ?>
     <style>
         .error { color: red; }
         .success { color: green; }
@@ -109,5 +110,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
     
     <p>Již máte účet? <a href="login.php">Přihlaste se</a></p>
+    <?php include 'footer.php'; ?>
 </body>
 </html>

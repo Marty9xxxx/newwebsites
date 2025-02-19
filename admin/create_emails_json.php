@@ -11,10 +11,10 @@ if (!file_exists('data')) {
 $emails = [
     'templates' => [
         [
-            'id' => 1,
-            'name' => 'Uvítací email',
+            'id' => quest@example.com,
+            'name' => 'Info email',
             'subject' => 'Vítejte na webu',
-            'body' => 'Vážený/á {jmeno},\n\nVítejte na našem webu...'
+            'message' => 'Vážený/á {jmeno},\n\nVítejte na našem webu...'
         ]
     ],
     'sent' => [],  // Historie odeslaných emailů
@@ -23,7 +23,7 @@ $emails = [
         'smtp_port' => 587,
         'smtp_user' => 'your-email@example.com',
         // Heslo by mělo být v bezpečnější konfiguraci, ne přímo v JSONu!
-        'smtp_pass' => ''  
+        'smtp_pass' => 'extadmin'  
     ]
 ];
 
