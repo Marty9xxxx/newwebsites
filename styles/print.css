@@ -1,0 +1,38 @@
+/* Skryjeme nepotřebné elementy */
+nav, button, .sidebar, .search, footer {
+    display: none !important;
+}
+
+/* Úprava barev pro tisk */
+body {
+    background: white;
+    color: black;
+    font-family: serif; /* Serif fonty jsou čitelnější v tisku */
+}
+
+/* Zobrazení URL u odkazů */
+a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+}
+
+/* Zajištění zalomení stránek */
+h1, h2, h3 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+}
+
+/* Úprava layoutu */
+.container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Přidání čísel stránek */
+@page {
+    margin: 2cm;
+    @bottom-center {
+        content: "Strana " counter(page);
+    }
+}

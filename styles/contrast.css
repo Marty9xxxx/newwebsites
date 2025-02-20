@@ -1,0 +1,66 @@
+/* Vysoký kontrast pro lepší čitelnost */
+body {
+    background: black;
+    color: white;
+    font-size: 18px; /* Větší základní písmo */
+    line-height: 1.6;
+}
+
+/* Výrazné odkazy */
+a {
+    color: yellow;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+a:hover {
+    background: yellow;
+    color: black;
+}
+
+/* Výrazné ohraničení prvků */
+.container, .sidebar, .content {
+    border: 2px solid white;
+    margin: 20px;
+    padding: 20px;
+}
+
+/* Zřetelné nadpisy */
+h1, h2, h3 {
+    color: #00ff00; /* Jasně zelená */
+    border-bottom: 3px solid white;
+    margin-bottom: 20px;
+}
+
+/* Formulářové prvky */
+input, textarea, button {
+    background: white;
+    color: black;
+    border: 3px solid yellow;
+    font-size: 18px;
+    padding: 10px;
+}
+
+/* Zvýraznění aktivních prvků */
+button:hover,
+input:focus,
+textarea:focus {
+    background: yellow;
+    color: black;
+    border-color: white;
+}
+
+/* Menu s výrazným zvýrazněním */
+nav a {
+    background: #333;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    border: 2px solid white;
+}
+
+nav a:hover,
+nav a:focus {
+    background: white;
+    color: black;
+}

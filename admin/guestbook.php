@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$shoutbox_file = './data/shoutbox.txt'; // Uložení zpráv mimo veřejný adresář
+$shoutbox_file = '../data/shoutbox.txt'; // Uložení zpráv mimo veřejný adresář
 $max_messages = 50; // Limit na počet zpráv
 $bad_words = ['blbost', 'hlupák', 'nadávka']; // Seznam zakázaných slov
 $last_post_time = $_SESSION['last_post_time'] ?? 0;
@@ -55,8 +55,7 @@ $messages = file_exists($shoutbox_file) ? file($shoutbox_file, FILE_IGNORE_NEW_L
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Návštěvní kniha</title>
-    <link rel="stylesheet" href="style1.css">
-    <?php include 'header.php'; ?>
+    <?php include '../header.php'; ?>
 </head>
 <body>
 
@@ -90,7 +89,7 @@ $messages = file_exists($shoutbox_file) ? file($shoutbox_file, FILE_IGNORE_NEW_L
 </div>
 
 <footer>
-   <?php include 'footer.php'; ?> 
+   <?php include '../footer.php'; ?> 
 </footer>
 
 </body>

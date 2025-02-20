@@ -1,12 +1,10 @@
 {
-    "theme": "light",
-    "colors": {
-        "primary": "#007bff",
-        "secondary": "#6c757d",
-        "background": "#ffffff"
-    },
-    "fonts": {
-        "main": "Arial",
-        "headings": "Roboto"
-    }
+    "currentStyle": "contrast",
+    "cssPath": "../styles/",
+    "availableStyles": [
+        "style1",
+        "style2",
+        "contrast",
+        "print"
+    ]
 }
