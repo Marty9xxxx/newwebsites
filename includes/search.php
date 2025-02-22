@@ -1,4 +1,8 @@
 <?php
+// search.php
+// Vyhledávání v souborech  ve složce
+require_once './config.php';    
+
 if (isset($_GET['q'])) {
     $query = strtolower(trim($_GET['q']));
     $directory = __DIR__; // Aktuální složka
@@ -19,4 +23,3 @@ if (isset($_GET['q'])) {
         echo 'Žádné výsledky nenalezeny.';
     }
 }
-?>

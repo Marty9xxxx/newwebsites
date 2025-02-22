@@ -1,5 +1,11 @@
 <?php
 session_start();
+// Načtení dat z JSONů
+$users = json_decode(file_get_contents(path('data', 'users.json')), true);
+$styles = json_decode(file_get_contents(path('data', 'styles.json')), true);
+
+// Vložení hlavičky
+include(path('includes', 'header.php'));
 
 $shoutbox_file = '../data/shoutbox.txt'; // Uložení zpráv mimo veřejný adresář
 $max_messages = 50; // Limit na počet zpráv
@@ -55,7 +61,6 @@ $messages = file_exists($shoutbox_file) ? file($shoutbox_file, FILE_IGNORE_NEW_L
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Návštěvní kniha</title>
-    <?php include '../header.php'; ?>
 </head>
 <body>
 
@@ -89,7 +94,7 @@ $messages = file_exists($shoutbox_file) ? file($shoutbox_file, FILE_IGNORE_NEW_L
 </div>
 
 <footer>
-   <?php include '../footer.php'; ?> 
+   <?php include(path('includes', 'footer.php')); ?> 
 </footer>
 
 </body>

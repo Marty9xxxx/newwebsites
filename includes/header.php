@@ -1,4 +1,6 @@
-
+<?php
+require_once './config.php';
+?>
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -20,7 +22,7 @@
             <li><a href="./contact.php">Napište mi</a></li>
             <li><a href="./admin/news.php">Novinky</a></li>
             <li><a href="./admin.php">Administrace</a></li>
-            <li><a href="./error404.php">Chyba!</a></li>
+            <li><a href="./errors/error404.php">Chyba!</a></li>
             <li><a href="./admin/guestbook.php">Návštěvní kniha</a></li>
             
             

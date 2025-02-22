@@ -29,4 +29,3 @@ header("Pragma: no-cache");
 // Přesměrujeme s parametrem pro kontrolu
 header("Location: login.php?logged_out=true");
 exit;
-?>

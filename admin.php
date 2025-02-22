@@ -1,5 +1,7 @@
 <?php
 session_start();
+// Načtení konfigurace
+require_once './config.php';
 
 // Kontrola přihlášení a role
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSION['role'] !== 'admin') {
@@ -16,15 +18,17 @@ if (isset($_GET['logout'])) {
 }
 
 // Načtení potřebných dat
-$users = json_decode(file_get_contents('data/users.json'), true);
-$guestbook = json_decode(file_get_contents('data/guestbook.json'), true);
+$users = json_decode(file_get_contents(path('data', 'users.json')), true);
+$styles = json_decode(file_get_contents(path('data', 'styles.json')), true);
+$news = json_decode(file_get_contents(path('data', 'news.json')), true);
+$guestbook = json_decode(file_get_contents(path('data', 'guestbook.json')), true);
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Administrace</title>
-    <?php include 'header.php'; ?>
+    <?php include(path('includes', 'header.php')); ?>
 </head>
 <body>
     
@@ -50,23 +54,26 @@ $guestbook = json_decode(file_get_contents('data/guestbook.json'), true);
                 $section = $_GET['section'];
                 switch($section) {
                     case 'news':
-                        include 'admin/news.php';
+                        include(path('includes', 'news.php'));
                         break;
                     case 'guestbook':
-                        include 'admin/guestbook.php';
-                        break;
-                    case 'users':
-                        include 'admin/users.php';
+                        include(path('includes', 'guestbook.php'));
                         break;
                     case 'styles':
-                        include 'admin/styles.php';
+                        include(path('includes', 'styles.php'));
                         break;
+                    case 'users':
+                        include(path('includes', 'users.php'));
+                        break;
+                        case 'articles':
+                            include(path('includes', 'articles.php'));
+                            break;
                 }
             }
             ?>
         </section>
     </main>
 
-    <?php include 'footer.php'; ?>
+    <?php include(path('includes', 'footer.php')); ?>
 </body>
 </html>
