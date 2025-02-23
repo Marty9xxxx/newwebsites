@@ -28,6 +28,7 @@ $guestbook = json_decode(file_get_contents(path('data', 'guestbook.json')), true
 <html>
 <head>
     <title>Administrace</title>
+    <link rel="stylesheet" href="<?php echo path('styles', 'styles.css'); ?>">
     <?php include(path('includes', 'header.php')); ?>
 </head>
 <body>
@@ -54,20 +55,20 @@ $guestbook = json_decode(file_get_contents(path('data', 'guestbook.json')), true
                 $section = $_GET['section'];
                 switch($section) {
                     case 'news':
-                        include(path('includes', 'news.php'));
+                        include(path('admin', 'news.php'));
                         break;
                     case 'guestbook':
-                        include(path('includes', 'guestbook.php'));
+                        include(path('admin', 'guestbook.php'));
                         break;
                     case 'styles':
-                        include(path('includes', 'styles.php'));
+                        include(path('admin', 'styles.php'));
                         break;
                     case 'users':
-                        include(path('includes', 'users.php'));
+                        include(path('admin', 'users.php'));
                         break;
-                        case 'articles':
-                            include(path('includes', 'articles.php'));
-                            break;
+                    case 'articles':
+                        include(path('admin', 'articles.php'));
+                        break;
                 }
             }
             ?>

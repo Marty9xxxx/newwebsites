@@ -2,21 +2,19 @@
 // config.php - umístěný v root adresáři webu
 define('BASE_PATH', str_replace('\\', '/', dirname(__FILE__)));
 
-function path($type, $path = '') {
-    switch($type) {
-        case 'admin':  // Pro admin soubory
-            return BASE_PATH . '/admin/' . ltrim($path, '/');
-        case 'includes': // Pro soubory v includes
-            return BASE_PATH . '/includes/' . ltrim($path, '/');
-        case 'styles': // Pro soubory se styly
-            return BASE_PATH . '/styles/' . ltrim($path, '/');
-        case 'errors': // Pro soubory s chybami
-            return BASE_PATH . '/errors/' . ltrim($path, '/');
-        case 'core': // Pro soubory kontrol a sestavování opakujících se částí
-            return BASE_PATH . '/core/' . ltrim($path, '/');
-        case 'data':   // Pro JSON data
-            return BASE_PATH . '/data/' . ltrim($path, '/');
-        case 'web':    // Pro URL adresy
-            return '/' . ltrim($path, '/');
+function path($type, $file) {
+    $base_path = dirname(__FILE__);
+    switch ($type) {
+        case 'data':
+            return $base_path . '/data/' . $file;
+        case 'styles':
+            return $base_path . '/styles/' . $file;
+        case 'includes':
+            return $base_path . '/includes/' . $file;
+        case 'admin':
+            return $base_path . '/admin/' . $file;
+        default:
+            return $base_path . '/' . $file;
     }
 }
+?>

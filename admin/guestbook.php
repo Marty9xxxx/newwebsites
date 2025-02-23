@@ -1,13 +1,12 @@
 <?php
+require_once '../config.php'; // Přidáno pro načtení funkce path
+
 session_start();
 // Načtení dat z JSONů
 $users = json_decode(file_get_contents(path('data', 'users.json')), true);
 $styles = json_decode(file_get_contents(path('data', 'styles.json')), true);
 
-// Vložení hlavičky
-include(path('includes', 'header.php'));
-
-$shoutbox_file = '../data/shoutbox.txt'; // Uložení zpráv mimo veřejný adresář
+$shoutbox_file = path('data', 'shoutbox.txt'); // Uložení zpráv mimo veřejný adresář
 $max_messages = 50; // Limit na počet zpráv
 $bad_words = ['blbost', 'hlupák', 'nadávka']; // Seznam zakázaných slov
 $last_post_time = $_SESSION['last_post_time'] ?? 0;
@@ -69,28 +68,30 @@ $messages = file_exists($shoutbox_file) ? file($shoutbox_file, FILE_IGNORE_NEW_L
 </header>
 
 <div class="container">
-    <div class="content">
-        <h2>Zanechte vzkaz</h2>
+    <main>
+        <section class="content">
+            <h2>Zanechte vzkaz</h2>
 
-        <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
+            <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
 
-        <form action="guestbook.php" method="post">
-            <input type="text" name="name" placeholder="Vaše jméno" required>
-            <textarea name="message" placeholder="Vaše zpráva" required></textarea>
-            <button type="submit">Odeslat</button>
-        </form>
+            <form action="admin.php?section=guestbook" method="post">
+                <input type="text" name="name" placeholder="Vaše jméno" required>
+                <textarea name="message" placeholder="Vaše zpráva" required></textarea>
+                <button type="submit">Odeslat</button>
+            </form>
 
-        <h2>Poslední zprávy</h2>
-        <div class="messages">
-            <?php if (!empty($messages)) {
-                foreach ($messages as $msg) {
-                    echo "<p>$msg</p>";
-                }
-            } else {
-                echo "<p>Zatím žádné zprávy.</p>";
-            } ?>
-        </div>
-    </div>
+            <h2>Poslední zprávy</h2>
+            <div class="messages">
+                <?php if (!empty($messages)) {
+                    foreach ($messages as $msg) {
+                        echo "<p>$msg</p>";
+                    }
+                } else {
+                    echo "<p>Zatím žádné zprávy.</p>";
+                } ?>
+            </div>
+        </section>
+    </main>
 </div>
 
 <footer>
