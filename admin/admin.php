@@ -1,11 +1,11 @@
 <?php
 session_start();
 // Načtení konfigurace
-require_once './config.php';
+require_once dirname(__DIR__) . '/config.php';
 
 // Kontrola přihlášení a role
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSION['role'] !== 'admin') {
-    header('Location: login.php');
+    header('Location: ' . getWebPath('includes/login.php'));
     exit;
 }
 
@@ -13,23 +13,23 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSI
 if (isset($_GET['logout'])) {
     session_unset();
     session_destroy();
-    header('Location: login.php');
+    header('Location: ' . getWebPath('includes/login.php'));
     exit;
 }
 
 // Načtení potřebných dat
-$users = json_decode(file_get_contents(path('data', 'users.json')), true);
-$styles = json_decode(file_get_contents(path('data', 'styles.json')), true);
-$news = json_decode(file_get_contents(path('data', 'news.json')), true);
-$guestbook = json_decode(file_get_contents(path('data', 'guestbook.json')), true);
+$users = json_decode(file_get_contents(getFilePath('data', 'users.json')), true);
+$styles = json_decode(file_get_contents(getFilePath('data', 'styles.json')), true);
+$news = json_decode(file_get_contents(getFilePath('data', 'news.json')), true);
+$guestbook = json_decode(file_get_contents(getFilePath('data', 'guestbook.json')), true);
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Administrace</title>
-    <link rel="stylesheet" href="<?php echo path('styles', 'styles.css'); ?>">
-    <?php include(path('includes', 'header.php')); ?>
+    <link rel="stylesheet" href="<?php echo getWebPath('styles/style1.css'); ?>">
+    <?php include(getFilePath('includes', 'header.php')); ?>
 </head>
 <body>
     
@@ -55,19 +55,19 @@ $guestbook = json_decode(file_get_contents(path('data', 'guestbook.json')), true
                 $section = $_GET['section'];
                 switch($section) {
                     case 'news':
-                        include(path('admin', 'news.php'));
+                        include(getFilePath('admin', 'news.php'));
                         break;
                     case 'guestbook':
-                        include(path('admin', 'guestbook.php'));
+                        include(getFilePath('admin', 'guestbook.php'));
                         break;
                     case 'styles':
-                        include(path('admin', 'styles.php'));
+                        include(getFilePath('admin', 'styles.php'));
                         break;
                     case 'users':
-                        include(path('admin', 'users.php'));
+                        include(getFilePath('admin', 'users.php'));
                         break;
                     case 'articles':
-                        include(path('admin', 'articles.php'));
+                        include(getFilePath('admin', 'articles.php'));
                         break;
                 }
             }
@@ -75,6 +75,6 @@ $guestbook = json_decode(file_get_contents(path('data', 'guestbook.json')), true
         </section>
     </main>
 
-    <?php include(path('includes', 'footer.php')); ?>
+    <?php include(getFilePath('includes', 'footer.php')); ?>
 </body>
 </html>

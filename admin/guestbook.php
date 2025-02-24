@@ -1,12 +1,12 @@
 <?php
-require_once '../config.php'; // Přidáno pro načtení funkce path
+require_once dirname(__DIR__) . '/config.php';
 
 session_start();
 // Načtení dat z JSONů
-$users = json_decode(file_get_contents(path('data', 'users.json')), true);
-$styles = json_decode(file_get_contents(path('data', 'styles.json')), true);
+$users = json_decode(file_get_contents(getFilePath('data', 'users.json')), true);
+$styles = json_decode(file_get_contents(getFilePath('data', 'styles.json')), true);
 
-$shoutbox_file = path('data', 'shoutbox.txt'); // Uložení zpráv mimo veřejný adresář
+$shoutbox_file = getFilePath('data', 'guestbook.json'); // Uložení zpráv mimo veřejný adresář
 $max_messages = 50; // Limit na počet zpráv
 $bad_words = ['blbost', 'hlupák', 'nadávka']; // Seznam zakázaných slov
 $last_post_time = $_SESSION['last_post_time'] ?? 0;
@@ -57,7 +57,10 @@ $messages = file_exists($shoutbox_file) ? file($shoutbox_file, FILE_IGNORE_NEW_L
 <!DOCTYPE html>
 <html lang="cs">
 <head>
+    <?php include(getFilePath('includes', 'header.php')); ?> 
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="<?php echo getWebPath('styles/style1.css'); ?>">;
+    <link rel="stylesheet" href="<?php echo getWebPath('styles/print.css'); ?>" media="print">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Návštěvní kniha</title>
 </head>
@@ -95,7 +98,7 @@ $messages = file_exists($shoutbox_file) ? file($shoutbox_file, FILE_IGNORE_NEW_L
 </div>
 
 <footer>
-   <?php include(path('includes', 'footer.php')); ?> 
+   <?php include(getFilePath('includes', 'footer.php')); ?> 
 </footer>
 
 </body>

@@ -4,11 +4,11 @@ session_start();
 require_once 'config.php'; // Opravená cesta pro načtení funkce path
 
 // Načtení dat z JSONů
-$users = json_decode(file_get_contents(path('data', 'users.json')), true);
-$styles = json_decode(file_get_contents(path('data', 'styles.json')), true);
+$users = json_decode(file_get_contents(getFilePath('data', 'users.json')), true);
+$styles = json_decode(file_get_contents(getFilePath('data', 'styles.json')), true);
 
 // Vložení hlavičky
-include(path('includes', 'header.php'));
+include(getFilePath('includes', 'header.php'));
 ?>
 
 <section class="search">
@@ -25,4 +25,4 @@ include(path('includes', 'header.php'));
     </section>
 </main>
 
-<?php include(path('includes', 'footer.php')); ?>
+<?php include(getFilePath('includes', 'footer.php')); ?>

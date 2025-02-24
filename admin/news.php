@@ -1,9 +1,8 @@
 <?php
-require_once '../config.php'; // Přidáno pro načtení funkce path
+require_once dirname(__DIR__) . '/config.php';session_start();
 
-session_start();
 // Načtení dat z JSONů
-$news = json_decode(file_get_contents(path('data', 'news.json')), true);
+$news = json_decode(file_get_contents(getFilePath('data', 'news.json')), true);
 
 // Zpracování přidání novinky
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['news'])) {
@@ -13,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['news'])) {
         'datetime' => date('Y-m-d H:i:s')
     ];
     $news[] = $new_news;
-    file_put_contents(path('data', 'news.json'), json_encode($news, JSON_PRETTY_PRINT));
+    file_put_contents(getFilePath('data', 'news.json'), json_encode($news, JSON_PRETTY_PRINT));
     header('Location: admin.php?section=news');
     exit;
 }
@@ -23,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['edit_news']) && isset(
     $news_id = $_POST['news_id'];
     $news[$news_id]['text'] = $_POST['edit_news'];
     $news[$news_id]['datetime'] = date('Y-m-d H:i:s');
-    file_put_contents(path('data', 'news.json'), json_encode($news, JSON_PRETTY_PRINT));
+    file_put_contents(getFilePath('data', 'news.json'), json_encode($news, JSON_PRETTY_PRINT));
     header('Location: admin.php?section=news');
     exit;
 }
@@ -40,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['edit_news']) && isset(
         <h3>Archiv novinek</h3>
         <ul>
             <?php
-            $news = json_decode(file_get_contents(path('data', 'news.json')), true);
+            $news = json_decode(file_get_contents(getFilePath('data', 'news.json')), true);
             if ($news !== false) {
                 foreach ($news as $index => $item) {
                     echo "<li>" . htmlspecialchars($item['datetime'] . ' - ' . $item['author'] . ': ' . $item['text']);
@@ -71,6 +70,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['edit_news']) && isset(
     </section>
 </main>
 
-<?php include(path('includes', 'footer.php')); ?>
+<?php include(getFilePath('includes', 'footer.php')); ?>
 </body>
 </html>

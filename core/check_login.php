@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once './config.php';
+require_once dirname(__DIR__) . '/config.php';
 
 if (!isset($_SESSION['username'])) {
-    header("Location: login.php");
+    header("Location: ' . getWebPath('includes/login.php')");
     exit;
 }
 
