@@ -20,6 +20,5 @@ require_once dirname(__DIR__) . '/config.php';
     </main>
     
     <?php include(getFilePath('includes', 'footer.php')); ?>
-<link rel="stylesheet" href="style1.css">
 </body>
 </html>

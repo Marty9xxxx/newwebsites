@@ -2,6 +2,9 @@
 // logout.php
 session_start();
 
+// Load the configuration   
+require_once dirname(__DIR__) . '/config.php';
+
 // Před odhlášením si uložíme zprávu pro uživatele
 $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
 

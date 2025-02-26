@@ -1,7 +1,7 @@
 <?php
 session_start();
-// Načtení konfigurace
-require_once 'config.php'; // Opravená cesta pro načtení funkce path
+// Načtení konfigurace  
+require_once dirname(__DIR__) . 'config.php';
 
 // Načtení dat z JSONů
 $users = json_decode(file_get_contents(getFilePath('data', 'users.json')), true);
@@ -12,8 +12,8 @@ include(getFilePath('includes', 'header.php'));
 ?>
 
 <section class="search">
-    <form action="search.php" method="get">
-        <input type="text" name="q" placeholder="Napiš text" required>
+    <form action="<?php echo getWebPath('includes/search.php'); ?>" method="get">
+        <input type="text" name="keywords" placeholder="Napište text" required>
         <button type="submit">Hledat</button>
     </form>
 </section>

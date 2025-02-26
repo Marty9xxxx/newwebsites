@@ -1,8 +1,14 @@
 <?php
+// test.php
+session_start();
+
+// Load the configuration
+require_once dirname(__DIR__) . '/config.php';
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$file = "/../data/data.txt";
+$file = "json_decode(file_get_contents(getFilePath('data', 'users.json')), true);";
 
 if (file_exists($file)) {
     echo "Soubor existuje!<br>";
@@ -13,4 +19,11 @@ if (file_exists($file)) {
     echo "Soubor nenalezen!";
 }
 ?>
-<link rel="stylesheet" href="style1.css">
+//             <label>Heslo:</label>   
+//             <input type="password" name="password" required>
+//         </div>
+//         <button type="submit">Přihlásit</button> 
+//           </form>
+//     <a href="<?php echo getWebPath('includes/register.php'); ?>">Registrovat se</a>  
+//     <?php include(getFilePath('includes', 'footer.php')); ?>
+// </body>

@@ -1,9 +1,10 @@
 <?php
-require_once '../config.php'; // Přidáno pro načtení funkce path
+// Load the configuration   
+require_once dirname(__DIR__) . '/config.php';
 
 // Načtení dat ze souboru data.txt
-$dataFile = path('data', 'data.txt');
-$newsFile = path('data', 'news.json');
+$dataFile = getFilePath('data', 'data.txt');
+$newsFile = GetFilePath('data', 'news.json');
 
 if (file_exists($dataFile)) {
     $data = file($dataFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);

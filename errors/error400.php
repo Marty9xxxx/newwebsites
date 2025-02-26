@@ -8,7 +8,7 @@ require_once dirname(__DIR__) . '/config.php';
 <head>
     <title>400 - Špatný požadavek</title>
     <link rel="stylesheet" href="<?php echo getWebPath('styles/style1.css'); ?>">
-    <link rel="stylesheet" href="(getWebPath('styles/print.css'))" media="print">
+    <link rel="stylesheet" href="<?php echo getWebPath('styles/print.css'); ?>" media="print">
     <?php include(getFilePath('includes', 'header.php')); ?>
 </head>
 <body>
@@ -20,8 +20,6 @@ require_once dirname(__DIR__) . '/config.php';
         </section>
     </main>
     
-<link rel="stylesheet" href="(getWebPath('styles/style1.css'))">
-
 <?php include (getFilePath('includes','footer.php')); ?>
 </body>
 </html>

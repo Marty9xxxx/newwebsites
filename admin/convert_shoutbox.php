@@ -1,8 +1,9 @@
 <?php
-require_once '../config.php'; // Přidáno pro načtení funkce path
+// Načtení konfigurace
+require_once dirname(__DIR__) . '/config.php'; // přidáno pro načtení funkce path
 
-$shoutbox_file = path('data', 'shoutbox.txt');
-$guestbook_file = path('data', 'guestbook.json');
+$shoutbox_file = getFilePath('data', 'shoutbox.txt');
+$guestbook_file = getFilePath('data', 'guestbook.json');
 
 if (file_exists($shoutbox_file)) {
     $data = file($shoutbox_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);

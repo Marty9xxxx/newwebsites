@@ -2,16 +2,19 @@
 // login.php
 session_start();
 
+// Load the configuration   
+require_once dirname(__DIR__) . '/config.php';
+
 // Pokud je uživatel již přihlášen, přesměrujeme ho
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-    header('Location: index.php');
+    header('Location: ' . getWebPath('index.php'));
     exit;
 }
 
 // Zpracování přihlašovacího formuláře
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Načteme data uživatelů z JSON souboru
-    $users = json_decode(file_get_contents('data/users.json'), true);
+    $users = json_decode(file_get_contents(getFilePath('data', 'users.json')), true);
     
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -19,8 +22,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Procházíme uživatele a hledáme shodu
     $user_found = false;
     foreach ($users as $user) {
+        
         // Kontrola uživatelského jména a hesla
         if ($user['username'] === $username && password_verify($password, $user['password'])) {
+            
             // Uživatel nalezen a heslo souhlasí
             $_SESSION['logged_in'] = true;
             $_SESSION['user_id'] = $user['id'];
@@ -29,9 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             // Přesměrování podle role
             if ($user['role'] === 'admin') {
-                header('Location: admin.php');
+                header('Location: ' . getWebPath('admin/admin.php'));
             } else {
-                header('Location: index.php');
+                header('Location: ' . getWebPath('index.php'));
             }
             exit;
         }
@@ -46,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <title>Přihlášení</title>
-    <?php include 'header.php'; ?>
+    <?php include (getFilePath('includes','header.php')); ?>
 </head>
 <body>
     <h2>Přihlášení</h2>
@@ -66,8 +71,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <button type="submit">Přihlásit</button>
     </form>
-    <a href="register.php">Registrovat se</a>
-<?php include 'footer.php'; ?>
+    <a href="<?php echo getWebPath('includes/register.php'); ?>">Registrovat se</a>
+    <?php include(getFilePath('includes', 'footer.php')); ?>
 
 </body>
 </html>

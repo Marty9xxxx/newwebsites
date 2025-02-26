@@ -2,9 +2,12 @@
 // register.php
 session_start();
 
+// Load the configuration   
+require_once dirname(__DIR__) . '/config.php';
+
 // Pokud je uživatel již přihlášen, přesměrujeme ho
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-    header('Location: index.php');
+    header('Location: ' . getWebPath('index.php'));
     exit;
 }
 
@@ -13,7 +16,7 @@ $success = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Načteme existující uživatele
-    $users = json_decode(file_get_contents('data/users.json'), true);
+    $users = json_decode(file_get_contents(getFilePath('data', 'users.json')), true);
     
     $username = trim($_POST['username']);
     $password = $_POST['password'];
@@ -56,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $users[] = $new_user;
             
             // Uložíme aktualizovaný seznam uživatelů
-            if (file_put_contents('data/users.json', json_encode($users, JSON_PRETTY_PRINT))) {
+            if (file_put_contents(getFilePath('data', 'users.json'), json_encode($users, JSON_PRETTY_PRINT))) {
                 $success = "Registrace proběhla úspěšně! Nyní se můžete přihlásit.";
                 // Přesměrujeme na login po 2 sekundách
                 header("refresh:2;url=login.php");
@@ -72,7 +75,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <title>Registrace</title>
-    <?php include 'header.php'; ?>
+    <?php include (getFilePath('includes','header.php')); ?>
+    <link rel="stylesheet" href="<?php echo getWebPath('styles/style1.css'); ?>">
+    <link rel="stylesheet" href="<?php echo getWebPath('styles/print.css'); ?>" media="print">
     <style>
         .error { color: red; }
         .success { color: green; }
@@ -109,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit">Registrovat</button>
     </form>
     
-    <p>Již máte účet? <a href="login.php">Přihlaste se</a></p>
-    <?php include 'footer.php'; ?>
+    <p>Již máte účet? <a href="<?php echo getWebPath('includes/login.php'); ?>">Přihlaste se</a></p>
+    <?php include(getFilePath('includes', 'footer.php')); ?>
 </body>
 </html>

@@ -1,8 +1,8 @@
-<Files "../data/data.txt">
+<Files "../data/">
     Order Allow,Deny
     Deny from all
 </Files>
-<Files "../data/shoutbox.txt">
+<Files "../data/">
     Order Allow,Deny
     Deny from all
 </Files>

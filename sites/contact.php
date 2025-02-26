@@ -1,5 +1,8 @@
-
 <?php
+
+// Load the configuration   
+require_once dirname(__DIR__) . '/config.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Ověření formuláře
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
@@ -8,14 +11,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if (filter_var($email, FILTER_VALIDATE_EMAIL) && !empty($message) && !empty($subject)) {
         echo "Děkujeme za zprávu, odpovíme co nejdříve.";
-        // Zde by se normálně posílal email nebo ukládal zpráva.
+        // Zde by se normálně posílal email nebo ukládala zpráva.
     } else {
         echo "Prosím vyplňte všechna pole správně.";
     }
 }
 ?>
 
-<?php include 'header.php'; ?>
+<html>
+<head>
+    <title>Napište mi</title>
+    <?php include (getFilePath('includes','header.php')); ?>
+    <link rel="stylesheet" href="<?php echo getWebPath('styles/style1.css'); ?>">
+    <link rel="stylesheet" href="<?php echo getWebPath('styles/print.css'); ?>" media="print">
+</head>
+<body>
 
 <main>
     <section class="content">
@@ -35,4 +45,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </section>
 </main>
 
-<?php include 'footer.php'; ?>
+<?php include (getFilePath('includes','footer.php')); ?>
+</body>
+</html>
