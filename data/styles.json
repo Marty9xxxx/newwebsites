@@ -1,10 +1,10 @@
 {
-    "currentStyle": "contrast",
-    "cssPath": "../styles/",
+    "currentStyle": "style1",
     "availableStyles": [
         "style1",
         "style2",
         "contrast",
         "print"
-    ]
+    ],
+    "cssPath": "\/styles\/"
 }

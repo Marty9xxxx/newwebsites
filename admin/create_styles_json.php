@@ -1,39 +1,42 @@
 <?php
-// Vytvoření prvního JSON souboru pro styly
+// Načtení konfigurace pro přístup k funkcím getFilePath
+require_once dirname(__DIR__) . '/config.php';
 
-// Nejdřív zkontrolujeme/vytvoříme složku pro data
-if (!file_exists('data')) {
-    // Vytvoříme složku s právy 0755 (vlastník může číst/zapisovat/spouštět, ostatní jen číst/spouštět)
-    mkdir('data', 0755);
-}
+// Definice cesty k JSON souboru
+$styles_file = getFilePath('data', 'styles.json');
 
-// styles.json
+// Vytvoření základní struktury pro styly
 $styles = [
-    'theme' => 'light',
-    'colors' => [
-        'primary' => '#007bff',
-        'secondary' => '#6c757d',
-        'background' => '#ffffff'
+    // Aktuálně používaný styl
+    'currentStyle' => 'style1',
+    
+    // Seznam dostupných stylů
+    'availableStyles' => [
+        'style1',  // Výchozí hlavní styl
+        'style2',     // Širší horní menu
+        'contrast'     // Vysoký kontrast barev i rozložení ;)
     ],
-    'fonts' => [
-        'main' => 'Arial',
-        'headings' => 'Roboto'
-    ]
+    
+    // Cesta ke složce se styly
+    'cssPath' => '/styles/'
 ];
 
-// Uložíme pole do JSON souboru
-// json_encode převede PHP pole na JSON
-// JSON_PRETTY_PRINT zajistí hezké formátování (odsazení)
-$json_data = json_encode($styles, JSON_PRETTY_PRINT);
-
-// Uložíme data do souboru
-// file_put_contents zapíše obsah do souboru
-// Pokud soubor neexistuje, vytvoří ho
-file_put_contents('../data/styles.json', $json_data);
-
-// Pro kontrolu můžeme vypsat obsah
-echo "Soubor styles.json byl vytvořen!";
-
-// Ukázka, jak později načíst data ze souboru:
-$loaded_styles = json_decode(file_get_contents('../data/styles.json'), true);
+// Pokus o uložení dat do JSON souboru
+try {
+    // Kontrola existence složky data
+    if (!is_dir(dirname($styles_file))) {
+        mkdir(dirname($styles_file), 0777, true);
+        echo "Složka data byla vytvořena!<br>";
+    }
+    
+    // Uložení dat do souboru s formátováním pro lepší čitelnost
+    if (file_put_contents($styles_file, json_encode($styles, JSON_PRETTY_PRINT))) {
+        echo "Soubor styles.json byl úspěšně vytvořen!<br>";
+        echo "Obsahuje " . count($styles['availableStyles']) . " dostupných stylů.";
+    } else {
+        echo "Chyba: Nepodařilo se zapsat data do souboru!";
+    }
+} catch (Exception $e) {
+    echo "Chyba: " . $e->getMessage();
+}
 ?>

@@ -5,7 +5,10 @@ require_once dirname(__DIR__) . '/config.php';
 <html lang="cs">
 <head>
     <title>Svatoušek</title>
-    <link rel="stylesheet" href="<?php echo getWebPath('styles/style1.css'); ?>">
+    <link rel="stylesheet" href="<?php 
+        $styles = json_decode(file_get_contents(getFilePath('data', 'styles.json')), true);
+        echo getWebPath('styles/' . ($styles['currentStyle'] ?? 'default') . '.css');
+    ?>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo getWebPath('styles/print.css'); ?>" media="print">

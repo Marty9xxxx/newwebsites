@@ -1,15 +1,19 @@
 <?php
+// Spuštění session pro práci s přihlášením
 session_start();
-// Načtení konfigurace
+
+// Načtení konfiguračního souboru s funkcemi pro práci s cestami
 require_once dirname(__DIR__) . '/config.php';
 
-// Kontrola přihlášení a role
+// Kontrola přihlášení a role uživatele
+// Pokud není uživatel přihlášen nebo není admin, přesměruj na přihlášení
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSION['role'] !== 'admin') {
     header('Location: ' . getWebPath('includes/login.php'));
     exit;
 }
 
-// Zpracování odhlášení
+// Zpracování odhlášení uživatele
+// Při kliknutí na odhlásit zruší session a přesměruje na přihlášení
 if (isset($_GET['logout'])) {
     session_unset();
     session_destroy();
@@ -17,7 +21,7 @@ if (isset($_GET['logout'])) {
     exit;
 }
 
-// Načtení potřebných dat
+// Načtení všech potřebných dat z JSON souborů
 $users = json_decode(file_get_contents(getFilePath('data', 'users.json')), true);
 $styles = json_decode(file_get_contents(getFilePath('data', 'styles.json')), true);
 $news = json_decode(file_get_contents(getFilePath('data', 'news.json')), true);
@@ -38,6 +42,11 @@ $guestbook = json_decode(file_get_contents(getFilePath('data', 'guestbook.json')
             <h2>Administrace</h2>
             <p>Vítejte, <?php echo htmlspecialchars($_SESSION['username']); ?>!</p>
             
+            <?php if (isset($_SESSION['message'])): ?>
+                <div class="message success"><?php echo htmlspecialchars($_SESSION['message']); ?></div>
+                <?php unset($_SESSION['message']); ?>
+            <?php endif; ?>
+
             <!-- Admin menu -->
             <div class="admin-menu">
                 <h3>Správa obsahu</h3>

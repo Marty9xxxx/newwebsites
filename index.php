@@ -1,7 +1,7 @@
 <?php
 session_start();
 // Načtení konfigurace  
-require_once dirname(__DIR__) . 'config.php';
+require_once 'config.php';
 
 // Načtení dat z JSONů
 $users = json_decode(file_get_contents(getFilePath('data', 'users.json')), true);

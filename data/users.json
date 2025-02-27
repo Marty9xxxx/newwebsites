@@ -14,5 +14,10 @@
         "role": "admin",
         "email": "admin@example.com",
         "created_at": "2025-02-18 07:28:20"
+    },
+    {
+        "username": "Tester",
+        "password": "$2y$10$lSwAAYQmz5UUgwJRwzndY.Vog4O8GCpVmabm\/F8V1uIK1vrC252Uy",
+        "role": "admin"
     }
 ]

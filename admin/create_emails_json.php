@@ -11,7 +11,8 @@ if (!file_exists('data')) {
 $emails = [
     'templates' => [
         [
-            'id' => quest@example.com,
+            'id' => 1,
+            'email' => 'quest@example.com',  // email přesunut do samostatného pole
             'name' => 'Info email',
             'subject' => 'Vítejte na webu',
             'message' => 'Vážený/á {jmeno},\n\nVítejte na našem webu...'

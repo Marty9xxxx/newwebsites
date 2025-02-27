@@ -1,17 +1,12 @@
 [
     {
-        "datetime": "18.02.2025 08:04",
-        "author": "Martin Svat\u00fd",
-        "message": "basic test"
+        "name": "Tester",
+        "message": "Novinky jsou v jin\u00e9 sekci, zde m\u016f\u017eete zanechat vzkaz, p\u0159\u00e1n\u00ed, st\u00ed\u017enost nebo t\u0159eba ohlas na na\u0161e slu\u017eby ;)",
+        "datetime": "2025-02-27 06:54:05"
     },
     {
-        "datetime": "10.02.2025 02:12",
-        "author": "matej",
-        "message": "Ahoj tati, mam te rad ;)"
-    },
-    {
-        "datetime": "10.02.2025 02:06",
-        "author": "Martin",
-        "message": "ahoj, tohle je test"
+        "name": "Martin",
+        "message": "Kdepak je historie novinek?",
+        "datetime": "2025-02-27 06:20:24"
     }
 ]

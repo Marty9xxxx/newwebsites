@@ -1,33 +1,55 @@
 <?php
-// admin-styles.php
-
+// Odstranit session_start() - session je již spuštěna v admin.php
 require_once dirname(__DIR__) . '/config.php';
 
-// Načtení dat z JSONů
-$users = json_decode(file_get_contents(getFilePath('data', 'users.json')), true);
-$styles = json_decode(file_get_contents(getFilePath('data', 'styles.json')), true);
+// Načtení konfigurace stylů
+$stylesFile = getFilePath('data', 'styles.json');
+$stylesConfig = json_decode(file_get_contents($stylesFile), true);
 
-// Vložení hlavičky
-include(getFilePath('includes', 'header.php'));
-
-// Zpracování formuláře pro změnu stylu
-if(isset($_POST['newStyle']) && in_array($_POST['newStyle'], $stylesConfig['availableStyles'])) {
-    $stylesConfig['currentStyle'] = $_POST['newStyle'];
-    file_put_contents(getFilePath('data', 'styles.json'), json_encode($stylesConfig, JSON_PRETTY_PRINT));
+// Zpracování změny stylu
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['style'])) {
+    $newStyle = $_POST['style'];
+    
+    // Kontrola, zda je vybraný styl platný
+    if (in_array($newStyle, $stylesConfig['availableStyles'])) {
+        $stylesConfig['currentStyle'] = $newStyle;
+        
+        // Uložení změny do JSON souboru
+        if (file_put_contents($stylesFile, json_encode($stylesConfig, JSON_PRETTY_PRINT))) {
+            header('Location: admin.php?section=styles&success=1');
+            exit;
+        }
+    }
 }
 
-// Formulář pro výběr stylu
+// Načtení dostupných stylů
+$availableStyles = $stylesConfig['availableStyles'] ?? [];
+$currentStyle = $stylesConfig['currentStyle'] ?? 'default';
 ?>
-<form method="POST">
-    <select name="newStyle">
-        <?php foreach($stylesConfig['availableStyles'] as $style): ?>
-            <option value="<?php echo $style; ?>" 
-                    <?php echo ($style === $stylesConfig['currentStyle']) ? 'selected' : ''; ?>>
-                <?php echo ucfirst($style); ?> style
-            </option>
-        <?php endforeach; ?>
-    </select>
-    <button type="submit">Změnit styl</button>
-</form>
 
-<p>Aktuální styl: <?php echo ucfirst($stylesConfig['currentStyle']); ?></p>
+<main>
+    <section class="content">
+        <h2>Správa vzhledu</h2>
+        
+        <?php if (isset($_GET['success'])): ?>
+            <div class="message success">Styl byl úspěšně změněn.</div>
+        <?php endif; ?>
+
+        <p>Aktuální styl: <strong><?php echo htmlspecialchars(ucfirst($currentStyle)); ?></strong></p>
+
+        <form method="post">
+            <div>
+                <label for="style">Vyberte styl:</label>
+                <select name="style" id="style">
+                    <?php foreach ($availableStyles as $style): ?>
+                        <option value="<?php echo htmlspecialchars($style); ?>"
+                                <?php echo ($style === $currentStyle) ? 'selected' : ''; ?>>
+                            <?php echo htmlspecialchars(ucfirst($style)); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <button type="submit">Změnit styl</button>
+        </form>
+    </section>
+</main>
