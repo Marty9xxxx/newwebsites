@@ -1,10 +1,14 @@
-[
-    {
-        "id": 1,
-        "name": "Prvn\u00ed \u010dl\u00e1nek",
-        "content": "Obsah prvn\u00edho \u010dl\u00e1nku...",
-        "created_at": "2025-02-18 07:52:41",
-        "updated_at": "2025-02-18 07:52:41",
-        "author": "admin"
-    }
-]
+{
+    "articles": [
+        {
+            "id": 1,
+            "title": "V\u00fdvoj webu se zd\u00e1 jednoduch\u00fd...",
+            "perex": "...ale zd\u00e1n\u00ed \u010dasto klame ;)",
+            "content": "A v tom se mus\u00edm utvrzovat s ka\u017ed\u00fdm dal\u0161\u00edm n\u00e1padem, co mi p\u0159ijde na mysl ;) \r\n\r\nZat\u00edm pomalinku rozv\u00edj\u00edm rozs\u00e1hlej\u0161\u00ed verzi projektu, jednodu\u0161\u0161\u00ed mohu ud\u011blat v\u017edy ;) \r\n\r\nCo prozat\u00edm lze? \r\n-Zobrazit si i \u00favodn\u00ed stranu s textem bez p\u0159ihl\u00e1\u0161en\u00ed\r\n-Registrovat nov\u00e9 u\u017eivatele\r\n-Zobrazit si bez p\u0159ihl\u00e1\u0161en\u00ed v\u0161echny \u010dl\u00e1nky\r\n-Napsat email t\u0159eba mn\u011b nebo osob\u011b stanoven\u00e9 v nastaven\u00ed skriptu\r\n-Bez p\u0159ihl\u00e1\u0161en\u00ed si zobrazit novinky\r\n-V administraci upravovat novinky, n\u00e1v\u0161t\u011bvn\u00ed knihu, \u010dl\u00e1nky, u\u017eivatele (v\u010detn\u011b jejich vytv\u00e1\u0159en\u00ed), p\u0159ep\u00ednat styly a upravit text hlavn\u00ed str\u00e1nky\r\n-Zobrazit Portfolio prac\u00ed s popisem a v\u00fdb\u011brem\r\n_zanechat stopu v n\u00e1v\u0161t\u011bvn\u00ed knize, a\u0165 u\u017e kladnou \u010di z\u00e1pornou ;)\r\n\r\n  Dal\u0161\u00ed bude postupn\u011b p\u0159ib\u00fdvat ;)\r\n",
+            "author": "admin",
+            "datetime": "2025-02-28 06:19:50",
+            "published": true,
+            "last_edited": "2025-02-28 06:54:59"
+        }
+    ]
+}

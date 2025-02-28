@@ -1,0 +1,66 @@
+/* Styly pro seznam článků */
+.articles-list {
+    margin: 20px 0;
+}
+
+.article-preview {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.article-preview h2 {
+    margin-bottom: 10px;
+}
+
+.article-preview h2 a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Styly pro meta informace */
+.article-meta {
+    color: #666;
+    font-size: 0.9em;
+    margin: 10px 0;
+}
+
+/* Styly pro perex a obsah */
+.article-perex {
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+.article-content {
+    line-height: 1.8;
+    margin: 20px 0;
+}
+
+/* Navigační prvky */
+.read-more {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background 0.3s;
+}
+
+.read-more:hover {
+    background: #0056b3;
+}
+
+/* Zpět na seznam */
+.back-link {
+    display: inline-block;
+    margin: 20px 0;
+    color: #666;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: #333;
+}

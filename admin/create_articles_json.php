@@ -1,6 +1,8 @@
 <?php
-// create_articles_json.php
-// Tento skript vytvoří základní strukturu pro články na webu
+// Nastavení kódování pro výstup
+header('Content-Type: text/html; charset=utf-8');
+
+require_once dirname(__DIR__) . '/config.php';
 
 // Kontrola existence složky data
 if (!file_exists('data')) {
@@ -8,30 +10,32 @@ if (!file_exists('data')) {
     echo "Složka data byla vytvořena!<br>";
 }
 
-// Vytvoříme základní strukturu pro články
+// Základní struktura pro články
 $articles = [
-    // První ukázkový článek
-    [
-        'id' => 1,                      // Unikátní ID článku
-        'name' => 'První článek',       // Název článku
-        'content' => 'Obsah prvního článku...', // Obsah článku
-        'created_at' => date('Y-m-d H:i:s'),    // Datum vytvoření
-        'updated_at' => date('Y-m-d H:i:s'),    // Datum poslední úpravy
-        'author' => 'admin'             // Autor článku
+    'articles' => [
+        [
+            'id' => 1,
+            'title' => 'První článek',
+            'perex' => 'Ukázkový perex prvního článku',
+            'content' => 'Obsah prvního článku...',
+            'author' => 'admin',
+            'datetime' => date('Y-m-d H:i:s'),
+            'published' => true
+        ]
     ]
 ];
 
-// Uložíme do souboru
-if (file_put_contents('../data/articles.json', json_encode($articles, JSON_PRETTY_PRINT))) {
-    echo "Soubor articles.json byl úspěšně vytvořen!<br>";
-} else {
-    echo "Nastala chyba při vytváření souboru!<br>";
-}
+// Definice cesty k souboru pomocí getFilePath
+$articles_file = getFilePath('data', 'articles.json');
+
+// Uložení do JSON souboru s podporou českých znaků
+file_put_contents($articles_file, json_encode($articles, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+echo "Soubor articles.json byl vytvořen!<br>";
 
 // Pro kontrolu přečteme a vypíšeme obsah
-if (file_exists('../data/articles.json')) {
+if (file_exists($articles_file)) {  // Použití proměnné s cestou
     echo "<pre>";
-    echo htmlspecialchars(file_get_contents('../data/articles.json'));
+    echo htmlspecialchars(file_get_contents($articles_file));  // Použití proměnné s cestou
     echo "</pre>";
 }
 ?>

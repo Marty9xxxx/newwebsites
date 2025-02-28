@@ -53,8 +53,10 @@ $guestbook = json_decode(file_get_contents(getFilePath('data', 'guestbook.json')
                 <ul>
                     <li><a href="admin.php?section=news">Správa novinek</a></li>
                     <li><a href="admin.php?section=guestbook">Správa návštěvní knihy</a></li>
+                    <li><a href="admin.php?section=articles">Správa článků</a></li>
                     <li><a href="admin.php?section=users">Správa uživatelů</a></li>
                     <li><a href="admin.php?section=styles">Vzhled webu</a></li>
+                    <li><a href="admin.php?section=content">Správa obsahu</a></li>
                 </ul>
             </div>
 
@@ -69,6 +71,9 @@ $guestbook = json_decode(file_get_contents(getFilePath('data', 'guestbook.json')
                     case 'guestbook':
                         include(getFilePath('admin', 'guestbook.php'));
                         break;
+                    case 'articles':
+                            include(getFilePath('admin', 'articles.php'));
+                            break;
                     case 'styles':
                         include(getFilePath('admin', 'styles.php'));
                         break;
@@ -77,6 +82,9 @@ $guestbook = json_decode(file_get_contents(getFilePath('data', 'guestbook.json')
                         break;
                     case 'articles':
                         include(getFilePath('admin', 'articles.php'));
+                        break;
+                    case 'content':
+                        include(getFilePath('admin', 'content.php'));
                         break;
                 }
             }

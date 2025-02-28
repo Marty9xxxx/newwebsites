@@ -21,8 +21,9 @@ require_once dirname(__DIR__) . '/config.php';
             <li><a href="<?php echo getWebPath('includes/logout.php'); ?>">Odhlásit se</a></li>
             <li><a href="<?php echo getWebPath('includes/register.php'); ?>">Registrace</a></li>
             <li><a href="<?php echo getWebPath('index.php'); ?>">Úvod</a></li>
+            <li><a href="<?php echo getWebPath('sites/articles.php'); ?>">Články</a></li>
             <li><a href="<?php echo getWebPath('sites/contact.php'); ?>">Napište mi</a></li>
-            <li><a href="<?php echo getWebPath('admin/news.php'); ?>">Novinky</a></li>
+            <li><a href="<?php echo getWebPath('sites/news.php'); ?>">Novinky</a></li>
             <li><a href="<?php echo getWebPath('admin/admin.php'); ?>">Administrace</a></li>
             <li><a href="<?php echo getWebPath('errors/error404.php'); ?>">Chyba!</a></li>
             <li><a href="<?php echo getWebPath('sites/portfolio.php'); ?>">Portfolio</a></li>

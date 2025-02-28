@@ -1,0 +1,8 @@
+{
+    "homepage": {
+        "title": "Vítejte na stránkách",
+        "content": "Tento projekt vznikl na základu studie vývoje webových stránek a rozvíjení znalostí v programování.\r\nVyužívá PHP, HTML, CSS a okrajově i JS. \r\nNemá závislot na vnější databázi, ukládání je řešeno do souboru - nepotřebujete SQL! ;)",
+        "last_edited": "2025-02-28 06:38:41",
+        "edited_by": "Marty9xxxx"
+    }
+}
