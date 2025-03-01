@@ -9,28 +9,35 @@
     }
 }
 
+/* Reset základních stylů */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Tělo stránky */
 body {
     font-family: Arial, sans-serif;
     background: #f4f4f4;
     color: #333;
+    text-align: left;
 }
 
+/*hlavička*/
 header {
-    background: #333;
+    background: #573232;
     color: white;
-    padding: 15px;
+    padding: 20px;
     text-align: center;
 }
 
+/* Navigace */
 nav ul {
     list-style-type: none;
     padding: 0;
+    display:flex;
+    justify-content: center;
 }
 
 nav a {
@@ -39,30 +46,71 @@ nav a {
     margin: 0 10px;
 }
 
-main {
+/* Hlavní layout */
+.container {
+    display: flex;
     max-width: 1000px;
     margin: 20px auto;
     background: white;
-    padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Hlavní obsah */
+.content {
+    flex: 2;
+    padding: 20px;
+}
+
+/* Pravý sloupec */
+.sidebar {
+    flex: 1;
+    padding: 20px;
+    background: #f8f8f8;
+    border-left: 1px solid #ddd;
+}
+
+/* Patička */
 footer {
     text-align: center;
-    background: #333;
+    background: #573232;
     color: white;
-    padding: 10px;
+    padding: 10px; /*výška patičky*/
     margin-top: 20px;
 }
 
+
+/*hledání*/
+.search {
+    display: flex;
+    justify-content: flex-end;  /* zarovnání vpravo */
+    align-items: center; /* vertikální zarovnání */
+    gap: 5px; /* Mezera mezi polem a tlačítkem */
+}
+
+.search input {
+    width: 100px; /* Nastav šířku podle potřeby */
+    padding: 5px;
+}
+
+.search button {
+    padding: 5px 10px;
+    width: auto; /* Nebo konkrétní šířku, třeba 80px */
+    white-space: nowrap; /* Zabrání zalomení textu */
+}
+
+
+/* Formuláře */
 form {
     display: flex;
     flex-direction: column;
+    max-width: 400px;
+    margin: auto;
 }
 
 form input, form textarea {
     margin: 10px 0;
     padding: 10px;
+    border: 1px solid #ddd;
 }
 
 form button {
@@ -75,4 +123,29 @@ form button {
 
 form button:hover {
     background: #555;
+}
+
+/* Responzivita */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        border-left: none;
+        border-top: 1px solid #ddd;
+    }
+}
+/*guestbook*/
+.messages {
+    background: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.messages p {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
 }

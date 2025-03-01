@@ -1,0 +1,11 @@
+# Zablokování přímého přístupu ke všem souborům kromě PHP
+<FilesMatch ".*">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "\.php$">
+    Allow from all
+</FilesMatch>
+# Zobrazí 403 (Forbidden) pro všechny návštěvníky
+ErrorDocument 403 /error403.php
