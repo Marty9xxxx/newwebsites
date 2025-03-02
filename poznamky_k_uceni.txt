@@ -1,6 +1,6 @@
 __DIR__. vždycky před soubor, relativní adresování, moc užitečné!
 
- poznámky k funkcím, které používáme:
+poznámky k funkcím, které používáme:
 - `file_exists()` - kontroluje existenci souboru/složky
 - `mkdir()` - vytváří složku
 - `password_hash()` - vytváří bezpečný hash hesla
@@ -9,3 +9,113 @@ __DIR__. vždycky před soubor, relativní adresování, moc užitečné!
 - `file_put_contents()` - ukládá obsah do souboru
 - `json_decode()` - převádí JSON zpět na PHP pole
 - `file_get_contents()` - načítá obsah souboru
+
+Další užitečné funkce:
+- `session_start()` - inicializace session
+- `header()` - přesměrování a HTTP hlavičky
+- `htmlspecialchars()` - ochrana proti XSS
+- `filter_var()` - validace vstupních dat
+- `password_verify()` - ověření hesla proti hashi
+- `array_map()` - transformace pole
+- `strtotime()` - převod data na timestamp
+- `realpath()` - získání absolutní cesty
+
+# Shrnutí dnešních úprav a doporučení
+
+## Upravené soubory:
+
+### 🔄 check_login.php
+- Přidány podrobné komentáře pro kontrolu přihlášení
+- **Doporučená vylepšení:**
+  - Přidat kontrolu IP adresy
+  - Implementovat dvoufaktorovou autentizaci
+  - Přidat logování přístupů
+  - Ochrana proti brute-force útokům
+
+### 🔄 styles_config.php
+- Přidány komentáře pro konfiguraci stylů
+- **Doporučená vylepšení:**
+  - Přidat validaci dat
+  - Implementovat logování změn
+  - Vytvářet zálohy konfigurace
+  - Přidat verzování stylů
+
+### 🔄 error400.php až error500.php
+- Přidány jednotné komentáře pro chybové stránky
+- **Doporučená vylepšení:**
+  - Přidat customizované chybové zprávy
+  - Implementovat logování chyb
+  - Přidat automatické přesměrování
+  - Vylepšit UX při chybách
+
+### 🔄 footer.php a header.php
+- Strukturované komentáře pro hlavičku a patičku
+- **Doporučená vylepšení:**
+  - Přidat dynamické menu
+  - Implementovat breadcrumbs
+  - Přidat social media odkazy
+  - Vylepšit SEO meta tagy
+
+### 🔄 login.php a register.php
+- Detailní komentáře pro přihlašování a registraci
+- **Doporučená vylepšení:**
+  - Přidat CAPTCHA
+  - Implementovat Remember Me
+  - Přidat silnější validaci hesla
+  - Přidat obnovení hesla
+
+### 🔄 search.php
+- Komentáře pro vyhledávací funkce
+- **Doporučená vylepšení:**
+  - Přidat fulltextové vyhledávání
+  - Implementovat filtry
+  - Přidat našeptávač
+  - Vylepšit relevanci výsledků
+
+### 🔄 articles.php, news.php, portfolio.php
+- Strukturované komentáře pro obsahové stránky
+- **Doporučená vylepšení:**
+  - Přidat kategorizaci obsahu
+  - Implementovat komentáře
+  - Přidat sdílení na sociální sítě
+  - Vylepšit SEO optimalizaci
+
+### 🔄 style1.css
+- Přehledné komentáře pro CSS styly
+- **Doporučená vylepšení:**
+  - Přidat CSS proměnné
+  - Implementovat dark mode
+  - Přidat animace
+  - Vylepšit responzivitu
+
+### 🔄 index.php
+- Komplexní komentáře pro hlavní stránku
+- **Doporučená vylepšení:**
+  - Přidat cache systém
+  - Implementovat lazy loading
+  - Přidat dynamický obsah
+  - Vylepšit výkon načítání
+
+## 📝 Poznámky k učení
+Doporučuji doplnit další užitečné PHP funkce:
+
+```plaintext
+...existing code...
+
+Další užitečné funkce:
+- `session_start()` - inicializace session
+- `header()` - přesměrování a HTTP hlavičky
+- `htmlspecialchars()` - ochrana proti XSS
+- `filter_var()` - validace vstupních dat
+- `password_verify()` - ověření hesla proti hashi
+- `array_map()` - transformace pole
+- `strtotime()` - převod data na timestamp
+- `realpath()` - získání absolutní cesty
+```
+
+## 🔍 Obecná doporučení:
+1. Implementovat jednotný systém logování
+2. Vytvořit dokumentaci projektu
+3. Přidat unit testy
+4. Optimalizovat výkon načítání
+5. Vylepšit zabezpečení formulářů

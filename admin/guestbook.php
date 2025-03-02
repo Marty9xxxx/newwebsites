@@ -1,44 +1,53 @@
 <?php
-// Načtení konfigurace
+// ====== INICIALIZACE A KONFIGURACE ======
+// Načtení konfiguračního souboru s pomocnými funkcemi
 require_once dirname(__DIR__) . '/config.php';
 
-// Načtení dat z JSONů
+// ====== NAČTENÍ DAT ======
+// Načtení potřebných JSON souborů
 $users = json_decode(file_get_contents(getFilePath('data', 'users.json')), true);
 $styles = json_decode(file_get_contents(getFilePath('data', 'styles.json')), true);
 
-// Nastavení pro návštěvní knihu
+// ====== NASTAVENÍ NÁVŠTĚVNÍ KNIHY ======
+// Cesta k souboru s příspěvky
 $shoutbox_file = getFilePath('data', 'guestbook.json');
-$max_messages = 50; // Maximální počet zpráv
-$bad_words = ['blbost', 'hlupák', 'nadávka']; // Seznam zakázaných slov
-$last_post_time = $_SESSION['last_post_time'] ?? 0; // Poslední čas odeslání zprávy
-$spam_delay = 10; // Prodleva mezi zprávami v sekundách
+$max_messages = 50;  // Maximální počet uchovávaných zpráv
+// Seznam zakázaných slov pro filtrování
+$bad_words = ['blbost', 'hlupák', 'nadávka']; 
+// Ochrana proti spamu - časový limit mezi zprávami
+$last_post_time = $_SESSION['last_post_time'] ?? 0;
+$spam_delay = 10;  // Minimální prodleva mezi zprávami v sekundách
 
-// Funkce pro filtrování nevhodných slov
+// ====== POMOCNÉ FUNKCE ======
+// Funkce pro nahrazení nevhodných slov hvězdičkami
 function filter_bad_words($text, $bad_words) {
     return str_ireplace($bad_words, '****', $text);
 }
 
-// Zpracování odeslání zprávy
+// ====== ZPRACOVÁNÍ FORMULÁŘE ======
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Očištění vstupních dat
     $name = trim($_POST['name']);
     $message = trim($_POST['message']);
 
-    // Kontrola vyplnění všech polí
+    // Validace dat
     if (empty($name) || empty($message)) {
         $error = "Vyplňte jméno i zprávu!";
     }
-    // Kontrola proti spamu
+    // Kontrola časového limitu proti spamu
     elseif (time() - $last_post_time < $spam_delay) {
         $error = "Posíláte zprávy příliš rychle! Zkuste to za pár sekund.";
     }
     else {
+        // Aktualizace času poslední zprávy
         $_SESSION['last_post_time'] = time();
+        // Filtrování nevhodných slov
         $message = filter_bad_words($message, $bad_words);
         
-        // Načtení existujících zpráv z JSON
+        // Načtení existujících zpráv
         $messages = json_decode(file_get_contents($shoutbox_file), true) ?: [];
         
-        // Přidání nové zprávy na začátek pole
+        // Přidání nové zprávy na začátek
         array_unshift($messages, [
             'name' => $name,
             'message' => $message,
@@ -48,16 +57,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Omezení počtu zpráv
         $messages = array_slice($messages, 0, $max_messages);
         
-        // Uložení do JSON souboru
+        // Uložení aktualizovaných zpráv
         file_put_contents($shoutbox_file, json_encode($messages, JSON_PRETTY_PRINT));
         
-        // Přesměrování pro zabránění opětovnému odeslání formuláře
+        // Přesměrování pro prevenci duplicitního odeslání
         header('Location: admin.php?section=guestbook&success=1');
         exit;
     }
 }
 
-// Načtení existujících zpráv
+// ====== NAČTENÍ ZPRÁV PRO ZOBRAZENÍ ======
 $messages = json_decode(file_get_contents($shoutbox_file), true) ?: [];
 ?>
 
@@ -73,6 +82,7 @@ $messages = json_decode(file_get_contents($shoutbox_file), true) ?: [];
 </head>
 <body>
 
+<!-- ====== STRUKTURA STRÁNKY ====== -->
 <header>
     <h1>Návštěvní kniha</h1>
 </header>
@@ -87,7 +97,7 @@ $messages = json_decode(file_get_contents($shoutbox_file), true) ?: [];
                 <p class="error"><?php echo htmlspecialchars($error); ?></p>
             <?php endif; ?>
 
-            <!-- Zobrazení úspěšného odeslání -->
+            <!-- Potvrzení úspěšného odeslání -->
             <?php if (isset($_GET['success'])): ?>
                 <p class="success">Zpráva byla úspěšně přidána.</p>
             <?php endif; ?>
@@ -105,12 +115,13 @@ $messages = json_decode(file_get_contents($shoutbox_file), true) ?: [];
                 <button type="submit">Odeslat</button>
             </form>
 
-            <!-- Výpis existujících zpráv -->
+            <!-- Seznam zpráv -->
             <h2>Poslední zprávy</h2>
             <div class="messages">
                 <?php if (!empty($messages)): ?>
                     <?php foreach ($messages as $msg): ?>
                         <div class="message">
+                            <!-- Bezpečný výpis dat pomocí htmlspecialchars -->
                             <strong><?php echo htmlspecialchars($msg['name']); ?></strong>
                             <span class="datetime"><?php echo htmlspecialchars($msg['datetime']); ?></span>
                             <p><?php echo htmlspecialchars($msg['message']); ?></p>

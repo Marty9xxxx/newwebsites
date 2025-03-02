@@ -1,27 +1,38 @@
 <?php
-// Spuštění session pro práci s přihlášením
+// Spuštění session pro práci s přihlášením - musí být před jakýmkoliv výstupem
 session_start();
 
 // Načtení konfiguračního souboru s funkcemi pro práci s cestami
+// Použijeme dirname(__DIR__) pro získání nadřazené složky (root webu)
 require_once dirname(__DIR__) . '/config.php';
 
+// ====== KONTROLA PŘÍSTUPU ======
 // Kontrola přihlášení a role uživatele
-// Pokud není uživatel přihlášen nebo není admin, přesměruj na přihlášení
+// Trojitá kontrola:
+// 1. Existence session
+// 2. Platnost přihlášení
+// 3. Role admin
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true || $_SESSION['role'] !== 'admin') {
     header('Location: ' . getWebPath('includes/login.php'));
-    exit;
+    exit; // Ukončení skriptu pro zabránění dalšího vykonávání
 }
 
+// ====== ODHLÁŠENÍ ======
 // Zpracování odhlášení uživatele
-// Při kliknutí na odhlásit zruší session a přesměruje na přihlášení
+// Při kliknutí na odhlásit:
+// 1. Vymaže všechny proměnné v session
+// 2. Zruší celou session
+// 3. Přesměruje na přihlašovací stránku
 if (isset($_GET['logout'])) {
-    session_unset();
-    session_destroy();
+    session_unset(); // Vymaže proměnné
+    session_destroy(); // Zruší session
     header('Location: ' . getWebPath('includes/login.php'));
     exit;
 }
 
-// Načtení všech potřebných dat z JSON souborů
+// ====== NAČTENÍ DAT ======
+// Načtení všech potřebných dat z JSON souborů pro administraci
+// Použití getFilePath pro bezpečné získání cest k souborům
 $users = json_decode(file_get_contents(getFilePath('data', 'users.json')), true);
 $styles = json_decode(file_get_contents(getFilePath('data', 'styles.json')), true);
 $news = json_decode(file_get_contents(getFilePath('data', 'news.json')), true);
@@ -32,22 +43,25 @@ $guestbook = json_decode(file_get_contents(getFilePath('data', 'guestbook.json')
 <html>
 <head>
     <title>Administrace</title>
+    <!-- Načtení základního stylu webu -->
     <link rel="stylesheet" href="<?php echo getWebPath('styles/style1.css'); ?>">
+    <!-- Vložení společné hlavičky -->
     <?php include(getFilePath('includes', 'header.php')); ?>
 </head>
 <body>
-    
     <main>
         <section class="content">
             <h2>Administrace</h2>
+            <!-- Přivítání přihlášeného uživatele s ochranou proti XSS -->
             <p>Vítejte, <?php echo htmlspecialchars($_SESSION['username']); ?>!</p>
             
+            <!-- Zobrazení zprávy o úspěchu (např. po uložení změn) -->
             <?php if (isset($_SESSION['message'])): ?>
                 <div class="message success"><?php echo htmlspecialchars($_SESSION['message']); ?></div>
-                <?php unset($_SESSION['message']); ?>
+                <?php unset($_SESSION['message']); // Vymazání zprávy po zobrazení ?> 
             <?php endif; ?>
 
-            <!-- Admin menu -->
+            <!-- ====== ADMINISTRAČNÍ MENU ====== -->
             <div class="admin-menu">
                 <h3>Správa obsahu</h3>
                 <ul>
@@ -60,30 +74,28 @@ $guestbook = json_decode(file_get_contents(getFilePath('data', 'guestbook.json')
                 </ul>
             </div>
 
-            <!-- Obsah podle sekce -->
+            <!-- ====== NAČÍTÁNÍ SEKCÍ ====== -->
+            <!-- Podle parametru section se načte příslušná stránka -->
             <?php
             if (isset($_GET['section'])) {
                 $section = $_GET['section'];
                 switch($section) {
-                    case 'news':
+                    case 'news': // Správa novinek
                         include(getFilePath('admin', 'news.php'));
                         break;
-                    case 'guestbook':
+                    case 'guestbook': // Správa návštěvní knihy
                         include(getFilePath('admin', 'guestbook.php'));
                         break;
-                    case 'articles':
-                            include(getFilePath('admin', 'articles.php'));
-                            break;
-                    case 'styles':
-                        include(getFilePath('admin', 'styles.php'));
-                        break;
-                    case 'users':
-                        include(getFilePath('admin', 'users.php'));
-                        break;
-                    case 'articles':
+                    case 'articles': // Správa článků
                         include(getFilePath('admin', 'articles.php'));
                         break;
-                    case 'content':
+                    case 'styles': // Nastavení vzhledu
+                        include(getFilePath('admin', 'styles.php'));
+                        break;
+                    case 'users': // Správa uživatelů
+                        include(getFilePath('admin', 'users.php'));
+                        break;
+                    case 'content': // Správa obsahu
                         include(getFilePath('admin', 'content.php'));
                         break;
                 }
@@ -92,6 +104,7 @@ $guestbook = json_decode(file_get_contents(getFilePath('data', 'guestbook.json')
         </section>
     </main>
 
+    <!-- Vložení společné patičky -->
     <?php include(getFilePath('includes', 'footer.php')); ?>
 </body>
 </html>

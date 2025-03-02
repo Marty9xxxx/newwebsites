@@ -1,22 +1,13 @@
-@media (max-width: 768px) {
-    main {
-        flex-direction: column; /* Na menších obrazovkách se obsah a sidebar složí pod sebe */
-    }
-
-    .sidebar {
-        margin-left: 0; /* Zrušíme levý okraj, aby sidebar zarovnal na šířku */
-        margin-top: 20px; /* Přidáme mezeru mezi obsahem a sidebar */
-    }
-}
-
-/* Reset základních stylů */
+/* ====== RESET STYLŮ ====== */
+/* Odstranění výchozích marginu a paddingu pro všechny elementy */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Pro lepší výpočet velikostí */
 }
 
-/* Tělo stránky */
+/* ====== ZÁKLADNÍ STYLY ====== */
+/* Nastavení základního fontu, pozadí a barvy textu */
 body {
     font-family: Arial, sans-serif;
     background: #f4f4f4;
@@ -24,7 +15,8 @@ body {
     text-align: center;
 }
 
-/* Hlavička */
+/* ====== HLAVIČKA ====== */
+/* Stylování hlavní hlavičky webu */
 header {
     background: #333;
     color: white;
@@ -32,30 +24,35 @@ header {
     text-align: center;
 }
 
-/* Navigace */
+/* ====== NAVIGACE ====== */
+/* Seznam navigačních položek */
 nav ul {
-    list-style-type: none;
+    list-style-type: none; /* Odstranění odrážek */
     padding: 0;
-    display: flex;
-    justify-content: center;
+    display: flex; /* Flexbox pro horizontální menu */
+    justify-content: center; /* Zarovnání na střed */
 }
 
+/* Jednotlivé položky navigace */
 nav li {
-    margin: 0 10px;
+    margin: 0 10px; /* Mezery mezi položkami */
 }
 
+/* Odkazy v navigaci */
 nav a {
     color: white;
     text-decoration: none;
     padding: 10px;
-    transition: background 0.3s;
+    transition: background 0.3s; /* Plynulá změna pozadí */
 }
 
+/* Efekt při najetí na odkaz */
 nav a:hover {
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* Hlavní layout */
+/* ====== HLAVNÍ LAYOUT ====== */
+/* Kontejner pro hlavní obsah */
 .container {
     display: flex;
     max-width: 1000px;
@@ -64,50 +61,48 @@ nav a:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Hlavní obsah */
+/* Hlavní obsahová část */
 .content {
-    flex: 2;
+    flex: 2; /* Zabírá 2/3 šířky */
     padding: 20px;
 }
 
-/* Pravý sloupec */
+/* Postranní panel */
 .sidebar {
-    flex: 1;
+    flex: 1; /* Zabírá 1/3 šířky */
     padding: 20px;
     background: #f8f8f8;
     border-left: 1px solid #ddd;
 }
 
-/* Patička */
+/* ====== PATIČKA ====== */
 footer {
     text-align: center;
     background: #333;
     color: white;
-    padding: 10px; /*výška hlavičky*/
+    padding: 10px;
     margin-top: 20px;
 }
 
-
-/*hledání*/
+/* ====== VYHLEDÁVÁNÍ ====== */
 .search {
     display: flex;
     align-items: right;
-    gap: 5px; /* Mezera mezi polem a tlačítkem */
+    gap: 5px; /* Mezera mezi prvky */
 }
 
 .search input {
-    width: 60px; /* Nastav šířku podle potřeby */
+    width: 60px;
     padding: 5px;
 }
 
 .search button {
     padding: 5px 10px;
-    width: auto; /* Nebo konkrétní šířku, třeba 80px */
-    white-space: nowrap; /* Zabrání zalomení textu */
+    width: auto;
+    white-space: nowrap; /* Text tlačítka se nezalamuje */
 }
 
-
-/* Formuláře */
+/* ====== FORMULÁŘE ====== */
 form {
     display: flex;
     flex-direction: column;
@@ -115,12 +110,14 @@ form {
     margin: auto;
 }
 
+/* Vstupní pole a textové oblasti */
 form input, form textarea {
     margin: 10px 0;
     padding: 10px;
     border: 1px solid #ddd;
 }
 
+/* Tlačítka ve formulářích */
 form button {
     background: #333;
     color: white;
@@ -129,31 +126,46 @@ form button {
     cursor: pointer;
 }
 
+/* Efekt při najetí na tlačítko */
 form button:hover {
     background: #555;
 }
 
-/* Responzivita */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-
-    .sidebar {
-        border-left: none;
-        border-top: 1px solid #ddd;
-    }
-}
-/*guestbook*/
+/* ====== NÁVŠTĚVNÍ KNIHA ====== */
 .messages {
     background: #f9f9f9;
     padding: 10px;
     border: 1px solid #ddd;
     max-height: 300px;
-    overflow-y: auto;
+    overflow-y: auto; /* Scrollování při přetečení */
 }
 
 .messages p {
     padding: 5px;
     border-bottom: 1px solid #ddd;
+}
+
+/* ====== RESPONZIVNÍ DESIGN ====== */
+@media (max-width: 768px) {
+    /* Změna layoutu pro mobilní zařízení */
+    .container {
+        flex-direction: column;
+    }
+    
+    /* Úprava postranního panelu */
+    .sidebar {
+        border-left: none;
+        border-top: 1px solid #ddd;
+    }
+    
+    /* Úprava hlavního obsahu */
+    main {
+        flex-direction: column;
+    }
+    
+    /* Úprava mezery pro sidebar */
+    .sidebar {
+        margin-left: 0;
+        margin-top: 20px;
+    }
 }
