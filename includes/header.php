@@ -28,7 +28,7 @@ require_once dirname(__DIR__) . '/config.php';
     <link rel="stylesheet" href="<?php echo getWebPath('styles/print.css'); ?>" media="print">
     
     <!-- TinyMCE WYSIWYG Editor -->
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/bmh9epsdxw8n5foagoedb6lnfmpsvxm4xre0iavd4c3u0j35/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 
 <!-- ====== HLAVIČKA WEBU ====== -->
