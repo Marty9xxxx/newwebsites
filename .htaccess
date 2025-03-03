@@ -19,5 +19,23 @@
     Allow from all
 </FilesMatch>
 
-# Zobrazí 403 (Forbidden) pro všechny návštěvníky
-ErrorDocument 403 /error403.php
+# Povolení přístupu ke složce
+Options +Indexes
+DirectoryIndex index.php
+
+# Povolení přístupu k souborům
+<Files *>
+    Order Allow,Deny
+    Allow from all
+</Files>
+
+# Zakázání přímého přístupu k některým složkám
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Přesměrování chyb
+ErrorDocument 403 /errors/error403.php
+ErrorDocument 404 /errors/error404.php
+ErrorDocument 500 /errors/error500.php

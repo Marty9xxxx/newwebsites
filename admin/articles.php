@@ -205,3 +205,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     margin-top: 10px;
 }
 </style>
+
+<!-- Přidat před uzavírací tag </body> -->
+<script>
+tinymce.init({
+    selector: '.editor', // Třída pro textareas, které chceme změnit na editor
+    plugins: 'lists link image table code help wordcount',
+    toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | link image | code',
+    height: 400,
+    language: 'cs',
+    skin: 'oxide-dark',
+    content_css: 'dark',
+    menubar: true,
+    branding: false,
+    // České rozhraní
+    language_url: 'https://cdn.tiny.cloud/1/no-api-key/tinymce/6/langs/cs.js',
+    // Automatické ukládání rozpracovaného obsahu
+    autosave_ask_before_unload: true,
+    autosave_interval: '30s',
+    // Nastavení pro nahrávání obrázků
+    images_upload_url: 'upload.php',
+    automatic_uploads: true
+});
+</script>

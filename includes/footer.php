@@ -1,8 +1,9 @@
 <?php
-// ====== INICIALIZACE ======
-// Kontrola, zda je soubor načítán přímo nebo pomocí include
+// Kontrola bezpečnostní konstanty
 if (!defined('SECURITY')) {
-    die('Přímý přístup není povolen');
+    // Místo ukončení skriptu přesměrujeme na hlavní stránku
+    header('Location: ' . getWebPath('index.php'));
+    exit;
 }
 ?>
 
@@ -20,16 +21,16 @@ if (!defined('SECURITY')) {
     <div class="footer-info">
         <!-- Kontaktní údaje -->
         <p>Kontakt: 
-            <a href="mailto:info@example.com">info@example.com</a>
+            <a href="mailto:webazantmarty@gmail.com">webazantmarty@gmail.com</a>
         </p>
         
         <!-- Odkazy na sociální sítě -->
         <div class="social-links">
-            <a href="#" title="Facebook" rel="noopener noreferrer">
+            <a href="https://facebook.com/martin.svaty/" title="Facebook" rel="noopener noreferrer">
                 <i class="fab fa-facebook"></i>
             </a>
-            <a href="#" title="Twitter" rel="noopener noreferrer">
-                <i class="fab fa-twitter"></i>
+            <a href="https://x.com/marty9xxxx/" title="Twitter" rel="noopener noreferrer">
+                <i class="fab fa-x-twitter"></i>
             </a>
         </div>
     </div>

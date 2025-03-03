@@ -1,4 +1,7 @@
 <?php
+// Definice bezpečnostní konstanty
+define('SECURITY', true);
+
 // config.php
 define('SYSTEM_PATH', str_replace('\\', '/', dirname(__FILE__)));
 define('WEB_ROOT', '/ai-cviceni-web'); 

@@ -9,7 +9,18 @@ require_once dirname(__DIR__) . '/config.php';
 
 // ====== LOGOVÁNÍ CHYBY ====== 
 // Zaznamenání 404 chyby do logu
-error_log("404 Not Found: " . $_SERVER['REQUEST_URI']);
+require_once dirname(__DIR__) . '/includes/Logger.php';
+
+$logger = new Logger('errors');
+$logger->write(
+    sprintf(
+        "404 Not Found: %s | IP: %s | Referrer: %s",
+        $_SERVER['REQUEST_URI'],
+        $_SERVER['REMOTE_ADDR'],
+        $_SERVER['HTTP_REFERER'] ?? 'přímý přístup'
+    ),
+    'ERROR'
+);
 ?>
 
 <!DOCTYPE html>

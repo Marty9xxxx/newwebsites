@@ -21,8 +21,14 @@ require_once dirname(__DIR__) . '/config.php';
         echo getWebPath('styles/' . ($styles['currentStyle'] ?? 'default') . '.css');
     ?>">
     
+    <!-- Font Awesome pro sociální ikony -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <!-- Speciální styl pro tisk -->
     <link rel="stylesheet" href="<?php echo getWebPath('styles/print.css'); ?>" media="print">
+    
+    <!-- TinyMCE WYSIWYG Editor -->
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 
 <!-- ====== HLAVIČKA WEBU ====== -->

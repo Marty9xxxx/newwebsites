@@ -76,12 +76,49 @@ nav a:hover {
 }
 
 /* ====== PATIČKA ====== */
+/* Stylování patičky a sociálních ikon */
 footer {
-    text-align: center;
     background: #333;
     color: white;
-    padding: 10px;
+    padding: 20px;
     margin-top: 20px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Úprava barvy ikon na světlou */
+.social-links a {
+    color: #ffffff; /* Bílá barva pro dobrou viditelnost na tmavém pozadí */
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+/* Efekt při najetí myší */
+.social-links a:hover {
+    color: #ffd700; /* Zlatavá barva při najetí myší */
+    transform: translateY(-2px); /* Mírné nadzvednutí ikony */
+}
+
+/* Velikost ikon */
+.social-links i {
+    font-size: 24px;
+}
+
+/* Skrytí textového popisku, ale zachování pro čtečky */
+.social-links i::after {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
 }
 
 /* ====== VYHLEDÁVÁNÍ ====== */
@@ -168,4 +205,18 @@ form button:hover {
         margin-left: 0;
         margin-top: 20px;
     }
+}
+
+/* TinyMCE Editor styly */
+.tox-tinymce {
+    border: 1px solid #ddd !important;
+    border-radius: 4px !important;
+}
+
+.tox .tox-statusbar {
+    border-top: 1px solid #ddd !important;
+}
+
+.tox .tox-toolbar {
+    background-color: #f8f8f8 !important;
 }
