@@ -3,10 +3,22 @@
 // Spuštění session pro zachování přihlášení a dalších dat
 session_start();
 
-// ====== NAČTENÍ KONFIGURACE ======
+// ====== NAČTENÍ KONFIGURACE A LOGGERU ======
 // Načtení konfiguračního souboru s pomocnými funkcemi
 // dirname(__DIR__) získá nadřazenou složku (root webu)
 require_once dirname(__DIR__) . '/config.php';
+require_once dirname(__DIR__) . '/includes/Logger.php';
+
+// ====== LOGOVÁNÍ CHYBY ======
+$logger = new Logger('401_errors');
+$logger->log('Neautorizovaný přístup', [
+    'requested_page' => $_SERVER['REQUEST_URI'] ?? 'neznámá stránka',
+    'ip_address' => $_SERVER['REMOTE_ADDR'] ?? 'neznámá IP',
+    'user_agent' => $_SERVER['HTTP_USER_AGENT'] ?? 'neznámý prohlížeč',
+    'referrer' => $_SERVER['HTTP_REFERER'] ?? 'přímý přístup',
+    'user' => $_SESSION['username'] ?? 'nepřihlášený uživatel',
+    'timestamp' => date('Y-m-d H:i:s')
+]);
 ?>
 
 <!DOCTYPE html>

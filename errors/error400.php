@@ -3,10 +3,24 @@
 // Spuštění session pro zachování přihlášení a dalších dat mezi požadavky
 session_start();
 
-// ====== NAČTENÍ KONFIGURACE ======
+// ====== NAČTENÍ KONFIGURACE A LOGGERU ======
 // Načtení konfiguračního souboru s pomocnými funkcemi
 // dirname(__DIR__) získá nadřazenou složku (root webu)
 require_once dirname(__DIR__) . '/config.php';
+require_once dirname(__DIR__) . '/includes/Logger.php';
+
+// ====== LOGOVÁNÍ CHYBY ======
+$logger = new Logger('400_errors');
+$logger->log('Špatný požadavek', [
+    'requested_page' => $_SERVER['REQUEST_URI'] ?? 'neznámá stránka',
+    'request_method' => $_SERVER['REQUEST_METHOD'] ?? 'neznámá metoda',
+    'query_string' => $_SERVER['QUERY_STRING'] ?? 'žádné parametry',
+    'ip_address' => $_SERVER['REMOTE_ADDR'] ?? 'neznámá IP',
+    'user_agent' => $_SERVER['HTTP_USER_AGENT'] ?? 'neznámý prohlížeč',
+    'referrer' => $_SERVER['HTTP_REFERER'] ?? 'přímý přístup',
+    'post_data' => !empty($_POST) ? 'obsahuje POST data' : 'bez POST dat',
+    'timestamp' => date('Y-m-d H:i:s')
+]);
 ?>
 
 <!DOCTYPE html>

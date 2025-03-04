@@ -29,6 +29,9 @@ require_once dirname(__DIR__) . '/config.php';
     
     <!-- TinyMCE WYSIWYG Editor -->
     <script src="https://cdn.tiny.cloud/1/bmh9epsdxw8n5foagoedb6lnfmpsvxm4xre0iavd4c3u0j35/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    
+    <!-- Simple Editor JavaScript -->
+    <script src="<?php echo getWebPath('js/simple_editor.js'); ?>"></script>
 </head>
 
 <!-- ====== HLAVIČKA WEBU ====== -->
