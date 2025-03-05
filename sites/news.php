@@ -1,7 +1,9 @@
 <?php
-// ====== NAČTENÍ KONFIGURACE ======
+// ====== NAČTENÍ KONFIGURACE A EDITORU ======
 // Načtení konfiguračního souboru s pomocnými funkcemi
 require_once dirname(__DIR__) . '/config.php';
+// Načtení Simple Editoru pro parsování BB kódů
+require_once dirname(__DIR__) . '/includes/simple_editor.php';
 
 // ====== NAČTENÍ DAT ======
 // Načtení novinek z JSON souboru a převod na PHP pole
@@ -80,7 +82,10 @@ $news = json_decode(file_get_contents(getFilePath('data', 'news.json')), true);
                             </div>
                             <!-- Text novinky -->
                             <div class="news-text">
-                                <?php echo htmlspecialchars($item['text']); ?>
+                                <?php 
+                                // Použití parseru pro převod BB kódů na HTML
+                                echo SimpleEditor::parseContent($item['text']); 
+                                ?>
                             </div>
                         </div>
                     <?php endforeach; ?>

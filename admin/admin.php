@@ -1,5 +1,6 @@
 <?php
 // Spuštění session pro práci s přihlášením - musí být před jakýmkoliv výstupem
+ob_start(); // kontroluje výstup z php
 session_start();
 
 // Načtení konfiguračního souboru s funkcemi pro práci s cestami

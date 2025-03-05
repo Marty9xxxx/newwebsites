@@ -1,7 +1,14 @@
 <?php
-// ====== INICIALIZACE ======
-// Odstranění session_start(), protože session je již spuštěna v admin.php
+// Kontrola, že nebyl odeslán žádný výstup
+ob_start();
 require_once dirname(__DIR__) . '/config.php';
+
+// Kontrola přihlášení a role
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    header('Location: ' . getWebPath('admin/login.php'));
+    ob_end_flush();
+    exit;
+}
 
 // ====== NAČTENÍ KONFIGURACE ======
 // Získání cesty k souboru s nastaveními stylů
@@ -23,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['style'])) {
         if (file_put_contents($stylesFile, json_encode($stylesConfig, JSON_PRETTY_PRINT))) {
             // Přesměrování zpět s informací o úspěchu
             header('Location: admin.php?section=styles&success=1');
+            ob_end_flush();
             exit;
         }
     }
@@ -67,3 +75,7 @@ $currentStyle = $stylesConfig['currentStyle'] ?? 'default';
         </form>
     </section>
 </main>
+
+<?php
+ob_end_flush();
+?>

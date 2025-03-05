@@ -110,6 +110,8 @@ $messages = json_decode(file_get_contents($shoutbox_file), true) ?: [];
         // Použití aktuálního stylu nebo výchozího, pokud není nastaven
         echo getWebPath('styles/' . ($styles['currentStyle'] ?? 'default') . '.css');
     ?>">
+    <!-- Vložení společné hlavičky -->
+    <?php include(getFilePath('includes', 'header.php')); ?>
     <link rel="stylesheet" href="<?php echo getWebPath('styles/print.css'); ?>" media="print">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Návštěvní kniha</title>
@@ -200,6 +202,8 @@ $messages = json_decode(file_get_contents($shoutbox_file), true) ?: [];
 
 <footer>
     <p>&copy; 2025 - Návštěvní kniha</p>
+    <!-- ====== PATIČKA ====== -->
+    <?php include(getFilePath('includes', 'footer.php')); ?>
 </footer>
 
 <!-- Přidáme JavaScript pro ovládání editačních formulářů -->

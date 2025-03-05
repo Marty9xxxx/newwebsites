@@ -1,56 +1,88 @@
 <?php
-// Načtení konfiguračního souboru pro přístup k funkcím
+// Na začátek souboru přidáme:
+require_once dirname(__DIR__) . '/includes/TinyMCEEditor.php';
+
+// Kontrola výstupu před přesměrováním
+ob_start();
+
+// Načtení konfigurace
 require_once dirname(__DIR__) . '/config.php';
 
+// Kontrola přihlášení
+if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
+    header('Location: ' . getWebPath('admin/login.php'));
+    ob_end_flush();
+    exit;
+}
+
 // ====== NAČTENÍ DAT ======
-// Načtení článků z JSON souboru
-// Použití ?? operátoru pro případ, že 'articles' klíč neexistuje
-$articlesData = json_decode(file_get_contents(getFilePath('data', 'articles.json')), true);
-$articles = $articlesData['articles'] ?? [];
+// Inicializace struktury dat
+$articlesData = json_decode(file_get_contents(getFilePath('data', 'articles.json')), true) ?? ['articles' => []];
+$articles = &$articlesData['articles']; // Reference na pole článků
 
 // ====== ZPRACOVÁNÍ FORMULÁŘŮ ======
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['action'])) {
-        switch ($_POST['action']) {
-            // Zpracování přidání nového článku
-            case 'add':
-                $new_article = [
-                    'id' => time(),  // Použití timestampu jako unikátního ID
-                    'title' => $_POST['title'],
-                    'perex' => $_POST['perex'],
-                    'content' => $_POST['content'],
-                    'author' => $_SESSION['username'],  // Autor je přihlášený uživatel
-                    'datetime' => date('Y-m-d H:i:s'), // Aktuální datum a čas
-                    'published' => isset($_POST['published']) // Stav publikování
-                ];
-                // Vložení nového článku na začátek pole
-                array_unshift($articlesData['articles'], $new_article);
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
+    switch ($_POST['action']) {
+        case 'add':
+            // Kontrola povinných polí
+            if (empty($_POST['title']) || empty($_POST['perex']) || empty($_POST['content'])) {
+                $error = "Vyplňte prosím všechna povinná pole!";
                 break;
+            }
 
-            // Zpracování úpravy existujícího článku
-            case 'edit':
-                $article_id = $_POST['article_id'];
-                // Procházení všech článků a hledání podle ID
-                foreach ($articlesData['articles'] as &$article) {
-                    if ($article['id'] == $article_id) {
-                        // Aktualizace údajů článku
-                        $article['title'] = $_POST['title'];
-                        $article['perex'] = $_POST['perex'];
-                        $article['content'] = $_POST['content'];
-                        $article['published'] = isset($_POST['published']);
-                        $article['last_edited'] = date('Y-m-d H:i:s');
-                        break;
-                    }
+            $new_article = [
+                'id' => time(),
+                'title' => trim($_POST['title']),
+                'perex' => trim($_POST['perex']),
+                'content' => trim($_POST['content']),
+                'author' => $_SESSION['username'] ?? 'admin',
+                'datetime' => date('Y-m-d H:i:s'),
+                'published' => isset($_POST['published']) ? true : false
+            ];
+            
+            // Přidání nového článku na začátek pole
+            array_unshift($articles, $new_article);
+            
+            // Uložení do souboru
+            if (file_put_contents(
+                getFilePath('data', 'articles.json'),
+                json_encode(['articles' => $articles], JSON_PRETTY_PRINT)
+            )) {
+                header('Location: admin.php?section=articles&success=1');
+                ob_end_flush();
+                exit;
+            } else {
+                $error = "Chyba při ukládání článku!";
+            }
+            break;
+
+        case 'edit':
+            $article_id = $_POST['article_id'];
+            foreach ($articles as &$article) {
+                if ($article['id'] == $article_id) {
+                    $article['title'] = $_POST['title'];
+                    $article['perex'] = $_POST['perex'];
+                    $article['content'] = $_POST['content'];
+                    $article['published'] = isset($_POST['published']);
+                    $article['last_edited'] = date('Y-m-d H:i:s');
+                    break;
                 }
-                break;
-        }
-        
-        // Uložení změn do JSON souboru
-        file_put_contents(getFilePath('data', 'articles.json'), 
-                         json_encode($articlesData, JSON_PRETTY_PRINT));
-        // Přesměrování zpět s informací o úspěchu
-        header('Location: admin.php?section=articles&success=1');
-        exit;
+            }
+            
+            // Přidej před uložení pro kontrolu práv
+            var_dump(is_writable(getFilePath('data', 'articles.json')));
+            exit;
+
+            // Uložení změn
+            if (file_put_contents(
+                getFilePath('data', 'articles.json'),
+                json_encode($articlesData, JSON_PRETTY_PRINT)
+            )) {
+                header('Location: admin.php?section=articles&success=1');
+                ob_end_flush();
+                exit;
+            }
+            break;
     }
 }
 ?>
@@ -65,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endif; ?>
 
     <!-- Formulář pro přidání/editaci článku -->
-    <form method="post" class="article-form">
+    <form method="post" action="admin.php?section=articles">
         <!-- Skryté pole určující akci (přidání/úprava) -->
         <input type="hidden" name="action" value="<?php echo isset($_GET['edit']) ? 'edit' : 'add'; ?>">
         <?php
@@ -102,9 +134,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div>
             <label for="content">Obsah:</label>
-            <textarea id="content" name="content" class="editor" required><?php 
-                echo $article ? htmlspecialchars($article['content']) : ''; 
-            ?></textarea>
+            <?php
+            // Inicializace TinyMCE editoru s existujícím obsahem
+            $editorContent = $article ? $article['content'] : '';
+            $editor = new TinyMCEEditor('content', $editorContent);
+            $editor->render();
+            ?>
         </div>
 
         <!-- Checkbox pro publikování -->

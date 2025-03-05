@@ -57,7 +57,7 @@ require_once dirname(__DIR__) . '/config.php';
             <li><a href="<?php echo getWebPath('admin/admin.php'); ?>">Administrace</a></li>
             <li><a href="<?php echo getWebPath('errors/error404.php'); ?>">Chyba!</a></li>
             <li><a href="<?php echo getWebPath('sites/portfolio.php'); ?>">Portfolio</a></li>
-            <li><a href="<?php echo getWebPath('admin/guestbook.php'); ?>">Návštěvní kniha</a></li>
+            <li><a href="<?php echo getWebPath('sites/guestbook.php'); ?>">Návštěvní kniha</a></li>
         </ul>
     </nav>
 </header>
