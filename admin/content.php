@@ -2,6 +2,7 @@
 // ====== INICIALIZACE ======
 // Načtení konfiguračního souboru s pomocnými funkcemi
 require_once dirname(__DIR__) . '/config.php';
+require_once dirname(__DIR__) . '/includes/simple_editor.php';
 
 // ====== NAČTENÍ DAT ======
 // Načtení obsahu z JSON souboru a převod do PHP pole
@@ -15,10 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['action']) && $_POST['action'] === 'edit_content') {
         // Aktualizace dat v poli content
         $content['homepage'] = [
-            'title' => $_POST['title'],          // Nový nadpis
-            'content' => $_POST['content'],      // Nový obsah
-            'last_edited' => date('Y-m-d H:i:s'),// Aktuální datum a čas
-            'edited_by' => $_SESSION['username'] // Přihlášený uživatel
+            'title' => $_POST['title'],
+            // Uložíme přímo BB kódy, převedou se až při zobrazení
+            'content' => $_POST['content'],
+            'last_edited' => date('Y-m-d H:i:s'),
+            'edited_by' => $_SESSION['username']
         ];
         
         // Uložení změn do JSON souboru
@@ -62,10 +64,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <!-- Pole pro obsah -->
         <div class="form-group">
             <label for="content">Obsah stránky:</label>
-            <textarea id="content" 
-                      name="content" 
-                      rows="15" 
-                      required><?php echo htmlspecialchars($content['homepage']['content'] ?? ''); ?></textarea>
+            <?php
+            // Získáme původní obsah
+            $rawContent = $content['homepage']['content'] ?? '';
+            
+            // Pro editaci použijeme původní BB kódy
+            $editor = new SimpleEditor('content', $rawContent);
+            $editor->render();
+            ?>
+        </div>
+
+        <!-- Pro náhled přidáme: -->
+        <div class="content-preview">
+            <h3>Náhled:</h3>
+            <div class="preview-content">
+                <?php echo SimpleEditor::parseContent($rawContent); ?>
+            </div>
         </div>
 
         <!-- Informace o poslední úpravě -->
@@ -129,4 +143,75 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 .content-form .form-actions {
     margin-top: 20px;
 }
+
+/* Styly pro Simple Editor */
+.content-form .simple-editor {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.content-form .editor-toolbar {
+    padding: 5px;
+    background:rgb(207, 206, 206);
+    border-bottom: 1px solid #ccc;
+}
+
+.content-form .editor-toolbar button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background:rgb(225, 220, 220);
+    cursor: pointer;
+}
+
+.content-form .editor-toolbar button:hover {
+    background: #eee;
+}
+
+.content-form .simple-editor textarea {
+    width: 100%;
+    min-height: 300px;
+    padding: 10px;
+    border: none;
+    resize: vertical;
+}
+
+/* Styl pro náhled obsahu */
+.content-preview {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.content-preview h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.preview-content {
+    line-height: 1.6;
+}
+
+.preview-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+.preview-content a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.preview-content a:hover {
+    text-decoration: underline;
+}
 </style>
+
+<!-- Přidáme před uzavírací tag </body> -->
+<script src="<?php echo getWebPath('js/simple_editor.js'); ?>"></script>

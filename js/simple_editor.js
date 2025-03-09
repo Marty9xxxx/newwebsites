@@ -31,6 +31,15 @@ function insertTag(editorId, tag) {
                 insert = `[url=${url}]${selected || 'odkaz'}[/url]`;
             }
             break;
+        case 'left':
+            insert = `[left]${selected}[/left]`;
+            break;
+        case 'center':
+            insert = `[center]${selected}[/center]`;
+            break;
+        case 'right':
+            insert = `[right]${selected}[/right]`;
+            break;
     }
     
     // Vloží BB kód do textarea
@@ -126,6 +135,52 @@ function initImageDragDrop(editorId) {
                 alert('Prosím, přetáhněte pouze obrázky.');
             }
         }
+    });
+}
+
+// Přepínání mezi HTML a plain textem
+function toggleSource(editorId) {
+    const textarea = document.getElementById(editorId);
+    const toolbar = textarea.previousElementSibling; // získáme toolbar
+
+    if (textarea.dataset.sourceMode === 'true') {
+        // Přepnutí zpět do normálního režimu
+        textarea.dataset.sourceMode = 'false';
+        textarea.classList.remove('source-mode');
+        toolbar.querySelector('.source-button').classList.remove('active');
+    } else {
+        // Přepnutí do režimu zdrojového kódu
+        textarea.dataset.sourceMode = 'true';
+        textarea.classList.add('source-mode');
+        toolbar.querySelector('.source-button').classList.add('active');
+    }
+}
+
+// Pomocné funkce pro kódování a dekódování HTML
+function htmlEncode(str) {
+    return str.replace(/[&<>"']/g, function(match) {
+        const entities = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;'
+        };
+        return entities[match];
+    });
+}
+
+function htmlDecode(str) {
+    return str.replace(/&([^;]+);/g, function(match, entity) {
+        const entities = {
+            'amp': '&',
+            'lt': '<',
+            'gt': '>',
+            'quot': '"',
+            '#39': "'",
+            'nbsp': ' '
+        };
+        return entities[entity] || match;
     });
 }
 

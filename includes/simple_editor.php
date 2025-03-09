@@ -37,10 +37,30 @@ class SimpleEditor {
                 <button type="button" onclick="insertTag('<?php echo $this->id; ?>', 'i')" title="Kurzíva">
                     Kurzíva
                 </button>
+                
+                <!-- Nová tlačítka pro zarovnání -->
+                <button type="button" onclick="insertTag('<?php echo $this->id; ?>', 'left')" title="Zarovnat doleva">
+                    Doleva
+                </button>
+                <button type="button" onclick="insertTag('<?php echo $this->id; ?>', 'center')" title="Zarovnat na střed">
+                    Na střed
+                </button>
+                <button type="button" onclick="insertTag('<?php echo $this->id; ?>', 'right')" title="Zarovnat doprava">
+                    Doprava
+                </button>
+                
                 <button type="button" onclick="insertTag('<?php echo $this->id; ?>', 'url')" title="Vložit odkaz">
                     Odkaz
                 </button>
                 <button type="button" onclick="showImagePicker('<?php echo $this->id; ?>')">Obrázek</button>
+                
+                <!-- Tlačítko pro přepínání zdrojového kódu -->
+                <button type="button" 
+                        onclick="toggleSource('<?php echo $this->id; ?>')" 
+                        class="source-button"
+                        title="Zobrazit/skrýt zdrojový kód">
+                    Zdrojový kód
+                </button>
             </div>
             
             <!-- Hlavní editační pole -->
@@ -83,13 +103,21 @@ class SimpleEditor {
         // Ochrana proti XSS útokům
         $content = htmlspecialchars($content);
         
+        // Debug výpis pro kontrolu
+        // error_log('Parsing content: ' . $content);
+        
         // Převod BB kódů na HTML značky
         // [b]tučný text[/b] -> <strong>tučný text</strong>
         $content = preg_replace('/\[b\](.*?)\[\/b\]/is', '<strong>$1</strong>', $content);
-        
+
         // [i]kurzíva[/i] -> <em>kurzíva</em>
         $content = preg_replace('/\[i\](.*?)\[\/i\]/is', '<em>$1</em>', $content);
-        
+
+        // Zarovnání textu
+        $content = preg_replace('/\[left\](.*?)\[\/left\]/is', '<div style="text-align: left">$1</div>', $content);
+        $content = preg_replace('/\[center\](.*?)\[\/center\]/is', '<div style="text-align: center">$1</div>', $content);
+        $content = preg_replace('/\[right\](.*?)\[\/right\]/is', '<div style="text-align: right">$1</div>', $content);
+
         // [url=http://...]text odkazu[/url] -> <a href="http://...">text odkazu</a>
         $content = preg_replace(
             '/\[url=(.*?)\](.*?)\[\/url\]/is', 
@@ -97,10 +125,9 @@ class SimpleEditor {
             $content
         );
         
-        // [img]obrázek[/img] -> <img src="obrázek" alt="Obrázek" class="editor-image">
-        $content = preg_replace('/\[img\](.*?)\[\/img\]/is', '<img src="$1" alt="Obrázek" class="editor-image">', $content);
+        // Pro kontrolu můžeme přidat debug výpis
+        // error_log('Parsed content: ' . $content);
         
-        // Převod nových řádků na HTML značky <br>
         return nl2br($content);
     }
 }

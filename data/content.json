@@ -1,8 +1,8 @@
 {
     "homepage": {
         "title": "Vítejte na stránkách",
-        "content": "Tento projekt vznikl na základu studie vývoje webových stránek a rozvíjení znalostí v programování.\r\nVyužívá PHP, HTML, CSS a okrajově i JS. \r\nNemá závislot na vnější databázi, ukládání je řešeno do souboru - nepotřebujete SQL! ;)",
-        "last_edited": "2025-02-28 06:38:41",
+        "content": "Tento projekt vzniká na základě studie vývoje webových stránek a rozvíjení znalostí v programování.\r\nVyužívá PHP, HTML, CSS a okrajově i JS. \r\nNemá závislost na vnější databázi, ukládání je řešeno jiným způsobem - nepotřebujete SQL! ;)\r\n\r\n[center]Hledáte-li mé osobní stránky, najdete je pod podpisem v patičce nebo zde: \r\n [url=https:\/\/svatousek.cz\/]Marty9xxxx[\/url][\/center]",
+        "last_edited": "2025-03-09 05:16:58",
         "edited_by": "Marty9xxxx"
     }
 }

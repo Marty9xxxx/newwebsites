@@ -6,6 +6,7 @@ session_start();
 // ====== NAČTENÍ KONFIGURACE ======
 // Načtení konfiguračního souboru s pomocnými funkcemi
 require_once 'config.php';
+require_once 'includes/simple_editor.php';
 
 // ====== NAČTENÍ DAT ======
 // Načtení uživatelů z JSON souboru
@@ -57,24 +58,24 @@ $homepage = $content['homepage'] ?? null;
                 
                 <!-- Hlavní obsah stránky -->
                 <div class="homepage-content">
-                    <!-- Použití nl2br pro zachování formátování textu -->
-                    <?php echo nl2br(htmlspecialchars($homepage['content'])); ?>
+                    <!-- Použijeme parseContent pro převod BB kódů -->
+                    <?php echo SimpleEditor::parseContent($homepage['content']); ?>
                 </div>
                 
                 <!-- Informace o poslední úpravě -->
                 <div class="last-edit">
                     <small>
                         Naposledy upraveno: 
-                        <!-- Formátování data do českého formátu -->
                         <?php echo date('d.m.Y H:i', strtotime($homepage['last_edited'])); ?>
                         (<?php echo htmlspecialchars($homepage['edited_by']); ?>)
                     </small>
                 </div>
             <?php else: ?>
-                <!-- Zobrazení chybové hlášky při nedostupnosti obsahu -->
                 <p>Obsah stránky není dostupný.</p>
             <?php endif; ?>
         </section>
+        
+        <!-- Odstraníme duplicitní výpis obsahu -->
     </main>
     
     <!-- ====== PATIČKA ====== -->
