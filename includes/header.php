@@ -21,6 +21,13 @@ require_once dirname(__DIR__) . '/config.php';
         echo getWebPath('styles/' . ($styles['currentStyle'] ?? 'default') . '.css');
     ?>">
     
+    <!-- Základní layout dle výběru -->
+    <link rel="stylesheet" href="<?php echo getWebPath('styles/style' . ($styles['currentStyle'] ?? '1') . '.css'); ?>">
+    
+    <!-- Funkční styly - vždy načtené -->
+    <link rel="stylesheet" href="<?php echo getWebPath('styles/editors.css'); ?>">
+    <link rel="stylesheet" href="<?php echo getWebPath('styles/forms.css'); ?>">
+    
     <!-- Font Awesome pro sociální ikony -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     

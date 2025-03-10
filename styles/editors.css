@@ -1,0 +1,47 @@
+/* ====== TINYMCE EDITOR ====== */
+.tox-tinymce {
+    border: 1px solid #ddd !important;
+    border-radius: 4px !important;
+}
+
+.tox .tox-statusbar {
+    border-top: 1px solid #ddd !important;
+}
+
+.tox .tox-toolbar {
+    background-color: #f8f8f8 !important;
+}
+
+/* ====== SIMPLE EDITOR ====== */
+.simple-editor {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+/* ...dopln editor styles... */
+
+/* ====== EDITOR TOOLBARY ====== */
+.editor-toolbar {
+    padding: 5px;
+    background: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+}
+
+/* ...dopln chybejici k toolbarum...*/
+
+/* ====== VÝBĚR OBRÁZKŮ ====== */
+.image-picker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* ...dopln image picker styles...*/

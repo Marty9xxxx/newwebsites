@@ -1,13 +1,11 @@
 /* ====== RESET STYLŮ ====== */
-/* Odstranění výchozích marginu a paddingu pro všechny elementy */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Pro lepší výpočet velikostí */
+    box-sizing: border-box;
 }
 
 /* ====== ZÁKLADNÍ STYLY ====== */
-/* Nastavení základního fontu, pozadí a barvy textu */
 body {
     font-family: Arial, sans-serif;
     background: #f4f4f4;
@@ -387,4 +385,17 @@ form button:hover {
 .homepage-content div[style*="text-align: right"],
 .content div[style*="text-align: right"] {
     text-align: right;
+}
+
+.form-group select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.form-group select:focus {
+    border-color: #573232;
+    outline: none;
 }
