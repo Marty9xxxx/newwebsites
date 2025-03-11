@@ -3,16 +3,20 @@
 // Načtení konfiguračního souboru s pomocnými funkcemi
 require_once dirname(__DIR__) . '/config.php';
 
-// ====== KONTROLA PŘÍSTUPU ======
-// Ověření, zda je přihlášený uživatel administrátor
-if (!isset($_SESSION['logged_in']) || $_SESSION['role'] !== 'admin') {
+// ====== KONTROLA PŘIHLÁŠENÍ A ROLE ======
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     header('Location: ' . getWebPath('admin/login.php'));
     exit;
 }
 
-// ====== NAČTENÍ DAT ======
-// Načtení seznamu uživatelů z JSON souboru
-$users = json_decode(file_get_contents(getFilePath('data', 'users.json')), true);
+// ====== NAČTENÍ UŽIVATELŮ ======
+$userData = json_decode(file_get_contents(getFilePath('data', 'users.json')), true);
+
+// Kontrola struktury dat - pokud data nejsou v poli 'users', jsou přímo v kořeni
+$users = is_array($userData) ? $userData : [];
+
+// Debug výpis pro kontrolu
+error_log('Loaded users data: ' . print_r($users, true));
 
 // ====== ZPRACOVÁNÍ FORMULÁŘŮ ======
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -20,22 +24,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         switch ($_POST['action']) {
             // ---- ÚPRAVA UŽIVATELE ----
             case 'edit':
-                $userId = $_POST['user_id'];
-                if (isset($users[$userId])) {
-                    // Aktualizace základních údajů
-                    $users[$userId]['username'] = $_POST['username'];
-                    $users[$userId]['role'] = $_POST['role'];
-                    
-                    // Změna hesla pouze pokud bylo zadáno nové
-                    if (!empty($_POST['password'])) {
-                        // Hashování hesla pro bezpečné uložení
-                        $users[$userId]['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                $userId = (int)$_POST['user_id'];
+                // Najdeme uživatele podle ID
+                foreach ($users as $key => $user) {
+                    if (isset($user['id']) && $user['id'] === $userId) {
+                        // Aktualizace údajů
+                        $users[$key]['username'] = $_POST['username'];
+                        $users[$key]['role'] = $_POST['role'];
+                        
+                        // Změna hesla pouze pokud bylo zadáno
+                        if (!empty($_POST['password'])) {
+                            $users[$key]['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                        }
+                        
+                        // Uložení změn
+                        if (file_put_contents(
+                            getFilePath('data', 'users.json'),
+                            json_encode($users, JSON_PRETTY_PRINT)
+                        )) {
+                            $_SESSION['message'] = 'Uživatel byl úspěšně upraven.';
+                        } else {
+                            $_SESSION['error'] = 'Nepodařilo se uložit změny.';
+                        }
+                        break;
                     }
-                    
-                    // Uložení změn do JSON
-                    file_put_contents(getFilePath('data', 'users.json'), 
-                                   json_encode($users, JSON_PRETTY_PRINT));
-                    $_SESSION['message'] = 'Uživatel byl úspěšně upraven.';
                 }
                 break;
 

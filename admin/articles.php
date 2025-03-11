@@ -2,6 +2,9 @@
 // Na začátek souboru přidáme:
 require_once dirname(__DIR__) . '/includes/TinyMCEEditor.php';
 
+// Přidáme načtení helper funkce
+require_once dirname(__DIR__) . '/includes/editor_helper.php';
+
 // Kontrola výstupu před přesměrováním
 ob_start();
 
@@ -132,12 +135,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             ?></textarea>
         </div>
 
-        <div>
-            <label for="content">Obsah:</label>
+        <div class="form-group">
+            <label for="content">Obsah článku:</label>
             <?php
-            // Inicializace TinyMCE editoru s existujícím obsahem
-            $editorContent = $article ? $article['content'] : '';
-            $editor = new TinyMCEEditor('content', $editorContent);
+            // Použijeme helper funkci
+            $content = isset($article) ? $article['content'] : '';
+            $editor = getUserPreferredEditor('content', $content);
             $editor->render();
             ?>
         </div>

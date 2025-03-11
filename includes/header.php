@@ -53,6 +53,7 @@ require_once dirname(__DIR__) . '/config.php';
             <li><a href="<?php echo getWebPath('includes/login.php'); ?>">Přihlášení</a></li>
             <li><a href="<?php echo getWebPath('includes/logout.php'); ?>">Odhlásit se</a></li>
             <li><a href="<?php echo getWebPath('includes/register.php'); ?>">Registrace</a></li>
+            <li><a href="<?php echo getWebPath('admin/profile.php'); ?>">Editor</a></li>
             
             <!-- ====== HLAVNÍ NAVIGACE ====== -->
             <li><a href="<?php echo getWebPath('index.php'); ?>">Úvod</a></li>
@@ -62,7 +63,7 @@ require_once dirname(__DIR__) . '/config.php';
             
             <!-- ====== ADMINISTRACE A SPECIÁLNÍ STRÁNKY ====== -->
             <li><a href="<?php echo getWebPath('admin/admin.php'); ?>">Administrace</a></li>
-            <li><a href="<?php echo getWebPath('errors/error404.php'); ?>">Chyba!</a></li>
+            
             <li><a href="<?php echo getWebPath('sites/portfolio.php'); ?>">Portfolio</a></li>
             <li><a href="<?php echo getWebPath('sites/guestbook.php'); ?>">Návštěvní kniha</a></li>
         </ul>

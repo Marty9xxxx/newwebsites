@@ -16,37 +16,36 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
 
 // ====== ZPRACOVÁNÍ PŘIHLÁŠENÍ ======
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Načtení uživatelských dat z JSON
-    $users = json_decode(file_get_contents(getFilePath('data', 'users.json')), true);
-    
-    // Získání přihlašovacích údajů z formuláře
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    
-    // Vyhledání uživatele a ověření hesla
-    $user_found = false;
-    foreach ($users as $user) {
-        // Kontrola shody jména a hesla
-        // password_verify bezpečně ověří heslo proti hashi
-        if ($user['username'] === $username && password_verify($password, $user['password'])) {
-            // Nastavení session proměnných pro přihlášeného uživatele
-            $_SESSION['logged_in'] = true;
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-            $_SESSION['role'] = $user['role'];
-            
-            // Přesměrování podle role uživatele
-            if ($user['role'] === 'admin') {
-                header('Location: ' . getWebPath('admin/admin.php'));
-            } else {
-                header('Location: ' . getWebPath('index.php'));
+    // Kontrola, zda byly odeslány přihlašovací údaje
+    if (!isset($_POST['username']) || !isset($_POST['password'])) {
+        $error = "Vyplňte prosím všechna pole!";
+    } else {
+        // Načtení uživatelských dat z JSON
+        $userData = json_decode(file_get_contents(getFilePath('data', 'users.json')), true);
+        $users = $userData['users'];
+        
+        // Debug výpis
+        error_log('Login attempt for: ' . $_POST['username']);
+        
+        // Vyhledání uživatele a ověření hesla
+        $user_found = false;
+        foreach ($users as $user) {
+            if ($user['username'] === $_POST['username']) {
+                if (password_verify($_POST['password'], $user['password'])) {
+                    $_SESSION['logged_in'] = true;
+                    $_SESSION['username'] = $user['username'];
+                    $_SESSION['role'] = $user['role'];
+                    
+                    error_log('Login successful for: ' . $user['username']);
+                    header('Location: ' . getWebPath('index.php'));
+                    exit;
+                }
             }
-            exit;
         }
+        
+        // Pokud se nepodařilo přihlásit
+        $error = "Nesprávné přihlašovací údaje!";
     }
-    
-    // Chybová hláška při neúspěšném přihlášení
-    $error = "Nesprávné přihlašovací údaje!";
 }
 ?>
 

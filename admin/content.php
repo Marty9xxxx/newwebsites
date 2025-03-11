@@ -3,6 +3,34 @@
 // Načtení konfiguračního souboru s pomocnými funkcemi
 require_once dirname(__DIR__) . '/config.php';
 require_once dirname(__DIR__) . '/includes/simple_editor.php';
+require_once dirname(__DIR__) . '/includes/TinyMCEEditor.php';
+require_once dirname(__DIR__) . '/includes/editor_helper.php';
+require_once dirname(__DIR__) . '/includes/debug_helper.php';
+
+// ====== KONTROLA PŘIHLÁŠENÍ ======
+// Odstraníme session_start(), protože už je volán v admin.php
+if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
+    header('Location: ' . getWebPath('admin/login.php'));
+    exit;
+}
+
+// Načtení aktuálního uživatele pro zjištění preferovaného editoru
+$userData = json_decode(file_get_contents(getFilePath('data', 'users.json')), true);
+$currentUser = null;
+foreach ($userData as $user) {
+    if ($user['username'] === $_SESSION['username']) {
+        $currentUser = $user;
+        break;
+    }
+}
+
+// Debug výpis
+error_log('Current user settings: ' . print_r($currentUser['settings'] ?? [], true));
+
+// Debug výpisy
+debugLog('Načítání editoru pro uživatele: ' . $_SESSION['username']);
+debugLog('Uživatelská nastavení:', 'DEBUG');
+debugLog($currentUser['settings'] ?? [], 'DEBUG');
 
 // ====== NAČTENÍ DAT ======
 // Načtení obsahu z JSON souboru a převod do PHP pole
@@ -65,11 +93,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="form-group">
             <label for="content">Obsah stránky:</label>
             <?php
-            // Získáme původní obsah
             $rawContent = $content['homepage']['content'] ?? '';
+            $editor = getUserPreferredEditor('content', $rawContent);
             
-            // Pro editaci použijeme původní BB kódy
-            $editor = new SimpleEditor('content', $rawContent);
+            // Debug výpis
+            error_log('Selected editor type: ' . get_class($editor));
+            debugLog('Vybraný typ editoru: ' . get_class($editor));
+            
             $editor->render();
             ?>
         </div>
@@ -212,6 +242,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     text-decoration: underline;
 }
 </style>
+
+<!-- Přidáme před uzavírací tag </head> -->
+<?php if (strpos($_SERVER['PHP_SELF'], 'admin') !== false): ?>
+    <!-- TinyMCE skript -->
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
+<?php endif; ?>
 
 <!-- Přidáme před uzavírací tag </body> -->
 <script src="<?php echo getWebPath('js/simple_editor.js'); ?>"></script>
