@@ -22,29 +22,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         // Načtení uživatelských dat z JSON
         $userData = json_decode(file_get_contents(getFilePath('data', 'users.json')), true);
-        $users = $userData['users'];
         
-        // Debug výpis
-        error_log('Login attempt for: ' . $_POST['username']);
+        // Debug výpis pro kontrolu
+        error_log('Přihlašovací pokus pro: ' . $_POST['username']);
+        error_log('Načtená data: ' . print_r($userData, true));
         
-        // Vyhledání uživatele a ověření hesla
-        $user_found = false;
-        foreach ($users as $user) {
-            if ($user['username'] === $_POST['username']) {
-                if (password_verify($_POST['password'], $user['password'])) {
-                    $_SESSION['logged_in'] = true;
-                    $_SESSION['username'] = $user['username'];
-                    $_SESSION['role'] = $user['role'];
-                    
-                    error_log('Login successful for: ' . $user['username']);
-                    header('Location: ' . getWebPath('index.php'));
-                    exit;
+        // Kontrola struktury dat
+        if (!is_array($userData)) {
+            $error = "Chyba při načítání uživatelských dat.";
+            error_log('Chyba: userData není pole');
+        } else {
+            // Vyhledání uživatele a ověření hesla
+            $user_found = false;
+            foreach ($userData as $user) {
+                if ($user['username'] === $_POST['username']) {
+                    if (password_verify($_POST['password'], $user['password'])) {
+                        $_SESSION['logged_in'] = true;
+                        $_SESSION['username'] = $user['username'];
+                        $_SESSION['role'] = $user['role'] ?? 'user';
+                        
+                        error_log('Přihlášení úspěšné pro: ' . $user['username']);
+                        header('Location: ' . getWebPath('index.php'));
+                        exit;
+                    }
                 }
             }
+            
+            // Pokud se nepodařilo přihlásit
+            $error = "Nesprávné přihlašovací údaje!";
+            error_log('Neúspěšný pokus o přihlášení pro: ' . $_POST['username']);
         }
-        
-        // Pokud se nepodařilo přihlásit
-        $error = "Nesprávné přihlašovací údaje!";
     }
 }
 ?>

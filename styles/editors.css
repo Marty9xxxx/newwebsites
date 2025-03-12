@@ -14,10 +14,20 @@
 
 /* ====== SIMPLE EDITOR ====== */
 .simple-editor {
-    border: 1px solid #ccc;
+    border: 1px solid #a5a3a3;
     border-radius: 4px;
     margin-bottom: 15px;
 }
+
+.simple-editor-area {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    border: none;
+    resize: vertical;
+}
+
+
 
 /* ...dopln editor styles... */
 
@@ -26,6 +36,14 @@
     padding: 5px;
     background: #f5f5f5;
     border-bottom: 1px solid #ccc;
+}
+
+.editor-toolbar button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: 1px solid #4f4848;
+    background: #877979;
+    cursor: pointer;
 }
 
 /* ...dopln chybejici k toolbarum...*/
@@ -42,6 +60,46 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
+}
+
+.image-picker-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.image-item {
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.image-item:hover {
+    border-color: #573232;
+    transform: scale(1.05);
+}
+
+.image-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.editor-image {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
 }
 
 /* ...dopln image picker styles...*/

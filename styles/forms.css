@@ -6,7 +6,36 @@ form {
     margin: auto;
 }
 
-/* ... dopln form styly... */
+form input, form textarea {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+form button {
+    background: #333;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #555;
+}
+
+.form-group select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.form-group select:focus {
+    border-color: #573232;
+    outline: none;
+}
 
 /* ====== VYHLEDÁVÁNÍ ====== */
 .search {

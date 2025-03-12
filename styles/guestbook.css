@@ -1,0 +1,30 @@
+/* ====== NÁVŠTĚVNÍ KNIHA ====== */
+.messages {
+    background: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.messages p {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.guestbook-message a {
+    color: #573232;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.guestbook-message a:hover {
+    color: #877979;
+    text-decoration: underline;
+}
+
+.guestbook-message img {
+    max-width: 300px;
+    display: block;
+    margin: 10px auto;
+}

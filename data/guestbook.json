@@ -1,5 +1,20 @@
 [
     {
+        "name": "matej",
+        "message": "[url]https:\/\/example.com[\/url]\r\n[url=https:\/\/example.com]Odkaz s vlastn\u00edm textem[\/url]",
+        "datetime": "2025-03-12 07:05:35"
+    },
+    {
+        "name": "Martin",
+        "message": "[img]https:\/\/localhost\/ai-cviceni-web\/uploads\/images\/133532701770712454.jpg[\/img]\r\n[b]Jel bych hned![\/b]",
+        "datetime": "2025-03-12 06:54:13"
+    },
+    {
+        "name": "Marty9xxxx",
+        "message": "Testy [b]zat\u00edm prob\u00edhaj\u00ed dob\u0159e[\/b], jen je t\u0159eba vytrvat a [center]n\u011bkter\u00e9[\/center] [right]v\u011bci[\/right] je t\u0159eba je\u0161t\u011b [left]doladit[\/left].\r\ndal\u0161\u00ed najdete brzy i [url=https:\/\/svatousek.cz\/]tady[\/url]",
+        "datetime": "2025-03-12 06:40:30"
+    },
+    {
         "name": "Admin",
         "message": "Test [b]ve\u0161ker\u00e9 funk\u010dnosti[\/b] ve v\u0161ech ohledech, [i]co jsou zn\u00e1m\u00e9[\/i]",
         "datetime": "2025-03-05 06:09:55"

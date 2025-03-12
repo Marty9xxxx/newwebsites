@@ -1,7 +1,8 @@
 <?php
-// Načtení obou editorů
+// Načtení všech potřebných knihoven
 require_once dirname(__DIR__) . '/includes/simple_editor.php';
 require_once dirname(__DIR__) . '/includes/TinyMCEEditor.php';
+require_once dirname(__DIR__) . '/includes/debug_helper.php';  // Přidáno
 
 function getUserPreferredEditor($fieldId, $content = '') {
     // Načtení uživatelských dat

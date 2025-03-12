@@ -137,49 +137,6 @@ footer {
     white-space: nowrap; /* Text tlačítka se nezalamuje */
 }
 
-/* ====== FORMULÁŘE ====== */
-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    margin: auto;
-}
-
-/* Vstupní pole a textové oblasti */
-form input, form textarea {
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ddd;
-}
-
-/* Tlačítka ve formulářích */
-form button {
-    background: #333;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-/* Efekt při najetí na tlačítko */
-form button:hover {
-    background: #555;
-}
-
-/* ====== NÁVŠTĚVNÍ KNIHA ====== */
-.messages {
-    background: #f9f9f9;
-    padding: 10px;
-    border: 1px solid #ddd;
-    max-height: 300px;
-    overflow-y: auto; /* Scrollování při přetečení */
-}
-
-.messages p {
-    padding: 5px;
-    border-bottom: 1px solid #ddd;
-}
-
 /* ====== RESPONZIVNÍ DESIGN ====== */
 @media (max-width: 768px) {
     /* Změna layoutu pro mobilní zařízení */
@@ -205,19 +162,6 @@ form button:hover {
     }
 }
 
-/* TinyMCE Editor styly */
-.tox-tinymce {
-    border: 1px solid #ddd !important;
-    border-radius: 4px !important;
-}
-
-.tox .tox-statusbar {
-    border-top: 1px solid #ddd !important;
-}
-
-.tox .tox-toolbar {
-    background-color: #f8f8f8 !important;
-}
 
 /* simple editor */
 .simple-editor {
@@ -232,22 +176,6 @@ form button:hover {
     background: #cbc5c5;
 }
 
-.editor-toolbar button {
-    padding: 5px 10px;
-    margin-right: 5px;
-    border: 1px solid #4f4848;
-    background: #877979;
-    cursor: pointer;
-}
-
-.simple-editor-area {
-    width: 100%;
-    min-height: 100px;
-    padding: 10px;
-    border: none;
-    resize: vertical;
-}
-
 /* Styly pro výběr obrázků */
 .image-picker {
     position: fixed;
@@ -260,46 +188,6 @@ form button:hover {
     justify-content: center;
     align-items: center;
     z-index: 1000;
-}
-
-.image-picker-content {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 800px;
-    max-height: 80vh;
-    overflow-y: auto;
-}
-
-.image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-    margin: 15px 0;
-}
-
-.image-item {
-    cursor: pointer;
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.image-item:hover {
-    border-color: #573232;
-    transform: scale(1.05);
-}
-
-.image-item img {
-    max-width: 100%;
-    height: auto;
-}
-
-.editor-image {
-    max-width: 100%;
-    height: auto;
-    margin: 10px 0;
 }
 
 /* simple editor v úpravě obsahu */
@@ -398,4 +286,19 @@ form button:hover {
 .form-group select:focus {
     border-color: #573232;
     outline: none;
+}
+
+/* Styly pro obrázky v obsahu */
+.content-image {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.guestbook-message img {
+    max-width: 300px;  /* nebo jiná vhodná maximální šířka */
+    display: block;
+    margin: 10px auto;
 }

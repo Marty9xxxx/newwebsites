@@ -236,3 +236,835 @@
 [2025-03-11 07:34:41] [DEBUG] Nalezený uživatel:
 [2025-03-11 07:34:41] [DEBUG] 
 [2025-03-11 07:34:41] [INFO] Vybraný typ editoru: SimpleEditor
+[2025-03-12 06:12:48] [DEBUG] Načtená uživatelská data:
+[2025-03-12 06:12:48] [DEBUG] Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [username] => Martin
+            [password] => $2y$10$.q/WQBt/w.wR0kmIfDXIG.mBXrOezfmAQ74uIGtcuTurE45hAu.H6
+            [role] => user
+            [email] => martin@example.com
+            [created_at] => 2025-02-18 07:28:20
+            [settings] => Array
+                (
+                    [editor] => simple
+                    [theme] => default
+                )
+
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [username] => Tester
+            [password] => $2y$10$X6.mU2WcfFs3urQpfQxaY.x88fR7tB29BLXKQdACqhV5HycCfW9Eu
+            [role] => admin
+            [email] => webazantmarty@gmail.com
+            [created_at] => 2025-02-18 07:28:20
+            [settings] => Array
+                (
+                    [editor] => tinymce
+                    [theme] => default
+                )
+
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [username] => testuživatel
+            [password] => $2y$10$kZCB.r4DWylOuCPm5vi7.uwcXIMRr2lpVC7196m8zks.9v1WDfS6G
+            [email] => webazantmarty@gmail.com
+            [role] => user
+            [created_at] => 2025-03-05 05:55:39
+        )
+
+)
+
+[2025-03-12 06:13:05] [DEBUG] Načtená uživatelská data:
+[2025-03-12 06:13:05] [DEBUG] Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [username] => Martin
+            [password] => $2y$10$.q/WQBt/w.wR0kmIfDXIG.mBXrOezfmAQ74uIGtcuTurE45hAu.H6
+            [role] => user
+            [email] => martin@example.com
+            [created_at] => 2025-02-18 07:28:20
+            [settings] => Array
+                (
+                    [editor] => simple
+                    [theme] => default
+                )
+
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [username] => Tester
+            [password] => $2y$10$X6.mU2WcfFs3urQpfQxaY.x88fR7tB29BLXKQdACqhV5HycCfW9Eu
+            [role] => admin
+            [email] => webazantmarty@gmail.com
+            [created_at] => 2025-02-18 07:28:20
+            [settings] => Array
+                (
+                    [editor] => tinymce
+                    [theme] => default
+                )
+
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [username] => testuživatel
+            [password] => $2y$10$kZCB.r4DWylOuCPm5vi7.uwcXIMRr2lpVC7196m8zks.9v1WDfS6G
+            [email] => webazantmarty@gmail.com
+            [role] => user
+            [created_at] => 2025-03-05 05:55:39
+        )
+
+)
+
+[2025-03-12 06:13:05] [INFO] Nastavení editoru uloženo: tinymce
+[2025-03-12 06:13:09] [DEBUG] Načtená uživatelská data:
+[2025-03-12 06:13:09] [DEBUG] Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [username] => Martin
+            [password] => $2y$10$.q/WQBt/w.wR0kmIfDXIG.mBXrOezfmAQ74uIGtcuTurE45hAu.H6
+            [role] => user
+            [email] => martin@example.com
+            [created_at] => 2025-02-18 07:28:20
+            [settings] => Array
+                (
+                    [editor] => simple
+                    [theme] => default
+                )
+
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [username] => Tester
+            [password] => $2y$10$X6.mU2WcfFs3urQpfQxaY.x88fR7tB29BLXKQdACqhV5HycCfW9Eu
+            [role] => admin
+            [email] => webazantmarty@gmail.com
+            [created_at] => 2025-02-18 07:28:20
+            [settings] => Array
+                (
+                    [editor] => tinymce
+                    [theme] => default
+                )
+
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [username] => testuživatel
+            [password] => $2y$10$kZCB.r4DWylOuCPm5vi7.uwcXIMRr2lpVC7196m8zks.9v1WDfS6G
+            [email] => webazantmarty@gmail.com
+            [role] => user
+            [created_at] => 2025-03-05 05:55:39
+        )
+
+)
+
+[2025-03-12 06:24:39] [DEBUG] Načtená uživatelská data:
+[2025-03-12 06:24:39] [DEBUG] Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [username] => Martin
+            [password] => $2y$10$.q/WQBt/w.wR0kmIfDXIG.mBXrOezfmAQ74uIGtcuTurE45hAu.H6
+            [role] => user
+            [email] => martin@example.com
+            [created_at] => 2025-02-18 07:28:20
+            [settings] => Array
+                (
+                    [editor] => simple
+                    [theme] => default
+                )
+
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [username] => Tester
+            [password] => $2y$10$X6.mU2WcfFs3urQpfQxaY.x88fR7tB29BLXKQdACqhV5HycCfW9Eu
+            [role] => admin
+            [email] => webazantmarty@gmail.com
+            [created_at] => 2025-02-18 07:28:20
+            [settings] => Array
+                (
+                    [editor] => tinymce
+                    [theme] => default
+                )
+
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [username] => testuživatel
+            [password] => $2y$10$kZCB.r4DWylOuCPm5vi7.uwcXIMRr2lpVC7196m8zks.9v1WDfS6G
+            [email] => webazantmarty@gmail.com
+            [role] => user
+            [created_at] => 2025-03-05 05:55:39
+        )
+
+)
+
+[2025-03-12 06:24:39] [DEBUG] Nalezený uživatel:
+[2025-03-12 06:24:39] [DEBUG] Array
+(
+    [id] => 2
+    [username] => Tester
+    [password] => $2y$10$X6.mU2WcfFs3urQpfQxaY.x88fR7tB29BLXKQdACqhV5HycCfW9Eu
+    [role] => admin
+    [email] => webazantmarty@gmail.com
+    [created_at] => 2025-02-18 07:28:20
+    [settings] => Array
+        (
+            [editor] => tinymce
+            [theme] => default
+        )
+
+)
+
+[2025-03-12 06:51:41] [INFO] Rendering Simple Editor: message
+[2025-03-12 06:51:41] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:51:41] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:51:41] [INFO] Rendering Simple Editor: message_0
+[2025-03-12 06:51:41] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:51:41] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:51:41] [INFO] Rendering Simple Editor: message_1
+[2025-03-12 06:51:41] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:51:41] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:51:41] [INFO] Rendering Simple Editor: message_2
+[2025-03-12 06:51:41] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:51:41] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:51:41] [INFO] Rendering Simple Editor: message_3
+[2025-03-12 06:51:41] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:51:41] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:54:13] [INFO] Rendering Simple Editor: message
+[2025-03-12 06:54:13] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:54:13] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:54:13] [INFO] Rendering Simple Editor: message_0
+[2025-03-12 06:54:13] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:54:13] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:54:13] [INFO] Rendering Simple Editor: message_1
+[2025-03-12 06:54:13] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:54:13] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:54:13] [INFO] Rendering Simple Editor: message_2
+[2025-03-12 06:54:13] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:54:13] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:54:13] [INFO] Rendering Simple Editor: message_3
+[2025-03-12 06:54:13] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:54:13] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:54:13] [INFO] Rendering Simple Editor: message_4
+[2025-03-12 06:54:13] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:54:13] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:57:15] [INFO] Rendering Simple Editor: message
+[2025-03-12 06:57:15] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:57:15] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:57:15] [INFO] Rendering Simple Editor: message_0
+[2025-03-12 06:57:15] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:57:15] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:57:15] [DEBUG] Parsování obsahu:
+[2025-03-12 06:57:15] [DEBUG] [img]https://localhost/ai-cviceni-web/uploads/images/133532701770712454.jpg[/img]
+[b]Jel bych hned![/b]
+[2025-03-12 06:57:15] [INFO] Rendering Simple Editor: message_1
+[2025-03-12 06:57:15] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:57:15] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:57:15] [DEBUG] Parsování obsahu:
+[2025-03-12 06:57:15] [DEBUG] Testy [b]zatím probíhají dobře[/b], jen je třeba vytrvat a [center]některé[/center] [right]věci[/right] je třeba ještě [left]doladit[/left].
+další najdete brzy i [url=https://svatousek.cz/]tady[/url]
+[2025-03-12 06:57:15] [INFO] Rendering Simple Editor: message_2
+[2025-03-12 06:57:15] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:57:15] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:57:15] [DEBUG] Parsování obsahu:
+[2025-03-12 06:57:15] [DEBUG] Test [b]veškeré funkčnosti[/b] ve všech ohledech, [i]co jsou známé[/i]
+[2025-03-12 06:57:15] [INFO] Rendering Simple Editor: message_3
+[2025-03-12 06:57:15] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:57:15] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:57:15] [DEBUG] Parsování obsahu:
+[2025-03-12 06:57:15] [DEBUG] 
+[2025-03-12 06:57:15] [INFO] Rendering Simple Editor: message_4
+[2025-03-12 06:57:15] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:57:15] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:57:15] [DEBUG] Parsování obsahu:
+[2025-03-12 06:57:15] [DEBUG] Kdepak je historie novinek?
+[2025-03-12 06:57:34] [INFO] Rendering Simple Editor: message
+[2025-03-12 06:57:34] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:57:34] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:57:34] [INFO] Rendering Simple Editor: message_0
+[2025-03-12 06:57:34] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:57:34] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:57:34] [DEBUG] Parsování obsahu:
+[2025-03-12 06:57:34] [DEBUG] [img]https://localhost/ai-cviceni-web/uploads/images/133532701770712454.jpg[/img]
+[b]Jel bych hned![/b]
+[2025-03-12 06:57:34] [INFO] Rendering Simple Editor: message_1
+[2025-03-12 06:57:34] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:57:34] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:57:34] [DEBUG] Parsování obsahu:
+[2025-03-12 06:57:34] [DEBUG] Testy [b]zatím probíhají dobře[/b], jen je třeba vytrvat a [center]některé[/center] [right]věci[/right] je třeba ještě [left]doladit[/left].
+další najdete brzy i [url=https://svatousek.cz/]tady[/url]
+[2025-03-12 06:57:34] [INFO] Rendering Simple Editor: message_2
+[2025-03-12 06:57:34] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:57:34] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:57:34] [DEBUG] Parsování obsahu:
+[2025-03-12 06:57:34] [DEBUG] Test [b]veškeré funkčnosti[/b] ve všech ohledech, [i]co jsou známé[/i]
+[2025-03-12 06:57:34] [INFO] Rendering Simple Editor: message_3
+[2025-03-12 06:57:34] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:57:34] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:57:34] [DEBUG] Parsování obsahu:
+[2025-03-12 06:57:34] [DEBUG] 
+[2025-03-12 06:57:34] [INFO] Rendering Simple Editor: message_4
+[2025-03-12 06:57:34] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:57:34] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:57:34] [DEBUG] Parsování obsahu:
+[2025-03-12 06:57:34] [DEBUG] Kdepak je historie novinek?
+[2025-03-12 06:57:39] [INFO] Rendering Simple Editor: message
+[2025-03-12 06:57:39] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:57:39] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:57:39] [INFO] Rendering Simple Editor: message_0
+[2025-03-12 06:57:39] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:57:39] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:57:39] [DEBUG] Parsování obsahu:
+[2025-03-12 06:57:39] [DEBUG] [img]https://localhost/ai-cviceni-web/uploads/images/133532701770712454.jpg[/img]
+[b]Jel bych hned![/b]
+[2025-03-12 06:57:39] [INFO] Rendering Simple Editor: message_1
+[2025-03-12 06:57:39] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:57:39] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:57:39] [DEBUG] Parsování obsahu:
+[2025-03-12 06:57:39] [DEBUG] Testy [b]zatím probíhají dobře[/b], jen je třeba vytrvat a [center]některé[/center] [right]věci[/right] je třeba ještě [left]doladit[/left].
+další najdete brzy i [url=https://svatousek.cz/]tady[/url]
+[2025-03-12 06:57:39] [INFO] Rendering Simple Editor: message_2
+[2025-03-12 06:57:39] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:57:39] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:57:39] [DEBUG] Parsování obsahu:
+[2025-03-12 06:57:39] [DEBUG] Test [b]veškeré funkčnosti[/b] ve všech ohledech, [i]co jsou známé[/i]
+[2025-03-12 06:57:39] [INFO] Rendering Simple Editor: message_3
+[2025-03-12 06:57:39] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:57:39] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:57:39] [DEBUG] Parsování obsahu:
+[2025-03-12 06:57:39] [DEBUG] 
+[2025-03-12 06:57:39] [INFO] Rendering Simple Editor: message_4
+[2025-03-12 06:57:39] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:57:39] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:57:39] [DEBUG] Parsování obsahu:
+[2025-03-12 06:57:39] [DEBUG] Kdepak je historie novinek?
+[2025-03-12 06:59:47] [INFO] Rendering Simple Editor: message
+[2025-03-12 06:59:47] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:59:47] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:59:47] [INFO] Rendering Simple Editor: message_0
+[2025-03-12 06:59:47] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:59:47] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:59:47] [DEBUG] Parsování obsahu:
+[2025-03-12 06:59:47] [DEBUG] [img]https://localhost/ai-cviceni-web/uploads/images/133532701770712454.jpg[/img]
+[b]Jel bych hned![/b]
+[2025-03-12 06:59:47] [INFO] Rendering Simple Editor: message_1
+[2025-03-12 06:59:47] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:59:47] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:59:47] [DEBUG] Parsování obsahu:
+[2025-03-12 06:59:47] [DEBUG] Testy [b]zatím probíhají dobře[/b], jen je třeba vytrvat a [center]některé[/center] [right]věci[/right] je třeba ještě [left]doladit[/left].
+další najdete brzy i [url=https://svatousek.cz/]tady[/url]
+[2025-03-12 06:59:47] [INFO] Rendering Simple Editor: message_2
+[2025-03-12 06:59:47] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:59:47] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:59:47] [DEBUG] Parsování obsahu:
+[2025-03-12 06:59:47] [DEBUG] Test [b]veškeré funkčnosti[/b] ve všech ohledech, [i]co jsou známé[/i]
+[2025-03-12 06:59:47] [INFO] Rendering Simple Editor: message_3
+[2025-03-12 06:59:47] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:59:47] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:59:47] [DEBUG] Parsování obsahu:
+[2025-03-12 06:59:47] [DEBUG] 
+[2025-03-12 06:59:47] [INFO] Rendering Simple Editor: message_4
+[2025-03-12 06:59:47] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 06:59:47] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 06:59:47] [DEBUG] Parsování obsahu:
+[2025-03-12 06:59:47] [DEBUG] Kdepak je historie novinek?
+[2025-03-12 07:05:35] [INFO] Rendering Simple Editor: message
+[2025-03-12 07:05:35] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 07:05:35] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 07:05:35] [INFO] Rendering Simple Editor: message_0
+[2025-03-12 07:05:35] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 07:05:35] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 07:05:35] [DEBUG] Parsování obsahu:
+[2025-03-12 07:05:35] [DEBUG] [url]https://example.com[/url]
+[url=https://example.com]Odkaz s vlastním textem[/url]
+[2025-03-12 07:05:35] [INFO] Rendering Simple Editor: message_1
+[2025-03-12 07:05:35] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 07:05:35] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 07:05:35] [DEBUG] Parsování obsahu:
+[2025-03-12 07:05:35] [DEBUG] [img]https://localhost/ai-cviceni-web/uploads/images/133532701770712454.jpg[/img]
+[b]Jel bych hned![/b]
+[2025-03-12 07:05:35] [INFO] Rendering Simple Editor: message_2
+[2025-03-12 07:05:35] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 07:05:35] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 07:05:35] [DEBUG] Parsování obsahu:
+[2025-03-12 07:05:35] [DEBUG] Testy [b]zatím probíhají dobře[/b], jen je třeba vytrvat a [center]některé[/center] [right]věci[/right] je třeba ještě [left]doladit[/left].
+další najdete brzy i [url=https://svatousek.cz/]tady[/url]
+[2025-03-12 07:05:35] [INFO] Rendering Simple Editor: message_3
+[2025-03-12 07:05:35] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 07:05:35] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 07:05:35] [DEBUG] Parsování obsahu:
+[2025-03-12 07:05:35] [DEBUG] Test [b]veškeré funkčnosti[/b] ve všech ohledech, [i]co jsou známé[/i]
+[2025-03-12 07:05:35] [INFO] Rendering Simple Editor: message_4
+[2025-03-12 07:05:35] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 07:05:35] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 07:05:35] [DEBUG] Parsování obsahu:
+[2025-03-12 07:05:35] [DEBUG] 
+[2025-03-12 07:05:35] [INFO] Rendering Simple Editor: message_5
+[2025-03-12 07:05:35] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 07:05:35] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 07:05:35] [DEBUG] Parsování obsahu:
+[2025-03-12 07:05:35] [DEBUG] Kdepak je historie novinek?
+[2025-03-12 07:25:51] [DEBUG] Parsování obsahu:
+[2025-03-12 07:25:51] [DEBUG] Tento projekt vzniká na základě studie vývoje webových stránek a rozvíjení znalostí v programování.
+Využívá PHP, HTML, CSS a okrajově i JS. 
+Nemá závislost na vnější databázi, ukládání je řešeno jiným způsobem - nepotřebujete SQL! ;)
+
+[center]Hledáte-li mé osobní stránky, najdete je pod podpisem v patičce nebo zde: 
+ [url=https://svatousek.cz/]Marty9xxxx[/url][/center]
+[2025-03-12 07:25:55] [DEBUG] Parsování obsahu:
+[2025-03-12 07:25:55] [DEBUG] Tento projekt vzniká na základě studie vývoje webových stránek a rozvíjení znalostí v programování.
+Využívá PHP, HTML, CSS a okrajově i JS. 
+Nemá závislost na vnější databázi, ukládání je řešeno jiným způsobem - nepotřebujete SQL! ;)
+
+[center]Hledáte-li mé osobní stránky, najdete je pod podpisem v patičce nebo zde: 
+ [url=https://svatousek.cz/]Marty9xxxx[/url][/center]
+[2025-03-12 07:26:01] [DEBUG] Parsování obsahu:
+[2025-03-12 07:26:01] [DEBUG] Tento projekt vzniká na základě studie vývoje webových stránek a rozvíjení znalostí v programování.
+Využívá PHP, HTML, CSS a okrajově i JS. 
+Nemá závislost na vnější databázi, ukládání je řešeno jiným způsobem - nepotřebujete SQL! ;)
+
+[center]Hledáte-li mé osobní stránky, najdete je pod podpisem v patičce nebo zde: 
+ [url=https://svatousek.cz/]Marty9xxxx[/url][/center]
+[2025-03-12 07:26:13] [DEBUG] Parsování obsahu:
+[2025-03-12 07:26:13] [DEBUG] Celý web se postupně vyvíjí ;) 
+Původně uměl jen zobrazit hlavní stránku poskládanou z kousků ;) 
+[2025-03-12 07:26:13] [DEBUG] Parsování obsahu:
+[2025-03-12 07:26:13] [DEBUG] [b]Svatoušek[/b] se [i]pilně učí[/i] od copilota claude 3.5 z [url=https://claude.ai/]claude.ai[/url]
+[2025-03-12 07:26:13] [DEBUG] Parsování obsahu:
+[2025-03-12 07:26:13] [DEBUG] Test 
+[2025-03-12 07:26:13] [DEBUG] Parsování obsahu:
+[2025-03-12 07:26:13] [DEBUG] [i]Zatím[/i] probíhá [b]vše[/b] dle plánu. :)
+[2025-03-12 07:26:13] [DEBUG] Parsování obsahu:
+[2025-03-12 07:26:13] [DEBUG] Stránky stále ve vývoji. 
+[2025-03-12 07:26:21] [INFO] Rendering Simple Editor: message
+[2025-03-12 07:26:21] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-12 07:26:21] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-12 07:26:21] [DEBUG] Parsování obsahu:
+[2025-03-12 07:26:21] [DEBUG] [url]https://example.com[/url]
+[url=https://example.com]Odkaz s vlastním textem[/url]
+[2025-03-12 07:26:21] [DEBUG] Parsování obsahu:
+[2025-03-12 07:26:21] [DEBUG] [img]https://localhost/ai-cviceni-web/uploads/images/133532701770712454.jpg[/img]
+[b]Jel bych hned![/b]
+[2025-03-12 07:26:21] [DEBUG] Parsování obsahu:
+[2025-03-12 07:26:21] [DEBUG] Testy [b]zatím probíhají dobře[/b], jen je třeba vytrvat a [center]některé[/center] [right]věci[/right] je třeba ještě [left]doladit[/left].
+další najdete brzy i [url=https://svatousek.cz/]tady[/url]
+[2025-03-12 07:26:21] [DEBUG] Parsování obsahu:
+[2025-03-12 07:26:21] [DEBUG] Test [b]veškeré funkčnosti[/b] ve všech ohledech, [i]co jsou známé[/i]
+[2025-03-12 07:26:21] [DEBUG] Parsování obsahu:
+[2025-03-12 07:26:21] [DEBUG] 
+[2025-03-12 07:26:21] [DEBUG] Parsování obsahu:
+[2025-03-12 07:26:21] [DEBUG] Kdepak je historie novinek?

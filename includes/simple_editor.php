@@ -1,4 +1,7 @@
 <?php
+// Načtení helper funkcí
+require_once dirname(__DIR__) . '/includes/debug_helper.php';
+
 /**
  * Třída SimpleEditor - Jednoduchý WYSIWYG editor s BB kódy
  * Umožňuje základní formátování textu pomocí BB kódů
@@ -25,6 +28,7 @@ class SimpleEditor {
      * Generuje toolbar s tlačítky a textarea pro obsah
      */
     public function render() {
+        debugLog('Rendering Simple Editor: ' . $this->id);
         ?>
         <!-- Kontejner editoru -->
         <div class="simple-editor">
@@ -74,14 +78,29 @@ class SimpleEditor {
                     <h3>Vyberte obrázek</h3>
                     <div class="image-grid">
                         <?php
+                        // Definice cesty k obrázkům
                         $imageDir = dirname(__DIR__) . '/uploads/images/';
-                        if (is_dir($imageDir)) {
-                            $images = glob($imageDir . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+                        debugLog('Načítání obrázků z: ' . $imageDir);
+                        
+                        // Kontrola existence složky
+                        if (!is_dir($imageDir)) {
+                            debugLog('Složka neexistuje, vytvářím...', 'WARN');
+                            mkdir($imageDir, 0777, true);
+                        }
+                        
+                        // Načtení všech obrázků
+                        $images = glob($imageDir . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
+                        debugLog('Nalezené obrázky: ' . print_r($images, true));
+                        
+                        if (empty($images)) {
+                            echo '<p class="no-images">Žádné obrázky k dispozici</p>';
+                        } else {
                             foreach ($images as $image) {
                                 $filename = basename($image);
                                 $webPath = getWebPath('uploads/images/' . $filename);
                                 echo "<div class='image-item' onclick='insertImage(\"{$this->id}\", \"{$webPath}\")'>";
                                 echo "<img src='{$webPath}' alt='{$filename}' />";
+                                echo "<span class='image-name'>{$filename}</span>";
                                 echo "</div>";
                             }
                         }
@@ -90,6 +109,70 @@ class SimpleEditor {
                     <button type="button" onclick="closeImagePicker()">Zavřít</button>
                 </div>
             </div>
+            
+            <!-- Styly pro výběr obrázků -->
+            <style>
+            .image-picker {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.8);
+                display: none;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            }
+            
+            .image-picker-content {
+                background: white;
+                padding: 20px;
+                border-radius: 5px;
+                max-width: 800px;
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+            
+            .image-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 10px;
+                margin: 15px 0;
+            }
+            
+            .image-item {
+                cursor: pointer;
+                padding: 5px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                text-align: center;
+            }
+            
+            .image-item:hover {
+                border-color: #573232;
+            }
+            
+            .image-item img {
+                max-width: 100%;
+                height: auto;
+            }
+            
+            .image-name {
+                display: block;
+                margin-top: 5px;
+                font-size: 12px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            
+            .no-images {
+                text-align: center;
+                padding: 20px;
+                color: #666;
+            }
+            </style>
         </div>
         <?php
     }
@@ -103,31 +186,40 @@ class SimpleEditor {
         // Ochrana proti XSS útokům
         $content = htmlspecialchars($content);
         
-        // Debug výpis pro kontrolu
-        // error_log('Parsing content: ' . $content);
+        // Debug výpis
+        debugLog('Parsování obsahu:', 'DEBUG');
+        debugLog($content, 'DEBUG');
         
-        // Převod BB kódů na HTML značky
-        // [b]tučný text[/b] -> <strong>tučný text</strong>
+        // BB kódy pro obrázky - upraveno pro správné zobrazení
+        $content = preg_replace(
+            '/\[img\](.*?)\[\/img\]/i',
+            '<img src="$1" alt="Obrázek" class="content-image">',
+            $content
+        );
+        
+        // BB kódy pro odkazy
+        $content = preg_replace(
+            '/\[url\](.*?)\[\/url\]/i',
+            '<a href="$1" target="_blank">$1</a>',
+            $content
+        );
+        $content = preg_replace(
+            '/\[url=(.*?)\](.*?)\[\/url\]/i',
+            '<a href="$1" target="_blank">$2</a>',
+            $content
+        );
+        
+        // Ostatní BB kódy
         $content = preg_replace('/\[b\](.*?)\[\/b\]/is', '<strong>$1</strong>', $content);
-
-        // [i]kurzíva[/i] -> <em>kurzíva</em>
         $content = preg_replace('/\[i\](.*?)\[\/i\]/is', '<em>$1</em>', $content);
-
+        $content = preg_replace('/\[u\](.*?)\[\/u\]/is', '<u>$1</u>', $content);
+        
         // Zarovnání textu
         $content = preg_replace('/\[left\](.*?)\[\/left\]/is', '<div style="text-align: left">$1</div>', $content);
         $content = preg_replace('/\[center\](.*?)\[\/center\]/is', '<div style="text-align: center">$1</div>', $content);
         $content = preg_replace('/\[right\](.*?)\[\/right\]/is', '<div style="text-align: right">$1</div>', $content);
-
-        // [url=http://...]text odkazu[/url] -> <a href="http://...">text odkazu</a>
-        $content = preg_replace(
-            '/\[url=(.*?)\](.*?)\[\/url\]/is', 
-            '<a href="$1" target="_blank" rel="noopener noreferrer">$2</a>', 
-            $content
-        );
         
-        // Pro kontrolu můžeme přidat debug výpis
-        // error_log('Parsed content: ' . $content);
-        
+        // Převod nových řádků
         return nl2br($content);
     }
 }

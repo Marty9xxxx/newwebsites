@@ -39,6 +39,22 @@ require_once dirname(__DIR__) . '/config.php';
     
     <!-- Simple Editor JavaScript -->
     <script src="<?php echo getWebPath('js/simple_editor.js'); ?>"></script>
+    
+    <!-- Základní styl -->
+    <link rel="stylesheet" href="<?php echo getWebPath('styles/style1.css'); ?>">
+    
+    <!-- Formuláře -->
+    <link rel="stylesheet" href="<?php echo getWebPath('styles/forms.css'); ?>">
+    
+    <?php if (strpos($_SERVER['REQUEST_URI'], 'guestbook') !== false): ?>
+        <!-- Návštěvní kniha -->
+        <link rel="stylesheet" href="<?php echo getWebPath('styles/guestbook.css'); ?>">
+    <?php endif; ?>
+    
+    <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
+        <!-- Editory -->
+        <link rel="stylesheet" href="<?php echo getWebPath('styles/editors.css'); ?>">
+    <?php endif; ?>
 </head>
 
 <!-- ====== HLAVIČKA WEBU ====== -->
@@ -53,7 +69,11 @@ require_once dirname(__DIR__) . '/config.php';
             <li><a href="<?php echo getWebPath('includes/login.php'); ?>">Přihlášení</a></li>
             <li><a href="<?php echo getWebPath('includes/logout.php'); ?>">Odhlásit se</a></li>
             <li><a href="<?php echo getWebPath('includes/register.php'); ?>">Registrace</a></li>
-            <li><a href="<?php echo getWebPath('admin/profile.php'); ?>">Editor</a></li>
+            
+            <!-- Přihlášený uživatel -->
+            <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
+                <li><a href="<?php echo getWebPath('sites/profile.php'); ?>">Můj profil</a></li>
+            <?php endif; ?>
             
             <!-- ====== HLAVNÍ NAVIGACE ====== -->
             <li><a href="<?php echo getWebPath('index.php'); ?>">Úvod</a></li>
