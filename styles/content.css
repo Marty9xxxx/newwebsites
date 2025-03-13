@@ -1,0 +1,51 @@
+/* Styly pro zarovnání textu */
+.page-content div[style*="text-align: left"] {
+    text-align: left;
+}
+
+.page-content div[style*="text-align: center"] {
+    text-align: center;
+}
+
+.page-content div[style*="text-align: right"] {
+    text-align: right;
+}
+
+.page-content a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.page-content a:hover {
+    text-decoration: underline;
+}
+
+/* Styly pro obrázky v obsahu */
+.page-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+/* Styly pro seznamy */
+.page-content ul,
+.page-content ol {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+/* Styly pro nadpisy */
+.page-content h1,
+.page-content h2,
+.page-content h3 {
+    margin: 20px 0 10px;
+    color: #333;
+}
+
+/* Styly pro odstavce */
+.page-content p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+

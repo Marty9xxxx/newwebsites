@@ -10,10 +10,13 @@ if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
     exit;
 }
 
-// Načtení aktuálního uživatele
+// Načtení dat uživatele a stylů
 $userData = json_decode(file_get_contents(getFilePath('data', 'users.json')), true);
-$currentUser = null;
+$styles = json_decode(file_get_contents(getFilePath('data', 'styles.json')), true);
+$availableStyles = ['1' => 'Základní', '2' => 'Tmavý', '3' => 'Světlý'];
 
+// Najít aktuálního uživatele
+$currentUser = null;
 foreach ($userData as &$user) {
     if ($user['username'] === $_SESSION['username']) {
         $currentUser = &$user;
@@ -21,101 +24,113 @@ foreach ($userData as &$user) {
     }
 }
 
-// Zpracování formuláře
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
+// Zpracování formulářů
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     switch ($_POST['action']) {
-        case 'change_editor':
-            $currentUser['settings']['editor'] = $_POST['editor'];
-            if (file_put_contents(
-                getFilePath('data', 'users.json'),
-                json_encode($userData, JSON_PRETTY_PRINT)
-            )) {
-                $success = "Nastavení bylo úspěšně uloženo.";
-            }
+        case 'change_style':
+            $currentUser['settings']['theme'] = $_POST['style'];
+            $styles['currentStyle'] = $_POST['style'];
+            
+            // Uložení změn
+            file_put_contents(getFilePath('data', 'styles.json'), json_encode($styles, JSON_PRETTY_PRINT));
+            file_put_contents(getFilePath('data', 'users.json'), json_encode($userData, JSON_PRETTY_PRINT));
+            $success = "Vzhled byl úspěšně změněn.";
             break;
             
-        case 'change_password':
-            if (password_verify($_POST['old_password'], $currentUser['password'])) {
-                if ($_POST['new_password'] === $_POST['confirm_password']) {
-                    $currentUser['password'] = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
-                    if (file_put_contents(
-                        getFilePath('data', 'users.json'),
-                        json_encode($userData, JSON_PRETTY_PRINT)
-                    )) {
-                        $success = "Heslo bylo úspěšně změněno.";
+        case 'update_profile':
+            if (!empty($_POST['new_password'])) {
+                if (password_verify($_POST['current_password'], $currentUser['password'])) {
+                    if ($_POST['new_password'] === $_POST['confirm_password']) {
+                        $currentUser['password'] = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
+                    } else {
+                        $error = "Nová hesla se neshodují.";
                     }
                 } else {
-                    $error = "Nová hesla se neshodují.";
+                    $error = "Nesprávné současné heslo.";
                 }
-            } else {
-                $error = "Nesprávné současné heslo.";
+            }
+            
+            $currentUser['email'] = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+            
+            // Uložení změn
+            if (!isset($error)) {
+                file_put_contents(getFilePath('data', 'users.json'), json_encode($userData, JSON_PRETTY_PRINT));
+                $success = "Profil byl úspěšně aktualizován.";
             }
             break;
     }
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <title>Můj profil</title>
-    <?php include(getFilePath('includes', 'header.php')); ?>
-</head>
-<body>
-    <main>
-        <section class="profile-content">
-            <h2>Můj profil - <?php echo htmlspecialchars($_SESSION['username']); ?></h2>
-            
-            <?php if (isset($success)): ?>
-                <div class="success-message"><?php echo htmlspecialchars($success); ?></div>
-            <?php endif; ?>
-            
-            <?php if (isset($error)): ?>
-                <div class="error-message"><?php echo htmlspecialchars($error); ?></div>
-            <?php endif; ?>
+<!-- HTML část -->
+<?php include(getFilePath('includes', 'header.php')); ?>
 
-            <!-- Nastavení editoru -->
-            <div class="settings-section">
-                <h3>Nastavení editoru</h3>
-                <form method="POST">
-                    <input type="hidden" name="action" value="change_editor">
-                    <div class="form-group">
-                        <label for="editor">Preferovaný editor:</label>
-                        <select name="editor" id="editor">
-                            <option value="simple" <?php echo ($currentUser['settings']['editor'] ?? 'simple') === 'simple' ? 'selected' : ''; ?>>
-                                Simple Editor (BB kódy)
-                            </option>
-                            <option value="tinymce" <?php echo ($currentUser['settings']['editor'] ?? 'simple') === 'tinymce' ? 'selected' : ''; ?>>
-                                TinyMCE (Pokročilý)
-                            </option>
-                        </select>
-                    </div>
-                    <button type="submit">Uložit nastavení</button>
-                </form>
-            </div>
+<main class="container">
+    <section class="profile-section">
+        <h2>Můj profil - <?php echo htmlspecialchars($currentUser['username']); ?></h2>
+        
+        <?php if (isset($success)): ?>
+            <div class="success-message"><?php echo htmlspecialchars($success); ?></div>
+        <?php endif; ?>
+        
+        <?php if (isset($error)): ?>
+            <div class="error-message"><?php echo htmlspecialchars($error); ?></div>
+        <?php endif; ?>
 
-            <!-- Změna hesla -->
-            <div class="settings-section">
-                <h3>Změna hesla</h3>
-                <form method="POST">
-                    <input type="hidden" name="action" value="change_password">
-                    <div class="form-group">
-                        <label for="old_password">Současné heslo:</label>
-                        <input type="password" id="old_password" name="old_password" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="new_password">Nové heslo:</label>
-                        <input type="password" id="new_password" name="new_password" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="confirm_password">Potvrďte nové heslo:</label>
-                        <input type="password" id="confirm_password" name="confirm_password" required>
-                    </div>
-                    <button type="submit">Změnit heslo</button>
-                </form>
-            </div>
-        </section>
-    </main>
-</body>
-</html>
+        <!-- Změna vzhledu -->
+        <div class="settings-box">
+            <h3>Výběr vzhledu</h3>
+            <form method="POST" class="settings-form">
+                <input type="hidden" name="action" value="change_style">
+                <div class="form-group">
+                    <label for="style">Vzhled stránek:</label>
+                    <select name="style" id="style">
+                        <?php foreach ($availableStyles as $id => $name): ?>
+                            <option value="<?php echo $id; ?>" 
+                                    <?php echo ($styles['currentStyle'] == $id) ? 'selected' : ''; ?>>
+                                <?php echo htmlspecialchars($name); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <button type="submit">Uložit vzhled</button>
+            </form>
+        </div>
+
+        <!-- Úprava profilu -->
+        <div class="settings-box">
+            <h3>Úprava údajů</h3>
+            <form method="POST" class="settings-form">
+                <input type="hidden" name="action" value="update_profile">
+                
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" 
+                           id="email" 
+                           name="email" 
+                           value="<?php echo htmlspecialchars($currentUser['email'] ?? ''); ?>" 
+                           required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="current_password">Současné heslo:</label>
+                    <input type="password" id="current_password" name="current_password">
+                </div>
+                
+                <div class="form-group">
+                    <label for="new_password">Nové heslo:</label>
+                    <input type="password" id="new_password" name="new_password">
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirm_password">Potvrzení hesla:</label>
+                    <input type="password" id="confirm_password" name="confirm_password">
+                </div>
+                
+                <button type="submit">Uložit změny</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<?php include(getFilePath('includes', 'footer.php')); ?>

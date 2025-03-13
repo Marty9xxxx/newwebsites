@@ -1068,3 +1068,164 @@ další najdete brzy i [url=https://svatousek.cz/]tady[/url]
 [2025-03-12 07:26:21] [DEBUG] 
 [2025-03-12 07:26:21] [DEBUG] Parsování obsahu:
 [2025-03-12 07:26:21] [DEBUG] Kdepak je historie novinek?
+[2025-03-13 19:53:44] [DEBUG] Parsování obsahu:
+[2025-03-13 19:53:44] [DEBUG] Tento projekt vzniká na základě studie vývoje webových stránek a rozvíjení znalostí v programování.
+Využívá PHP, HTML, CSS a okrajově i JS. 
+Nemá závislost na vnější databázi, ukládání je řešeno jiným způsobem - nepotřebujete SQL! ;)
+
+[center]Hledáte-li mé osobní stránky, najdete je pod podpisem v patičce nebo zde: 
+ [url=https://svatousek.cz/]Marty9xxxx[/url][/center]
+[2025-03-13 19:53:48] [DEBUG] Parsování obsahu:
+[2025-03-13 19:53:48] [DEBUG] Tento projekt vzniká na základě studie vývoje webových stránek a rozvíjení znalostí v programování.
+Využívá PHP, HTML, CSS a okrajově i JS. 
+Nemá závislost na vnější databázi, ukládání je řešeno jiným způsobem - nepotřebujete SQL! ;)
+
+[center]Hledáte-li mé osobní stránky, najdete je pod podpisem v patičce nebo zde: 
+ [url=https://svatousek.cz/]Marty9xxxx[/url][/center]
+[2025-03-13 19:53:51] [DEBUG] Parsování obsahu:
+[2025-03-13 19:53:51] [DEBUG] Tento projekt vzniká na základě studie vývoje webových stránek a rozvíjení znalostí v programování.
+Využívá PHP, HTML, CSS a okrajově i JS. 
+Nemá závislost na vnější databázi, ukládání je řešeno jiným způsobem - nepotřebujete SQL! ;)
+
+[center]Hledáte-li mé osobní stránky, najdete je pod podpisem v patičce nebo zde: 
+ [url=https://svatousek.cz/]Marty9xxxx[/url][/center]
+[2025-03-13 19:54:04] [DEBUG] Parsování obsahu:
+[2025-03-13 19:54:04] [DEBUG] Tento projekt vzniká na základě studie vývoje webových stránek a rozvíjení znalostí v programování.
+Využívá PHP, HTML, CSS a okrajově i JS. 
+Nemá závislost na vnější databázi, ukládání je řešeno jiným způsobem - nepotřebujete SQL! ;)
+
+[center]Hledáte-li mé osobní stránky, najdete je pod podpisem v patičce nebo zde: 
+ [url=https://svatousek.cz/]Marty9xxxx[/url][/center]
+[2025-03-13 19:54:17] [DEBUG] Parsování obsahu:
+[2025-03-13 19:54:17] [DEBUG] Celý web se postupně vyvíjí ;) 
+Původně uměl jen zobrazit hlavní stránku poskládanou z kousků ;) 
+[2025-03-13 19:54:17] [DEBUG] Parsování obsahu:
+[2025-03-13 19:54:17] [DEBUG] [b]Svatoušek[/b] se [i]pilně učí[/i] od copilota claude 3.5 z [url=https://claude.ai/]claude.ai[/url]
+[2025-03-13 19:54:17] [DEBUG] Parsování obsahu:
+[2025-03-13 19:54:17] [DEBUG] Test 
+[2025-03-13 19:54:17] [DEBUG] Parsování obsahu:
+[2025-03-13 19:54:17] [DEBUG] [i]Zatím[/i] probíhá [b]vše[/b] dle plánu. :)
+[2025-03-13 19:54:17] [DEBUG] Parsování obsahu:
+[2025-03-13 19:54:17] [DEBUG] Stránky stále ve vývoji. 
+[2025-03-13 19:54:23] [INFO] Rendering Simple Editor: message
+[2025-03-13 19:54:23] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-13 19:54:23] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-13 19:54:23] [DEBUG] Parsování obsahu:
+[2025-03-13 19:54:23] [DEBUG] [url]https://example.com[/url]
+[url=https://example.com]Odkaz s vlastním textem[/url]
+[2025-03-13 19:54:23] [DEBUG] Parsování obsahu:
+[2025-03-13 19:54:23] [DEBUG] [img]https://localhost/ai-cviceni-web/uploads/images/133532701770712454.jpg[/img]
+[b]Jel bych hned![/b]
+[2025-03-13 19:54:23] [DEBUG] Parsování obsahu:
+[2025-03-13 19:54:23] [DEBUG] Testy [b]zatím probíhají dobře[/b], jen je třeba vytrvat a [center]některé[/center] [right]věci[/right] je třeba ještě [left]doladit[/left].
+další najdete brzy i [url=https://svatousek.cz/]tady[/url]
+[2025-03-13 19:54:23] [DEBUG] Parsování obsahu:
+[2025-03-13 19:54:23] [DEBUG] Test [b]veškeré funkčnosti[/b] ve všech ohledech, [i]co jsou známé[/i]
+[2025-03-13 19:54:23] [DEBUG] Parsování obsahu:
+[2025-03-13 19:54:23] [DEBUG] 
+[2025-03-13 19:54:23] [DEBUG] Parsování obsahu:
+[2025-03-13 19:54:23] [DEBUG] Kdepak je historie novinek?
+[2025-03-13 20:01:21] [DEBUG] Parsování obsahu:
+[2025-03-13 20:01:21] [DEBUG] Tento projekt vzniká na základě studie vývoje webových stránek a rozvíjení znalostí v programování.
+Využívá PHP, HTML, CSS a okrajově i JS. 
+Nemá závislost na vnější databázi, ukládání je řešeno jiným způsobem - nepotřebujete SQL! ;)
+
+[center]Hledáte-li mé osobní stránky, najdete je pod podpisem v patičce nebo zde: 
+ [url=https://svatousek.cz/]Marty9xxxx[/url][/center]
+[2025-03-13 20:01:31] [DEBUG] Parsování obsahu:
+[2025-03-13 20:01:31] [DEBUG] Tento projekt vzniká na základě studie vývoje webových stránek a rozvíjení znalostí v programování.
+Využívá PHP, HTML, CSS a okrajově i JS. 
+Nemá závislost na vnější databázi, ukládání je řešeno jiným způsobem - nepotřebujete SQL! ;)
+
+[center]Hledáte-li mé osobní stránky, najdete je pod podpisem v patičce nebo zde: 
+ [url=https://svatousek.cz/]Marty9xxxx[/url][/center]
+[2025-03-13 20:02:00] [DEBUG] Parsování obsahu:
+[2025-03-13 20:02:00] [DEBUG] Celý web se postupně vyvíjí ;) 
+Původně uměl jen zobrazit hlavní stránku poskládanou z kousků ;) 
+[2025-03-13 20:02:00] [DEBUG] Parsování obsahu:
+[2025-03-13 20:02:00] [DEBUG] [b]Svatoušek[/b] se [i]pilně učí[/i] od copilota claude 3.5 z [url=https://claude.ai/]claude.ai[/url]
+[2025-03-13 20:02:00] [DEBUG] Parsování obsahu:
+[2025-03-13 20:02:00] [DEBUG] Test 
+[2025-03-13 20:02:00] [DEBUG] Parsování obsahu:
+[2025-03-13 20:02:00] [DEBUG] [i]Zatím[/i] probíhá [b]vše[/b] dle plánu. :)
+[2025-03-13 20:02:00] [DEBUG] Parsování obsahu:
+[2025-03-13 20:02:00] [DEBUG] Stránky stále ve vývoji. 
+[2025-03-13 20:20:51] [DEBUG] Parsování obsahu:
+[2025-03-13 20:20:51] [DEBUG] Celý web se postupně vyvíjí ;) 
+Původně uměl jen zobrazit hlavní stránku poskládanou z kousků ;) 
+[2025-03-13 20:20:51] [DEBUG] Parsování obsahu:
+[2025-03-13 20:20:51] [DEBUG] [b]Svatoušek[/b] se [i]pilně učí[/i] od copilota claude 3.5 z [url=https://claude.ai/]claude.ai[/url]
+[2025-03-13 20:20:51] [DEBUG] Parsování obsahu:
+[2025-03-13 20:20:51] [DEBUG] Test 
+[2025-03-13 20:20:51] [DEBUG] Parsování obsahu:
+[2025-03-13 20:20:51] [DEBUG] [i]Zatím[/i] probíhá [b]vše[/b] dle plánu. :)
+[2025-03-13 20:20:51] [DEBUG] Parsování obsahu:
+[2025-03-13 20:20:51] [DEBUG] Stránky stále ve vývoji. 
+[2025-03-13 20:21:02] [INFO] Rendering Simple Editor: message
+[2025-03-13 20:21:02] [INFO] Načítání obrázků z: C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/
+[2025-03-13 20:21:02] [INFO] Nalezené obrázky: Array
+(
+    [0] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/133532701770712454.jpg
+    [1] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-24 18 27 45.jpg
+    [2] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/2023-03-26 16 04 39.jpg
+    [3] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2023-09-23 194249.png
+    [4] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194127.png
+    [5] => C:\Program Files\Ampps\www\ai-cviceni-web/uploads/images/Snímek obrazovky 2025-02-08 194144.png
+)
+
+[2025-03-13 20:21:02] [DEBUG] Parsování obsahu:
+[2025-03-13 20:21:02] [DEBUG] [url]https://example.com[/url]
+[url=https://example.com]Odkaz s vlastním textem[/url]
+[2025-03-13 20:21:02] [DEBUG] Parsování obsahu:
+[2025-03-13 20:21:02] [DEBUG] [img]https://localhost/ai-cviceni-web/uploads/images/133532701770712454.jpg[/img]
+[b]Jel bych hned![/b]
+[2025-03-13 20:21:02] [DEBUG] Parsování obsahu:
+[2025-03-13 20:21:02] [DEBUG] Testy [b]zatím probíhají dobře[/b], jen je třeba vytrvat a [center]některé[/center] [right]věci[/right] je třeba ještě [left]doladit[/left].
+další najdete brzy i [url=https://svatousek.cz/]tady[/url]
+[2025-03-13 20:21:02] [DEBUG] Parsování obsahu:
+[2025-03-13 20:21:02] [DEBUG] Test [b]veškeré funkčnosti[/b] ve všech ohledech, [i]co jsou známé[/i]
+[2025-03-13 20:21:02] [DEBUG] Parsování obsahu:
+[2025-03-13 20:21:02] [DEBUG] 
+[2025-03-13 20:21:02] [DEBUG] Parsování obsahu:
+[2025-03-13 20:21:02] [DEBUG] Kdepak je historie novinek?
+[2025-03-13 20:21:14] [DEBUG] Parsování obsahu:
+[2025-03-13 20:21:14] [DEBUG] Celý web se postupně vyvíjí ;) 
+Původně uměl jen zobrazit hlavní stránku poskládanou z kousků ;) 
+[2025-03-13 20:21:14] [DEBUG] Parsování obsahu:
+[2025-03-13 20:21:14] [DEBUG] [b]Svatoušek[/b] se [i]pilně učí[/i] od copilota claude 3.5 z [url=https://claude.ai/]claude.ai[/url]
+[2025-03-13 20:21:14] [DEBUG] Parsování obsahu:
+[2025-03-13 20:21:14] [DEBUG] Test 
+[2025-03-13 20:21:14] [DEBUG] Parsování obsahu:
+[2025-03-13 20:21:14] [DEBUG] [i]Zatím[/i] probíhá [b]vše[/b] dle plánu. :)
+[2025-03-13 20:21:14] [DEBUG] Parsování obsahu:
+[2025-03-13 20:21:14] [DEBUG] Stránky stále ve vývoji. 
+[2025-03-13 20:21:25] [DEBUG] Parsování obsahu:
+[2025-03-13 20:21:25] [DEBUG] Tento projekt vzniká na základě studie vývoje webových stránek a rozvíjení znalostí v programování.
+Využívá PHP, HTML, CSS a okrajově i JS. 
+Nemá závislost na vnější databázi, ukládání je řešeno jiným způsobem - nepotřebujete SQL! ;)
+
+[center]Hledáte-li mé osobní stránky, najdete je pod podpisem v patičce nebo zde: 
+ [url=https://svatousek.cz/]Marty9xxxx[/url][/center]
+[2025-03-13 20:24:28] [DEBUG] Parsování obsahu:
+[2025-03-13 20:24:28] [DEBUG] Tento projekt vzniká na základě studie vývoje webových stránek a rozvíjení znalostí v programování.
+Využívá PHP, HTML, CSS a okrajově i JS. 
+Nemá závislost na vnější databázi, ukládání je řešeno jiným způsobem - nepotřebujete SQL! ;)
+
+[center]Hledáte-li mé osobní stránky, najdete je pod podpisem v patičce nebo zde: 
+ [url=https://svatousek.cz/]Marty9xxxx[/url][/center]
+[2025-03-13 20:24:40] [DEBUG] Parsování obsahu:
+[2025-03-13 20:24:40] [DEBUG] Tento projekt vzniká na základě studie vývoje webových stránek a rozvíjení znalostí v programování.
+Využívá PHP, HTML, CSS a okrajově i JS. 
+Nemá závislost na vnější databázi, ukládání je řešeno jiným způsobem - nepotřebujete SQL! ;)
+
+[center]Hledáte-li mé osobní stránky, najdete je pod podpisem v patičce nebo zde: 
+ [url=https://svatousek.cz/]Marty9xxxx[/url][/center]

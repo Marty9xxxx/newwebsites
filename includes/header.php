@@ -13,47 +13,38 @@ require_once dirname(__DIR__) . '/config.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- ====== NAČTENÍ STYLŮ ====== -->
-    <!-- Dynamické načtení aktuálního stylu ze souboru styles.json -->
-    <link rel="stylesheet" href="<?php 
-        // Načtení konfigurace stylů z JSON
+    <?php
+    // Načtení uživatelského stylu nebo výchozího
+    if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
         $styles = json_decode(file_get_contents(getFilePath('data', 'styles.json')), true);
-        // Použití aktuálního stylu nebo výchozího, pokud není nastaven
-        echo getWebPath('styles/' . ($styles['currentStyle'] ?? 'default') . '.css');
-    ?>">
-    
-    <!-- Základní layout dle výběru -->
-    <link rel="stylesheet" href="<?php echo getWebPath('styles/style' . ($styles['currentStyle'] ?? '1') . '.css'); ?>">
+        $currentStyle = $styles['currentStyle'] ?? '1';
+    } else {
+        $currentStyle = '1';
+    }
+    ?>
+    <!-- Základní layout -->
+    <link rel="stylesheet" href="<?php echo getWebPath('styles/style' . $currentStyle . '.css'); ?>">
     
     <!-- Funkční styly - vždy načtené -->
-    <link rel="stylesheet" href="<?php echo getWebPath('styles/editors.css'); ?>">
     <link rel="stylesheet" href="<?php echo getWebPath('styles/forms.css'); ?>">
+    <link rel="stylesheet" href="<?php echo getWebPath('styles/content.css'); ?>">
     
-    <!-- Font Awesome pro sociální ikony -->
+    <!-- Font Awesome pro ikony -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <!-- Speciální styl pro tisk -->
     <link rel="stylesheet" href="<?php echo getWebPath('styles/print.css'); ?>" media="print">
     
-    <!-- TinyMCE WYSIWYG Editor -->
-    <script src="https://cdn.tiny.cloud/1/bmh9epsdxw8n5foagoedb6lnfmpsvxm4xre0iavd4c3u0j35/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
-    
-    <!-- Simple Editor JavaScript -->
-    <script src="<?php echo getWebPath('js/simple_editor.js'); ?>"></script>
-    
-    <!-- Základní styl -->
-    <link rel="stylesheet" href="<?php echo getWebPath('styles/style1.css'); ?>">
-    
-    <!-- Formuláře -->
-    <link rel="stylesheet" href="<?php echo getWebPath('styles/forms.css'); ?>">
-    
+    <!-- Podmíněné načtení stylů -->
     <?php if (strpos($_SERVER['REQUEST_URI'], 'guestbook') !== false): ?>
-        <!-- Návštěvní kniha -->
         <link rel="stylesheet" href="<?php echo getWebPath('styles/guestbook.css'); ?>">
     <?php endif; ?>
     
     <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
-        <!-- Editory -->
+        <!-- Editory a jejich styly -->
         <link rel="stylesheet" href="<?php echo getWebPath('styles/editors.css'); ?>">
+        <script src="https://cdn.tiny.cloud/1/bmh9epsdxw8n5foagoedb6lnfmpsvxm4xre0iavd4c3u0j35/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+        <script src="<?php echo getWebPath('js/simple_editor.js'); ?>"></script>
     <?php endif; ?>
 </head>
 

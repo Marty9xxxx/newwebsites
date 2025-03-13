@@ -34,8 +34,8 @@
 /* ====== EDITOR TOOLBARY ====== */
 .editor-toolbar {
     padding: 5px;
-    background: #f5f5f5;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #575252;
+    background: #cbc5c5;
 }
 
 .editor-toolbar button {
@@ -44,6 +44,26 @@
     border: 1px solid #4f4848;
     background: #877979;
     cursor: pointer;
+}
+
+/* Přidat hover efekt pro tlačítka */
+.editor-toolbar button:hover {
+    background: #573232;
+    color: white;
+    border-color: #333;
+}
+
+/* Přidat aktivní stav pro tlačítka */
+.editor-toolbar button.active {
+    background: #573232;
+    color: white;
+    border-color: #333;
+}
+
+/* Přidat zakázaný stav pro tlačítka */
+.editor-toolbar button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 /* ...dopln chybejici k toolbarum...*/
@@ -69,6 +89,13 @@
     max-width: 800px;
     max-height: 80vh;
     overflow-y: auto;
+}
+
+.image-picker-content h3 {
+    margin-bottom: 15px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
 }
 
 .image-grid {
@@ -102,4 +129,89 @@
     margin: 10px 0;
 }
 
+.no-images {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-style: italic;
+}
+
 /* ...dopln image picker styles...*/
+
+/* Styly pro zarovnání textu v editoru */
+.homepage-content div[style*="text-align"],
+.content div[style*="text-align"] {
+    margin: 1em 0;
+}
+
+.homepage-content div[style*="text-align: left"],
+.content div[style*="text-align: left"] {
+    text-align: left;
+}
+
+.homepage-content div[style*="text-align: center"],
+.content div[style*="text-align: center"] {
+    text-align: center;
+}
+
+.homepage-content div[style*="text-align: right"],
+.content div[style*="text-align: right"] {
+    text-align: right;
+}
+
+/* Styly pro zdrojový kód */
+.simple-editor textarea.source-mode {
+    font-family: 'Consolas', monospace;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    white-space: pre;
+    tab-size: 4;
+    padding: 10px;
+    line-height: 1.5;
+}
+
+.editor-toolbar button.source-button.active {
+    background-color: #573232;
+    color: white;
+}
+
+/* Styly pro výběr obrázků */
+.image-picker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* simple editor v úpravě obsahu */
+.content-form .simple-editor {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.content-form .editor-toolbar {
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    background: #f5f5f5;
+}
+
+.content-form .editor-toolbar button {
+    margin: 2px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.content-form .editor-toolbar button:hover {
+    background: #eee;
+}
+
